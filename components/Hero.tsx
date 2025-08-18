@@ -19,26 +19,14 @@ const Hero: React.FC<HeroProps> = ({ onCTAClick }) => {
   }, []);
 
   useEffect(() => {
-    console.log('Hero image state:', { imageLoaded, imageError });
-    
-    // Тест загрузки изображения
-    const testImage = new Image();
-    testImage.onload = () => {
-      console.log('Test image load successful');
-    };
-    testImage.onerror = () => {
-      console.error('Test image load failed');
-    };
-    testImage.src = '/images/hero-building.jpg';
+    // без лишних логов/тестов — оставляем только реакцию на состояние
   }, [imageLoaded, imageError]);
 
   const handleImageLoad = () => {
-    console.log('Hero image loaded successfully');
     setImageLoaded(true);
   };
 
   const handleImageError = () => {
-    console.error('Hero image failed to load');
     setImageError(true);
   };
 

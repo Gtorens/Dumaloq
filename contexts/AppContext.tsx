@@ -30,7 +30,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     setThemeState(newTheme);
   };
   
-  const texts = useMemo(() => translations[language], [language]);
+  const texts = useMemo(() => {
+    const result = translations[language] || translations.ru;
+    return result;
+  }, [language]);
 
   return (
     <AppContext.Provider value={{ theme, setTheme, language, setLanguage, texts }}>
@@ -42,6 +45,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 export const useAppContext = (): AppContextType => {
   const context = useContext(AppContext);
   if (!context) {
+    console.error('useAppContext must be used within an AppProvider');
     throw new Error('useAppContext must be used within an AppProvider');
   }
   return context;

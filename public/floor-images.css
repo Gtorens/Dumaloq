@@ -1,12 +1,83 @@
-/* Глобальные стили для фона с градиентом */
+/* Простой темный фон как на скриншоте */
 body {
-  background: linear-gradient(135deg, #1a1a1d 0%, #121214 100%) !important;
+  background: #1a1d23 !important;
   margin: 0 !important;
   padding: 0 !important;
 }
 
 .light body {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+  background: #f8fafc !important;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Разные оттенки фонов для секций как на скриншоте */
+.bg-light-background {
+  background: #f8fafc !important;
+}
+
+.bg-light-primary {
+  background: #ffffff !important;
+}
+
+.bg-dark-background {
+  background: #1a1d23 !important;
+}
+
+.bg-dark-primary {
+  background: #1f2329 !important;
+}
+
+.dark .bg-light-background {
+  background: #1a1d23 !important;
+}
+
+.dark .bg-light-primary {
+  background: #1f2329 !important;
+}
+
+/* Светлые варианты для светлой темы */
+.section-variant-1 {
+  background: #f1f5f9 !important;
+}
+
+.section-variant-2 {
+  background: #f8fafc !important;
+}
+
+.section-variant-3 {
+  background: #e2e8f0 !important;
+}
+
+.section-variant-4 {
+  background: #f0f4f8 !important;
+}
+
+/* Темные варианты только для темной темы */
+.dark .section-variant-1 {
+  background: #1a1d23 !important;
+}
+
+.dark .section-variant-2 {
+  background: #1f2329 !important;
+}
+
+.dark .section-variant-3 {
+  background: #161a20 !important;
+}
+
+.dark .section-variant-4 {
+  background: #1c2026 !important;
 }
 
 /* Стили для изображений этажей */

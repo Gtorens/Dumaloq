@@ -36,7 +36,7 @@ const FloorsOverview: React.FC = () => {
     const { texts } = useAppContext();
 
   return (
-            <section className="py-20 bg-light-primary dark:bg-dark-primary transition-colors duration-300 modern-section section-spacing">
+            <section className="py-20 section-variant-3 transition-colors duration-300 modern-section section-spacing">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="floors-overview-title text-light-text dark:text-dark-text mb-4">{texts.floorsOverview.title}</h2>

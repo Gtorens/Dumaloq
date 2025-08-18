@@ -9,7 +9,7 @@ const RentalConditions: React.FC<RentalConditionsProps> = ({ onCTAClick }) => {
     const { texts } = useAppContext();
 
     return (
-        <section className="py-20 bg-light-background dark:bg-dark-background transition-colors duration-300 section-spacing">
+        <section className="py-20 section-variant-2 transition-colors duration-300 section-spacing">
             <div className="container mx-auto px-4 text-center">
                 <div className="section-card max-w-4xl mx-auto p-12">
                     <h2 className="text-4xl md:text-5xl font-bold text-light-text dark:text-dark-text mb-4">

@@ -77,6 +77,14 @@ export type Translation = {
         description: string;
         cta: string;
     };
+    faq: {
+        title: string;
+        subtitle: string;
+        items: {
+            question: string;
+            answer: string;
+        }[];
+    };
     contact: {
         title: string;
         subtitle: string;
@@ -162,34 +170,34 @@ export const translations: Translations = {
                  {
                     floorNum: '1',
                     title: 'Продукты и Еда',
-                    description: 'Первый этаж — точка притяжения для ежедневного трафика. Здесь расположены крупнейший в стране супермаркет Korzinka и всемирно известный ресторан KFC, обеспечивая постоянный поток посетителей с первого дня.',
+                    description: 'Первый этаж площадью 800 кв.м полностью занят якорными арендаторами — крупнейший в стране супермаркет Korzinka и всемирно известный ресторан KFC. Максимальный трафик и стабильный поток посетителей с первого дня.',
                     logos: [
-                        { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Korzinka.uz_logo.png/440px-Korzinka.uz_logo.png", name: "Korzinka" },
-                        { url: "https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/1200px-KFC_logo.svg.png", name: "KFC" }
+                        { url: "/logo/korzinka.png", name: "Korzinka" },
+                        { url: "/logo/kfc.png", name: "KFC" }
                     ],
                     imageUrl: '/images/floor-plans/floor-1.jpg'
                 },
                 {
                     floorNum: '2',
                     title: 'Эпицентр Моды и Стиля',
-                    description: 'Второй этаж полностью отдан под fashion-ритейл. Якорным арендатором выступает Sinsay, а рядом с ним — десятки бутиков ведущих мировых и локальных брендов. Это место для шопинга и обновления гардероба.',
+                    description: 'Второй этаж площадью 800 кв.м полностью занимает популярный магазин одежды Sinsay. Полная концентрация на fashion-ритейле и стильных решениях для молодежи и семей.',
                     logos: [
-                        { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Sinsay_logo.svg/1280px-Sinsay_logo.svg.png", name: "Sinsay" }
+                        { url: "/logo/sinsay.png", name: "Sinsay" }
                     ],
                     imageUrl: '/images/floor-plans/floor-2.jpg',
                     reverse: true
                 },
                 {
                     floorNum: '3',
-                    title: 'Стиль Жизни и Покупки',
-                    description: 'Третий этаж предлагает товары для всей семьи: от электроники и бытовой техники до товаров для дома, детских магазинов и специализированных бутиков. Идеальное пространство для создания уникального торгового предложения.',
+                    title: 'Fashion + Lifestyle',
+                    description: 'Третий этаж площадью 800 кв.м объединяет fashion-ритейл и lifestyle товары. Здесь размещаются магазины одежды, обуви, аксессуаров, а также товары для дома и стильные решения для современной жизни.',
                     logos: [],
                     imageUrl: '/images/floor-plans/floor-3.jpg'
                 },
                 {
                     floorNum: '4',
-                    title: 'Гастрономия и Развлечения',
-                    description: 'Четвертый этаж — это зона отдыха с панорамным видом на горы. Здесь разместятся фуд-корт, рестораны, кофейни и детские развлекательные центры. Уникальная терраса площадью 457 м² станет главной точкой притяжения всего региона.',
+                    title: 'Food-court + Entertainment',
+                    description: 'Четвертый этаж площадью 800 кв.м — зона гастрономии и развлечений с панорамным видом на горы. Здесь размещается фуд-корт, рестораны, кофейни и развлекательные центры. Уникальная терраса площадью 457 м² станет главной точкой притяжения региона.',
                     logos: [],
                     imageUrl: '/images/floor-plans/floor-4.jpg',
                     reverse: true
@@ -209,46 +217,46 @@ export const translations: Translations = {
                 floor1: {
                     title: "1 этаж – Food & Grocery",
                     conceptTitle: "Концепция",
-                    conceptText: "Этаж с максимальным трафиком. Большая часть площади занята якорными арендаторами Korzinka и KFC, но доступны помещения для сопутствующих товаров и услуг.",
-                    premisesTitle: "Свободные помещения",
+                    conceptText: "Этаж с максимальным трафиком площадью 800 кв.м. Полностью занят якорными арендаторами Korzinka и KFC, обеспечивая стабильный поток посетителей и высокую проходимость.",
+                    premisesTitle: "Арендаторы",
                     premisesList: [
-                        { label: "Островные павильоны:", value: "от 8 м² (кофе, аксессуары, услуги)" },
-                        { label: "Прикассовая зона:", value: "помещения от 25 м²" }
+                        { label: "Korzinka:", value: "крупнейший супермаркет в стране" },
+                        { label: "KFC:", value: "всемирно известная сеть быстрого питания" }
                     ],
                     imageAlt: "План 1 этажа"
                 },
                 floor2: {
                     title: "2 этаж – Fashion Retail",
                     conceptTitle: "Концепция",
-                    conceptText: "Центр притяжения для любителей шопинга. Идеально для магазинов одежды, обуви, аксессуаров. Якорный арендатор — Sinsay.",
-                    premisesTitle: "Свободные помещения",
+                    conceptText: "Этаж площадью 800 кв.м полностью занимает популярный магазин одежды Sinsay. Центр притяжения для любителей модного шопинга и стильных решений для всей семьи.",
+                    premisesTitle: "Арендатор",
                     premisesList: [
-                        { label: "Бутики:", value: "от 50 м² до 150 м²" },
-                        { label: "Флагманский магазин:", value: "350 м² с витринными окнами" }
+                        { label: "Sinsay:", value: "популярный магазин одежды и аксессуаров" },
+                        { label: "Площадь:", value: "800 кв.м современного торгового пространства" }
                     ],
                     imageAlt: "План 2 этажа"
                 },
                 floor3: {
-                    title: "3 этаж – Lifestyle",
+                    title: "3 этаж – Fashion + Lifestyle",
                     conceptTitle: "Концепция",
-                    conceptText: "Идеальное пространство для магазинов товаров для дома, электроники, детских товаров и специализированных бутиков.",
-                    premisesTitle: "Ключевые помещения",
+                    conceptText: "Этаж площадью 800 кв.м объединяет fashion-ритейл и lifestyle товары. Идеальное пространство для магазинов одежды, обуви, аксессуаров, товаров для дома и современных lifestyle брендов.",
+                    premisesTitle: "Свободные помещения",
                     premisesList: [
-                        { label: "Просторный зал под магазин:", value: "213 м²" },
-                        { label: "Помещения под бутики:", value: "47 м², 73 м²" },
-                        { label: "Свободная планировка:", value: "Возможность объединения помещений." }
+                        { label: "Общая площадь:", value: "800 кв.м свободной планировки" },
+                        { label: "Fashion-зона:", value: "для магазинов одежды и аксессуаров" },
+                        { label: "Lifestyle-зона:", value: "для товаров для дома и стиля жизни" }
                     ],
                     imageAlt: "План 3 этажа"
                 },
                 floor4: {
-                    title: "4 этаж – Entertainment",
+                    title: "4 этаж – Food-court + Entertainment",
                     conceptTitle: "Концепция",
-                    conceptText: "Зона гастрономии и развлечений с лучшим видом в регионе. Идеально для фуд-корта, ресторанов и детских игровых зон.",
-                    premisesTitle: "Ключевые помещения",
+                    conceptText: "Этаж площадью 800 кв.м — зона гастрономии и развлечений с панорамным видом на горы. Идеальное место для фуд-корта, ресторанов, кофеен и развлекательных центров.",
+                    premisesTitle: "Свободные помещения",
                     premisesList: [
-                        { label: "Панорамный обеденный зал:", value: "250 м²" },
-                        { label: "Открытая терраса с видом на горы:", value: "457 м²!", highlight: true },
-                        { label: "Площади под корнеры фуд-корта и кухню.", value: "" }
+                        { label: "Общая площадь:", value: "800 кв.м для food-court и entertainment" },
+                        { label: "Открытая терраса:", value: "457 м² с видом на горы", highlight: true },
+                        { label: "Зоны:", value: "фуд-корт, рестораны, развлечения" }
                     ],
                     imageAlt: "План 4 этажа"
                 }
@@ -261,13 +269,40 @@ export const translations: Translations = {
                 { icon: "ceiling", title: "Высота потолков", description: "4.0 метра" },
                 { icon: "utilities", title: "Коммуникации", description: "Централизованные системы, высокие электрические мощности" },
                 { icon: "transport", title: "Вертикальный транспорт", description: "Пассажирские и грузовые лифты, эскалаторы" },
-                { icon: "security", title: "Безопасность", description: "Круглосуточная охрана и видеонаблюдение" }
+                { icon: "security", title: "Безопасность", description: "Круглосуточная охрана и видеонаблюдение" },
+                { icon: "airconditioning", title: "Кондиционирование", description: "Современная система климат-контроля" }
             ]
         },
         rentalConditions: {
             title: "Гибкие условия аренды",
             description: "Мы предлагаем конкурентные арендные ставки и гибкие условия сотрудничества. Площади от 20 м² до 500 м² со свободной планировкой позволяют реализовать проект любой сложности. Свяжитесь с нами, чтобы обсудить индивидуальные условия для вашего бренда.",
             cta: "Получить консультацию"
+        },
+        faq: {
+            title: "Ответы на частые вопросы",
+            subtitle: "Мы ценим ваше время. Здесь собрана ключевая информация для будущих партнеров.",
+            items: [
+                {
+                    question: "Каковы базовые условия аренды?",
+                    answer: "Мы предлагаем долгосрочные договоры аренды (от 3 лет) с фиксированной ставкой. Предусмотрен обеспечительный платеж. Коммунальные услуги и эксплуатационные расходы оплачиваются отдельно."
+                },
+                {
+                    question: "Предоставляется ли арендаторам маркетинговая поддержка?",
+                    answer: "Да, мы предоставляем комплексную маркетинговую поддержку: размещение в наших digital-каналах, участие в общих рекламных кампаниях, организация совместных мероприятий и акций."
+                },
+                {
+                    question: "В каком состоянии передаются помещения?",
+                    answer: "Помещения передаются в состоянии white box с подведенными коммуникациями (электричество, вода, вентиляция, интернет). Отделочные работы выполняются арендатором согласно дизайн-коду ТРЦ."
+                },
+                {
+                    question: "Как происходит отбор арендаторов?",
+                    answer: "Мы тщательно отбираем арендаторов, учитывая репутацию бренда, финансовую стабильность и соответствие концепции этажа. Приоритет отдается известным брендам и уникальным концепциям."
+                },
+                {
+                    question: "Какие документы нужны для заключения договора?",
+                    answer: "Для юридических лиц: устав, справка о налоговых обязательствах, финансовая отчетность за последний год. Для ИП: справка о доходах, справка об отсутствии задолженностей. Полный список предоставляется при серьезном интересе."
+                }
+            ]
         },
         contact: {
             title: "Займите лучшее место. Конкурентов не будет.",
@@ -347,34 +382,34 @@ export const translations: Translations = {
                 {
                     floorNum: '1',
                     title: 'Groceries & Food',
-                    description: 'The first floor is a point of attraction for daily traffic. It houses the country\'s largest supermarket, Korzinka, and the world-famous KFC restaurant, ensuring a constant flow of visitors from day one.',
+                    description: 'The first floor with an area of 800 m² is fully occupied by the anchor tenants — the country\'s largest supermarket Korzinka and the world‑famous KFC restaurant. Maximum traffic and a stable flow of visitors from day one.',
                     logos: [
-                        { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Korzinka.uz_logo.png/440px-Korzinka.uz_logo.png", name: "Korzinka" },
-                        { url: "https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/1200px-KFC_logo.svg.png", name: "KFC" }
+                        { url: "/logo/korzinka.png", name: "Korzinka" },
+                        { url: "/logo/kfc.png", name: "KFC" }
                     ],
                     imageUrl: '/images/floor-plans/floor-1.jpg'
                 },
                 {
                     floorNum: '2',
                     title: 'Epicenter of Fashion & Style',
-                    description: 'The second floor is entirely dedicated to fashion retail. The anchor tenant is Sinsay, surrounded by dozens of boutiques from leading global and local brands. This is the place for shopping and wardrobe updates.',
+                    description: 'The second floor with an area of 800 m² is fully occupied by the popular clothing store Sinsay. A full focus on fashion retail and stylish solutions for youth and families.',
                     logos: [
-                        { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Sinsay_logo.svg/1280px-Sinsay_logo.svg.png", name: "Sinsay" }
+                        { url: "/logo/sinsay.png", name: "Sinsay" }
                     ],
                     imageUrl: '/images/floor-plans/floor-2.jpg',
                     reverse: true
                 },
                 {
                     floorNum: '3',
-                    title: 'Lifestyle & Shopping',
-                    description: 'The third floor offers goods for the whole family: from electronics and home appliances to home goods, children\'s stores, and specialized boutiques. An ideal space to create a unique retail offering.',
+                    title: 'Fashion + Lifestyle',
+                    description: 'The third floor with an area of 800 m² combines fashion retail and lifestyle goods. It features clothing, footwear, accessories, as well as home goods and stylish solutions for modern living.',
                     logos: [],
                     imageUrl: '/images/floor-plans/floor-3.jpg'
                 },
                 {
                     floorNum: '4',
-                    title: 'Gastronomy & Entertainment',
-                    description: 'The fourth floor is a recreation area with panoramic mountain views. It will house a food court, restaurants, coffee shops, and children\'s entertainment centers. A unique 457 m² terrace will become the main attraction of the entire region.',
+                    title: 'Food-court + Entertainment',
+                    description: 'The fourth floor with an area of 800 m² is a gastronomy and entertainment zone with panoramic mountain views. It houses a food court, restaurants, coffee shops, and entertainment centers. A unique 457 m² terrace will become the main attraction of the region.',
                     logos: [],
                     imageUrl: '/images/floor-plans/floor-4.jpg',
                     reverse: true
@@ -394,46 +429,46 @@ export const translations: Translations = {
                 floor1: {
                     title: "1st Floor – Food & Grocery",
                     conceptTitle: "Concept",
-                    conceptText: "The floor with maximum traffic. Most of the area is occupied by anchor tenants Korzinka and KFC, but spaces are available for related goods and services.",
-                    premisesTitle: "Available Spaces",
+                    conceptText: "An 800 m² floor fully occupied by the anchor tenants Korzinka and KFC, ensuring a stable flow of visitors and high foot traffic.",
+                    premisesTitle: "Tenants",
                     premisesList: [
-                        { label: "Island pavilions:", value: "from 8 m² (coffee, accessories, services)" },
-                        { label: "Checkout area:", value: "spaces from 25 m²" }
+                        { label: "Korzinka:", value: "the country's largest supermarket" },
+                        { label: "KFC:", value: "world‑famous fast food chain" }
                     ],
                     imageAlt: "1st Floor Plan"
                 },
                 floor2: {
                     title: "2nd Floor – Fashion Retail",
                     conceptTitle: "Concept",
-                    conceptText: "A center of attraction for shopping lovers. Ideal for clothing, footwear, and accessory stores. The anchor tenant is Sinsay.",
-                    premisesTitle: "Available Spaces",
+                    conceptText: "An 800 m² floor fully occupied by the popular clothing store Sinsay. A center of attraction for fashion shopping for the whole family.",
+                    premisesTitle: "Tenant",
                     premisesList: [
-                        { label: "Boutiques:", value: "from 50 m² to 150 m²" },
-                        { label: "Flagship store:", value: "350 m² with display windows" }
+                        { label: "Sinsay:", value: "popular clothing and accessories store" },
+                        { label: "Area:", value: "800 m² of modern retail space" }
                     ],
                     imageAlt: "2nd Floor Plan"
                 },
                 floor3: {
-                    title: "3rd Floor – Lifestyle",
+                    title: "3rd Floor – Fashion + Lifestyle",
                     conceptTitle: "Concept",
-                    conceptText: "An ideal space for home goods stores, electronics, children's goods, and specialized boutiques.",
-                    premisesTitle: "Key Premises",
+                    conceptText: "An 800 m² floor combining fashion retail and lifestyle goods. Ideal for clothing, footwear, accessories, home goods, and modern lifestyle brands.",
+                    premisesTitle: "Available Spaces",
                     premisesList: [
-                        { label: "Spacious hall for a store:", value: "213 m²" },
-                        { label: "Boutique spaces:", value: "47 m², 73 m²" },
-                        { label: "Open layout:", value: "Possibility to combine spaces." }
+                        { label: "Total area:", value: "800 m² of open plan" },
+                        { label: "Fashion zone:", value: "for clothing and accessories stores" },
+                        { label: "Lifestyle zone:", value: "for home and lifestyle goods" }
                     ],
                     imageAlt: "3rd Floor Plan"
                 },
                 floor4: {
-                    title: "4th Floor – Entertainment",
+                    title: "4th Floor – Food-court + Entertainment",
                     conceptTitle: "Concept",
-                    conceptText: "A gastronomy and entertainment zone with the best view in the region. Ideal for a food court, restaurants, and children's play areas.",
-                    premisesTitle: "Key Premises",
+                    conceptText: "An 800 m² floor — a zone of gastronomy and entertainment with panoramic mountain views. Ideal for a food court, restaurants, coffee shops, and entertainment centers.",
+                    premisesTitle: "Available Spaces",
                     premisesList: [
-                        { label: "Panoramic dining hall:", value: "250 m²" },
-                        { label: "Open terrace with mountain view:", value: "457 m²!", highlight: true },
-                        { label: "Areas for food court corners and kitchen.", value: "" }
+                        { label: "Total area:", value: "800 m² for food‑court and entertainment" },
+                        { label: "Open terrace:", value: "457 m² with mountain view", highlight: true },
+                        { label: "Zones:", value: "food court, restaurants, entertainment" }
                     ],
                     imageAlt: "4th Floor Plan"
                 }
@@ -446,7 +481,8 @@ export const translations: Translations = {
                 { icon: "ceiling", title: "Ceiling Height", description: "4.0 meters" },
                 { icon: "utilities", title: "Utilities", description: "Centralized systems, high electrical capacity" },
                 { icon: "transport", title: "Vertical Transport", description: "Passenger and freight elevators, escalators" },
-                { icon: "security", title: "Security", description: "24/7 security and video surveillance" }
+                { icon: "security", title: "Security", description: "24/7 security and video surveillance" },
+                { icon: "airconditioning", title: "Air Conditioning", description: "Modern climate control system" }
             ]
         },
         rentalConditions: {
@@ -481,6 +517,32 @@ export const translations: Translations = {
                 alt: "QR Code for presentation",
                 data: "https://example.com/dumoloq-presentation-en.pdf"
             }
+        },
+        faq: {
+            title: "Frequently Asked Questions",
+            subtitle: "We value your time. Here is key information for future partners.",
+            items: [
+                {
+                    question: "What are the basic rental terms?",
+                    answer: "We offer long-term lease agreements (from 3 years) with a fixed rate. A security deposit is provided. Utilities and operational costs are paid separately."
+                },
+                {
+                    question: "Is marketing support provided to tenants?",
+                    answer: "Yes, we provide comprehensive marketing support: placement in our digital channels, participation in joint advertising campaigns, organization of joint events and promotions."
+                },
+                {
+                    question: "In what condition are the premises handed over?",
+                    answer: "Premises are handed over in white box condition with connected utilities (electricity, water, ventilation, internet). Finishing work is performed by the tenant according to the mall's design code."
+                },
+                {
+                    question: "How is tenant selection carried out?",
+                    answer: "We carefully select tenants, considering brand reputation, financial stability, and compliance with the floor concept. Priority is given to well-known brands and unique concepts."
+                },
+                {
+                    question: "What documents are needed to conclude a contract?",
+                    answer: "For legal entities: charter, tax obligations certificate, financial statements for the last year. For individual entrepreneurs: income certificate, debt-free certificate. The full list is provided upon serious interest."
+                }
+            ]
         },
         footer: {
             copyright: "Dumoloq. All rights reserved."
@@ -531,35 +593,35 @@ export const translations: Translations = {
             floors: [
                 {
                     floorNum: '1',
-                    title: 'Oziq-ovqat va Mahsulotlar',
-                    description: 'Birinchi qavat — kundalik trafikni jalb qilish nuqtasi. Bu yerda mamlakatdagi eng yirik Korzinka supermarketi va dunyoga mashhur KFC restorani joylashgan bo‘lib, birinchi kundan boshlab doimiy tashrif buyuruvchilar oqimini ta’minlaydi.',
+                    title: 'Oziq-ovqat va mahsulotlar',
+                    description: '800 m² maydonga ega birinchi qavat to‘liq yakor ijarachilar — mamlakatdagi eng yirik Korzinka supermarketi va jahonga mashhur KFC restorani tomonidan egallangan. Birinchi kundan boshlab maksimal trafik va barqaror tashrif buyuruvchilar oqimi.',
                     logos: [
-                        { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Korzinka.uz_logo.png/440px-Korzinka.uz_logo.png", name: "Korzinka" },
-                        { url: "https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/1200px-KFC_logo.svg.png", name: "KFC" }
+                        { url: "/logo/korzinka.png", name: "Korzinka" },
+                        { url: "/logo/kfc.png", name: "KFC" }
                     ],
                     imageUrl: '/images/floor-plans/floor-1.jpg'
                 },
                 {
                     floorNum: '2',
-                    title: 'Moda va Uslub Markazi',
-                    description: 'Ikkinchi qavat butunlay moda-riteylga ajratilgan. Asosiy ijarachi Sinsay bo‘lib, uning yonida o‘nlab yetakchi jahon va mahalliy brendlar butiklari joylashgan. Bu xarid qilish va garderobni yangilash uchun joy.',
+                    title: 'Moda va uslub markazi',
+                    description: '800 m² maydonga ega ikkinchi qavatni mashhur kiyim-kechak do‘koni Sinsay to‘liq egallaydi. Fashion-riteylga to‘liq eʼtibor, yoshlar va oilalar uchun zamonaviy yechimlar.',
                     logos: [
-                        { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Sinsay_logo.svg/1280px-Sinsay_logo.svg.png", name: "Sinsay" }
+                        { url: "/logo/sinsay.png", name: "Sinsay" }
                     ],
                     imageUrl: '/images/floor-plans/floor-2.jpg',
                     reverse: true
                 },
                 {
                     floorNum: '3',
-                    title: 'Hayot Tarzi va Xaridlar',
-                    description: 'Uchinchi qavat butun oila uchun mahsulotlarni taklif etadi: elektronika va maishiy texnikadan tortib, uy-ro‘zg‘or buyumlari, bolalar do‘konlari va ixtisoslashtirilgan butiklargacha. Noyob savdo taklifini yaratish uchun ideal makon.',
+                    title: 'Fashion + Lifestyle',
+                    description: '800 m² maydonga ega uchinchi qavat fashion-riteyl va lifestyle tovarlarini birlashtiradi. Bu yerda kiyim-kechak, poyabzal, aksessuarlar, shuningdek, uy-ro‘zg‘or buyumlari va zamonaviy turmush tarzi uchun yechimlar joylashadi.',
                     logos: [],
                     imageUrl: '/images/floor-plans/floor-3.jpg'
                 },
                 {
                     floorNum: '4',
-                    title: 'Gastronomiya va Ko\'ngilochar',
-                    description: 'To‘rtinchi qavat — tog‘larga panoramik manzarali dam olish maskani. Bu yerda fud-kort, restoranlar, qahvaxonalar va bolalar o‘yin-kulgi markazlari joylashadi. 457 m² maydonga ega noyob terrasa butun mintaqaning asosiy diqqatga sazovor joyiga aylanadi.',
+                    title: 'Food-court + Ko‘ngilochar',
+                    description: '800 m² maydonga ega to‘rtinchi qavat — tog‘larga panoramik manzarali gastronomiya va ko‘ngilochar zona. Bu yerda fud-kort, restoranlar, qahvaxonalar va ko‘ngilochar markazlar joylashadi. 457 m² maydonga ega noyob terrasa mintaqaning asosiy diqqatga sazovor joyiga aylanadi.',
                     logos: [],
                     imageUrl: '/images/floor-plans/floor-4.jpg',
                     reverse: true
@@ -579,46 +641,46 @@ export const translations: Translations = {
                 floor1: {
                     title: "1-qavat – Oziq-ovqat",
                     conceptTitle: "Kontseptsiya",
-                    conceptText: "Maksimal trafikka ega qavat. Maydonning katta qismini Korzinka va KFC ijarachilari egallagan, ammo tegishli tovarlar va xizmatlar uchun joylar mavjud.",
-                    premisesTitle: "Bo'sh joylar",
+                    conceptText: "800 m² maydon — Korzinka va KFC kabi yakor ijarachilar tomonidan to‘liq egallangan, bu barqaror tashrif buyuruvchilar oqimi va yuqori o‘tuvchanlikni taʼminlaydi.",
+                    premisesTitle: "Ijarachilar",
                     premisesList: [
-                        { label: "Orol pavilyonlari:", value: "8 m² dan (qahva, aksessuarlar, xizmatlar)" },
-                        { label: "Kassa oldi zonasi:", value: "25 m² dan boshlanadigan joylar" }
+                        { label: "Korzinka:", value: "mamlakatdagi eng yirik supermarket" },
+                        { label: "KFC:", value: "jahonga mashhur fast‑fud tarmog‘i" }
                     ],
                     imageAlt: "1-qavat rejasi"
                 },
                 floor2: {
-                    title: "2-qavat – Moda",
+                    title: "2-qavat – Fashion Retail",
                     conceptTitle: "Kontseptsiya",
-                    conceptText: "Xarid qilishni sevuvchilar uchun joziba markazi. Kiyim-kechak, poyabzal, aksessuarlar do'konlari uchun ideal. Asosiy ijarachi — Sinsay.",
-                    premisesTitle: "Bo'sh joylar",
+                    conceptText: "800 m² maydonni mashhur kiyim-kechak do‘koni Sinsay to‘liq egallaydi. Butun oila uchun fashion xaridlar markazi.",
+                    premisesTitle: "Ijarachi",
                     premisesList: [
-                        { label: "Butiklar:", value: "50 m² dan 150 m² gacha" },
-                        { label: "Flagman do'kon:", value: "350 m² vitrina oynalari bilan" }
+                        { label: "Sinsay:", value: "mashhur kiyim-kechak va aksessuarlar do‘koni" },
+                        { label: "Maydon:", value: "800 m² zamonaviy savdo joyi" }
                     ],
                     imageAlt: "2-qavat rejasi"
                 },
                 floor3: {
-                    title: "3-qavat – Hayot tarzi",
+                    title: "3-qavat – Fashion + Lifestyle",
                     conceptTitle: "Kontseptsiya",
-                    conceptText: "Uy-ro'zg'or buyumlari, elektronika, bolalar tovarlari va ixtisoslashtirilgan butiklar uchun ideal makon.",
-                    premisesTitle: "Asosiy joylar",
+                    conceptText: "800 m² maydon — fashion-riteyl va lifestyle tovarlari uyg‘unligi. Kiyim-kechak, poyabzal, aksessuarlar, uy-ro‘zg‘or buyumlari va zamonaviy brendlar uchun ideal.",
+                    premisesTitle: "Bo‘sh joylar",
                     premisesList: [
-                        { label: "Do'kon uchun keng zal:", value: "213 m²" },
-                        { label: "Butiklar uchun joylar:", value: "47 m², 73 m²" },
-                        { label: "Erkin planirovka:", value: "Joylarni birlashtirish imkoniyati." }
+                        { label: "Umumiy maydon:", value: "800 m² erkin planirovka" },
+                        { label: "Fashion zonasi:", value: "kiyim-kechak va aksessuarlar do‘konlari uchun" },
+                        { label: "Lifestyle zonasi:", value: "uy-ro‘zg‘or va turmush tarzi tovarlari uchun" }
                     ],
                     imageAlt: "3-qavat rejasi"
                 },
                 floor4: {
-                    title: "4-qavat – Ko'ngilochar",
+                    title: "4-qavat – Food-court + Ko‘ngilochar",
                     conceptTitle: "Kontseptsiya",
-                    conceptText: "Mintaqadagi eng yaxshi manzaraga ega gastronomiya va ko'ngilochar zona. Fud-kort, restoranlar va bolalar o'yin maydonchalari uchun ideal.",
-                    premisesTitle: "Asosiy joylar",
+                    conceptText: "800 m² maydon — tog‘ manzarali gastronomiya va ko‘ngilochar zona. Fud-kort, restoranlar, qahvaxonalar va ko‘ngilochar markazlar uchun ideal.",
+                    premisesTitle: "Bo‘sh joylar",
                     premisesList: [
-                        { label: "Panoramik ovqatlanish zali:", value: "250 m²" },
-                        { label: "Tog' manzarali ochiq terrasa:", value: "457 m²!", highlight: true },
-                        { label: "Fud-kort burchaklari va oshxona uchun maydonlar.", value: "" }
+                        { label: "Umumiy maydon:", value: "food‑court va ko‘ngilochar uchun 800 m²" },
+                        { label: "Ochiq terrasa:", value: "457 m², tog‘ manzarasi bilan", highlight: true },
+                        { label: "Zonalar:", value: "fud-kort, restoranlar, ko‘ngilochar" }
                     ],
                     imageAlt: "4-qavat rejasi"
                 }
@@ -631,7 +693,8 @@ export const translations: Translations = {
                 { icon: "ceiling", title: "Shift balandligi", description: "4.0 metr" },
                 { icon: "utilities", title: "Kommunikatsiyalar", description: "Markazlashtirilgan tizimlar, yuqori elektr quvvati" },
                 { icon: "transport", title: "Vertikal transport", description: "Yo'lovchi va yuk liftlari, eskalatorlar" },
-                { icon: "security", title: "Xavfsizlik", description: "24/7 qo'riqlash va videokuzatuv" }
+                { icon: "security", title: "Xavfsizlik", description: "24/7 qo'riqlash va videokuzatuv" },
+                { icon: "airconditioning", title: "Konditsioner", description: "Zamonaviy iqlim nazorati tizimi" }
             ]
         },
         rentalConditions: {
@@ -666,6 +729,32 @@ export const translations: Translations = {
                 alt: "Taqdimot uchun QR kod",
                 data: "https://example.com/dumoloq-presentation-uz.pdf"
             }
+        },
+        faq: {
+            title: "Tez-tez beriladigan savollar",
+            subtitle: "Biz vaqtingizni qadrlaymiz. Bu yerda kelajakdagi hamkorlar uchun asosiy ma'lumotlar.",
+            items: [
+                {
+                    question: "Ijaraning asosiy shartlari qanday?",
+                    answer: "Biz uzoq muddatli ijara shartnomalarini (3 yildan) qat'iy stavka bilan taklif qilamiz. Ta'minot to'lovi nazarda tutilgan. Kommunal xizmatlar va ekspluatatsiya xarajatlari alohida to'lanadi."
+                },
+                {
+                    question: "Ijarachilar uchun marketing yordami berilarmikan?",
+                    answer: "Ha, biz keng qamrovli marketing yordamini taqdim etamiz: raqamli kanallarimizda joylashtirish, umumiy reklama kampaniyalarida ishtirok etish, birgalikda tadbirlar va aksiyalar tashkil qilish."
+                },
+                {
+                    question: "Xonalar qanday holatda topshiriladi?",
+                    answer: "Xonalar white box holatida kommunikatsiyalar (elektr, suv, ventilyatsiya, internet) ulangan holda topshiriladi. Pardozlash ishlari ijarachining zimmasida va savdo markazining dizayn kodiga muvofiq bajariladi."
+                },
+                {
+                    question: "Ijarachi tanlash qanday amalga oshiriladi?",
+                    answer: "Biz ijarachilarni ehtiyotkorlik bilan tanlaymiz, brend obro'si, moliyaviy barqarorlik va qavat kontseptsiyasiga mos kelishini hisobga olamiz. Taniqli brendlar va noyob kontseptsiyalarga ustunlik beriladi."
+                },
+                {
+                    question: "Shartnoma tuzish uchun qanday hujjatlar kerak?",
+                    answer: "Yuridik shaxslar uchun: ustav, soliq majburiyatlari haqida ma'lumotnoma, oxirgi yil uchun moliyaviy hisobot. Individual tadbirkorlar uchun: daromad haqida ma'lumotnoma, qarzdan xoli ekanligi haqida ma'lumotnoma. To'liq ro'yxat jiddiy qiziqish bo'lganida beriladi."
+                }
+            ]
         },
         footer: {
             copyright: "Dumoloq. Barcha huquqlar himoyalangan."

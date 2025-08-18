@@ -9,7 +9,7 @@ const Contact: React.FC = () => {
         (e.target as HTMLFormElement).reset();
     }
   return (
-    <section className="py-20 bg-light-primary dark:bg-dark-primary text-light-text dark:text-dark-text border-t-4 border-accent-red transition-colors duration-300 section-spacing">
+    <section className="py-20 section-variant-4 text-light-text dark:text-dark-text border-t-4 border-accent-red transition-colors duration-300 section-spacing">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">{texts.contact.title}</h2>

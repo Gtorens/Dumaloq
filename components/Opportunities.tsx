@@ -26,7 +26,7 @@ const Opportunities: React.FC = () => {
     const { texts } = useAppContext();
     
     return (
-        <section className="py-20 bg-light-primary dark:bg-dark-primary transition-colors duration-300 modern-section section-spacing">
+        <section className="py-20 section-variant-2 transition-colors duration-300 modern-section section-spacing">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <h2 className="opportunities-title mb-4 text-light-text dark:text-dark-text">{texts.opportunities.title}</h2>

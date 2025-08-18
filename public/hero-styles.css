@@ -22,7 +22,7 @@
 }
 
 .hero-background.loaded {
-  filter: blur(0px);
+  filter: blur(4px);
   transform: scale(1);
 }
 

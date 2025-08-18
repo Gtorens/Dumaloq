@@ -1,5 +1,5 @@
 import React from 'react';
-import { ParkingIcon, CeilingHeightIcon, UtilitiesIcon, ElevatorIcon, SecurityIcon } from './IconComponents';
+import { ParkingIcon, CeilingHeightIcon, UtilitiesIcon, ElevatorIcon, SecurityIcon, AirConditioningIcon } from './IconComponents';
 import { useAppContext } from '../contexts/AppContext';
 
 const SpecItem: React.FC<{ icon: React.ReactNode; title: string; description: string }> = ({ icon, title, description }) => (
@@ -20,11 +20,12 @@ const TechnicalSpecs: React.FC = () => {
         ceiling: <CeilingHeightIcon className="tech-icon"/>,
         utilities: <UtilitiesIcon className="tech-icon"/>,
         transport: <ElevatorIcon className="tech-icon"/>,
-        security: <SecurityIcon className="tech-icon"/>
+        security: <SecurityIcon className="tech-icon"/>,
+        airconditioning: <AirConditioningIcon className="tech-icon"/>
     };
 
   return (
-            <section className="py-20 bg-light-background dark:bg-dark-background transition-colors duration-300 modern-section section-spacing">
+            <section className="py-20 section-variant-1 transition-colors duration-300 modern-section section-spacing">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-light-text dark:text-dark-text mb-4">{texts.techSpecs.title}</h2>

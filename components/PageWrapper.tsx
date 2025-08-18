@@ -10,6 +10,7 @@ import Contact from './Contact';
 import Opportunities from './Opportunities';
 import Atmosphere from './Atmosphere';
 import RentalConditions from './RentalConditions';
+import FAQ from './FAQ';
 
 const PageWrapper: React.FC = () => {
     const floorPlansRef = useRef<HTMLDivElement>(null);
@@ -28,18 +29,29 @@ const PageWrapper: React.FC = () => {
             <Header />
             <main>
                 <Hero onCTAClick={scrollToFloorPlans} />
-                <Location />
-                <Opportunities />
-                <FloorsOverview />
+                <section id="about">
+                    <Location />
+                </section>
+                <section id="tenants">
+                    <Opportunities />
+                </section>
+                <section id="floors">
+                    <FloorsOverview />
+                </section>
                 <Atmosphere />
-                <div ref={floorPlansRef}>
-                    <FloorPlans />
-                </div>
+                <section id="plans">
+                    <div ref={floorPlansRef}>
+                        <FloorPlans />
+                    </div>
+                </section>
                 <TechnicalSpecs />
                 <RentalConditions onCTAClick={scrollToContact} />
-                <div ref={contactRef}>
-                    <Contact />
-                </div>
+                <FAQ />
+                <section id="contacts">
+                    <div ref={contactRef}>
+                        <Contact />
+                    </div>
+                </section>
             </main>
             <Footer />
         </>

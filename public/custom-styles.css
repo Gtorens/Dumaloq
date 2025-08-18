@@ -16,21 +16,44 @@
 .section-card {
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.8) 0%,
-    rgba(248, 250, 252, 0.6) 100%
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(248, 250, 252, 0.8) 100%
   );
   border: 1px solid rgba(203, 213, 225, 0.4);
   box-shadow: 
     0 4px 20px rgba(0, 0, 0, 0.05),
-    0 2px 10px rgba(0, 0, 0, 0.03);
+    0 2px 10px rgba(0, 0, 0, 0.03),
+    0 0 0 1px rgba(220, 38, 38, 0.1),
+    0 0 20px rgba(220, 38, 38, 0.08),
+    0 0 40px rgba(255, 182, 193, 0.12);
   transition: all 0.3s ease;
-  border-radius: 1.5rem; /* Increased from 1rem to 1.5rem for a more pronounced effect */
-  padding: 1.5rem; /* Reduced from 2.5rem to 1.5rem for less space */
-  overflow: hidden; /* Ensures content respects the rounded corners */
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.section-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    rgba(220, 38, 38, 0.15),
+    rgba(255, 182, 193, 0.2),
+    rgba(245, 222, 179, 0.15),
+    rgba(220, 38, 38, 0.1)
+  );
+  border-radius: 1.6rem;
+  z-index: -1;
+  opacity: 0.8;
 }
 
 .opportunity-card-specific {
@@ -38,7 +61,73 @@
 }
 
 .dark .section-card {
+  background: linear-gradient(
+    135deg,
+    rgba(45, 52, 65, 0.95) 0%,
+    rgba(35, 42, 55, 0.9) 100%
+  ) !important;
+  border: 1px solid rgba(60, 70, 85, 0.3) !important;
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.15),
+    0 2px 10px rgba(0, 0, 0, 0.08) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark .section-card::before {
+  transition: none;
+  opacity: 0;
+}
+
+.dark .section-card:hover::before {
+  opacity: 0;
+}
+
+.section-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+    0 8px 30px rgba(0, 0, 0, 0.1),
+    0 4px 15px rgba(0, 0, 0, 0.05),
+    0 0 0 1px rgba(220, 38, 38, 0.2),
+    0 0 30px rgba(220, 38, 38, 0.15),
+    0 0 60px rgba(255, 182, 193, 0.2);
+}
+
+.dark .section-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+    0 8px 30px rgba(0, 0, 0, 0.15),
+    0 4px 15px rgba(0, 0, 0, 0.08) !important;
+}
+
+.section-card:hover::before {
+    opacity: 1;
     background: linear-gradient(
+        45deg,
+        rgba(220, 38, 38, 0.2),
+        rgba(255, 182, 193, 0.3),
+        rgba(245, 222, 179, 0.25),
+        rgba(220, 38, 38, 0.15)
+    );
+}
+
+/* FAQ карточки без свечения */
+.faq-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(248, 250, 252, 0.8) 100%
+  );
+  border: 1px solid rgba(203, 213, 225, 0.4);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.05),
+    0 2px 10px rgba(0, 0, 0, 0.03);
+  border-radius: 1.5rem;
+  padding: 0;
+  overflow: hidden;
+}
+
+.dark .faq-card {
+  background: linear-gradient(
     135deg,
     rgba(31, 41, 55, 0.8) 0%,
     rgba(55, 65, 81, 0.6) 100%
@@ -47,11 +136,4 @@
   box-shadow: 
     0 4px 20px rgba(0, 0, 0, 0.1),
     0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.section-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 
-    0 8px 30px rgba(0, 0, 0, 0.1),
-    0 4px 15px rgba(0, 0, 0, 0.05);
 }

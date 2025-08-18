@@ -23,10 +23,20 @@ const Header: React.FC = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-light-primary/80 dark:bg-dark-primary/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700/50">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <h1 className="text-light-text dark:text-dark-text text-3xl font-extrabold tracking-wider">
+      <div className="container mx-auto px-4 py-2 md:py-4 flex justify-between items-center">
+        <h1 className="text-light-text dark:text-dark-text text-xl md:text-3xl font-extrabold tracking-wider">
           {texts.header.title}
         </h1>
+        
+        <nav className="hidden md:flex items-center gap-8">
+          <a href="#about" className="text-light-text dark:text-dark-text hover:text-accent-red transition-colors">О проекте</a>
+          <a href="#tenants" className="text-light-text dark:text-dark-text hover:text-accent-red transition-colors">Арендаторам</a>
+          <a href="#floors" className="text-light-text dark:text-dark-text hover:text-accent-red transition-colors">Этажи</a>
+          <a href="#plans" className="text-light-text dark:text-dark-text hover:text-accent-red transition-colors">Планировки</a>
+          <a href="#faq" className="text-light-text dark:text-dark-text hover:text-accent-red transition-colors">FAQ</a>
+          <a href="#contacts" className="text-light-text dark:text-dark-text hover:text-accent-red transition-colors">Контакты</a>
+        </nav>
+        
         <div className="flex items-center gap-4">
           <div className="relative">
             <button
