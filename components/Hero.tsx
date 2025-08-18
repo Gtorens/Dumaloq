@@ -34,22 +34,28 @@ const Hero: React.FC<HeroProps> = ({ onCTAClick }) => {
                 <section 
               className="hero-section flex items-center justify-center text-center text-white section-spacing"
             >
-      {/* Фоновое изображение */}
+      {/* Фоновое изображение с оптимизацией */}
       <div 
         className={`hero-background blur ${imageLoaded ? 'loaded' : imageError ? 'error' : 'loading'}`}
         style={{ 
           backgroundImage: imageError ? 'none' : "url('/images/hero-building.jpg')",
-          backgroundColor: imageError ? '#1a1a1a' : 'transparent'
+          backgroundColor: imageError ? '#1a1a1a' : 'transparent',
+          // Оптимизация для мобильных - используем меньшее изображение
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          willChange: 'transform' // Оптимизация для анимаций
         }}
       />
       
-      {/* Скрытое изображение для предзагрузки */}
+      {/* Скрытое изображение для предзагрузки с оптимизацией */}
       <img 
         src="/images/hero-building.jpg"
         alt="Hero building"
         style={{ display: 'none' }}
         onLoad={handleImageLoad}
         onError={handleImageError}
+        loading="eager" // Загружаем сразу для hero изображения
+        decoding="async" // Асинхронное декодирование
       />
       
       {/* Индикатор загрузки */}

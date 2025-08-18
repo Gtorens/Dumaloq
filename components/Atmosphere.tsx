@@ -4,6 +4,7 @@ import { useAppContext } from '../contexts/AppContext';
 const Atmosphere: React.FC = () => {
     const { texts } = useAppContext();
     const [offsetY, setOffsetY] = useState(0);
+    const [imageLoaded, setImageLoaded] = useState(false);
     const handleScroll = () => {
         // Calculate the offset relative to the component's position
         const element = document.getElementById('atmosphere-section');
@@ -18,6 +19,12 @@ const Atmosphere: React.FC = () => {
     
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
+        
+        // Предзагрузка изображения
+        const img = new Image();
+        img.onload = () => setImageLoaded(true);
+        img.src = '/images/atmosphere/gateway-mountains.jpg';
+        
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -25,7 +32,11 @@ const Atmosphere: React.FC = () => {
         <section 
             id="atmosphere-section"
             className="relative h-[60vh] min-h-[500px] w-full flex items-center justify-center text-center text-white overflow-hidden atmosphere-background section-spacing"
-            style={{ backgroundImage: "url('/images/atmosphere/gateway-mountains.jpg')" }}
+            style={{ 
+                backgroundImage: imageLoaded ? "url('/images/atmosphere/gateway-mountains.jpg')" : "none",
+                backgroundColor: !imageLoaded ? '#1a1a1a' : 'transparent',
+                transition: 'background-image 0.5s ease'
+            }}
         >
             <div className="absolute inset-0 bg-black/60"></div>
             <div className="relative z-10 p-4 max-w-4xl mx-auto animate-fade-in">

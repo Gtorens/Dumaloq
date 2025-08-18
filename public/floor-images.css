@@ -83,9 +83,9 @@ body {
 /* Стили для изображений этажей */
 .floor-image-container {
   width: 100% !important;
-  height: 100% !important;
-  min-height: 320px !important;
-  overflow: visible !important;
+  height: auto !important;
+  min-height: unset !important;
+  overflow: hidden !important;
   border-radius: 0.5rem !important;
   border: 1px solid #e5e7eb !important;
 }
@@ -93,11 +93,77 @@ body {
 .floor-image {
   width: 100% !important;
   height: auto !important;
-  min-height: 300px !important;
-  max-height: 400px !important;
-  object-fit: contain !important;
+  min-height: unset !important;
+  max-height: none !important;
+  object-fit: cover !important;
   object-position: center !important;
 }
+
+/* Стили для блоков этажей в FloorPlans */
+.floor-unified-block {
+  margin-bottom: 32px !important;
+}
+
+.floor-image-top {
+  margin-bottom: 32px !important; /* Увеличен отступ между изображением и текстом */
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+.floor-image-top .floor-image {
+  width: 100% !important;
+  height: 400px !important; /* Увеличена высота изображения */
+  object-fit: cover !important;
+  object-position: center !important;
+  border-radius: 12px !important;
+}
+
+.floor-content-below {
+  padding: 0 16px !important; /* Добавляем боковые отступы */
+}
+
+/* Мобильная оптимизация для FloorPlans */
+@media (max-width: 768px) {
+  .floor-image-top {
+    margin-bottom: 28px !important; /* Увеличен отступ на мобильных */
+  }
+  
+  .floor-image-top .floor-image {
+    height: 280px !important; /* Увеличена высота на мобильных */
+  }
+  
+  .floor-content-below {
+    padding: 0 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .floor-image-top {
+    margin-bottom: 24px !important;
+  }
+  
+  .floor-image-top .floor-image {
+    height: 220px !important; /* Увеличена высота на маленьких экранах */
+  }
+  
+  .floor-content-below {
+    padding: 0 8px !important;
+  }
+}
+
+/* ПК версия */
+@media (min-width: 1024px) {
+  .floor-image-top .floor-image {
+    height: 450px !important; /* Увеличена высота на больших экранах */
+  }
+  
+  .floor-content-below {
+    padding: 0 20px !important;
+  }
+}
+
+/* Мобильные правила перенесены в mobile-images-fix.css */
 
 /* Темная тема */
 .dark .floor-image-container {
@@ -112,9 +178,9 @@ body {
 .floors-overview-image {
   width: 100% !important;
   height: auto !important;
-  min-height: 400px !important;
-  max-height: 500px !important;
-  object-fit: contain !important;
+  min-height: unset !important;
+  max-height: none !important;
+  object-fit: cover !important;
   object-position: center !important;
   border-radius: 0.75rem !important;
   border: 4px solid #e5e7eb !important;
@@ -187,6 +253,100 @@ body {
 .opportunity-card-description {
   font-size: 1.125rem !important;
   line-height: 1.6 !important;
+}
+
+/* Мобильная оптимизация шрифтов */
+@media (max-width: 768px) {
+  .floors-overview-title,
+  .floor-plans-title,
+  .opportunities-title {
+    font-size: 1.5rem !important; /* Уменьшено с 1.75rem */
+    line-height: 1.3 !important;
+  }
+  
+  .floors-overview-description,
+  .floor-plans-subtitle {
+    font-size: 0.9rem !important; /* Уменьшено с 1rem */
+    line-height: 1.4 !important; /* Уменьшено с 1.5 */
+  }
+  
+  .floor-tab-title,
+  .floor-premises-title,
+  .opportunity-card-title {
+    font-size: 1.1rem !important; /* Уменьшено с 1.25rem */
+  }
+  
+  .floor-concept-title {
+    font-size: 1.3rem !important; /* Уменьшено с 1.5rem */
+  }
+  
+  .floor-concept-text,
+  .floor-premises-list,
+  .opportunity-card-description {
+    font-size: 0.9rem !important; /* Уменьшено с 1rem */
+    line-height: 1.4 !important; /* Уменьшено с 1.5 */
+  }
+  
+  .atmosphere-title {
+    font-size: 1.75rem !important; /* Уменьшено с 2rem */
+    line-height: 1.2 !important;
+  }
+  
+  .atmosphere-subtitle {
+    font-size: 1.1rem !important; /* Уменьшено с 1.25rem */
+    line-height: 1.3 !important; /* Уменьшено с 1.4 */
+  }
+  
+  .atmosphere-description {
+    font-size: 0.9rem !important; /* Уменьшено с 1rem */
+    line-height: 1.4 !important; /* Уменьшено с 1.5 */
+  }
+}
+
+@media (max-width: 480px) {
+  .floors-overview-title,
+  .floor-plans-title,
+  .opportunities-title {
+    font-size: 1.25rem !important; /* Уменьшено с 1.5rem */
+    line-height: 1.3 !important;
+  }
+  
+  .floors-overview-description,
+  .floor-plans-subtitle {
+    font-size: 0.8rem !important; /* Уменьшено с 0.9rem */
+    line-height: 1.3 !important; /* Уменьшено с 1.4 */
+  }
+  
+  .floor-tab-title,
+  .floor-premises-title,
+  .opportunity-card-title {
+    font-size: 1rem !important; /* Уменьшено с 1.125rem */
+  }
+  
+  .floor-concept-title {
+    font-size: 1.1rem !important; /* Уменьшено с 1.25rem */
+  }
+  
+  .floor-concept-text,
+  .floor-premises-list,
+  .opportunity-card-description {
+    font-size: 0.8rem !important; /* Уменьшено с 0.9rem */
+    line-height: 1.3 !important; /* Уменьшено с 1.4 */
+  }
+  
+  .atmosphere-title {
+    font-size: 1.5rem !important; /* Уменьшено с 1.75rem */
+  }
+  
+  .atmosphere-subtitle {
+    font-size: 1rem !important; /* Уменьшено с 1.125rem */
+    line-height: 1.2 !important; /* Уменьшено с 1.3 */
+  }
+  
+  .atmosphere-description {
+    font-size: 0.8rem !important; /* Уменьшено с 0.9rem */
+    line-height: 1.3 !important; /* Уменьшено с 1.4 */
+  }
 }
 
 /* Стили для изображения атмосферы */
@@ -323,6 +483,33 @@ body {
   font-weight: 500 !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Мобильная оптимизация табов */
+@media (max-width: 768px) {
+  .modern-tabs {
+    border-radius: 10px !important; /* Уменьшено с 12px */
+    padding: 4px !important; /* Уменьшено с 6px */
+  }
+  
+  .modern-tab {
+    padding: 8px 12px !important; /* Уменьшено с 10px 16px */
+    font-size: 0.8rem !important; /* Уменьшено с 0.9rem */
+    border-radius: 6px !important; /* Уменьшено с 8px */
+  }
+}
+
+@media (max-width: 480px) {
+  .modern-tabs {
+    border-radius: 6px !important; /* Уменьшено с 8px */
+    padding: 3px !important; /* Уменьшено с 4px */
+  }
+  
+  .modern-tab {
+    padding: 6px 8px !important; /* Уменьшено с 8px 12px */
+    font-size: 0.75rem !important; /* Уменьшено с 0.85rem */
+    border-radius: 4px !important; /* Уменьшено с 6px */
+  }
 }
 
 .modern-tab.active {
@@ -478,8 +665,25 @@ body {
   padding: 80px 0 !important;
 }
 
-.card-spacing {
-  margin-bottom: 32px !important;
+/* Мобильная оптимизация отступов */
+@media (max-width: 768px) {
+  .section-spacing {
+    padding: 40px 0 !important; /* Уменьшено с 80px */
+  }
+  
+  .card-spacing {
+    margin-bottom: 20px !important; /* Уменьшено с 32px */
+  }
+}
+
+@media (max-width: 480px) {
+  .section-spacing {
+    padding: 24px 0 !important; /* Уменьшено с 40px */
+  }
+  
+  .card-spacing {
+    margin-bottom: 16px !important; /* Уменьшено с 20px */
+  }
 }
 
 /* Стили для красных номеров этажей */
@@ -496,6 +700,27 @@ body {
   font-weight: bold !important;
   margin-bottom: 16px !important;
   box-shadow: 0 8px 24px rgba(220, 38, 38, 0.3) !important;
+}
+
+/* Мобильная оптимизация номеров этажей */
+@media (max-width: 768px) {
+  .floor-number {
+    width: 48px !important; /* Уменьшено с 60px */
+    height: 48px !important; /* Уменьшено с 60px */
+    font-size: 1.25rem !important; /* Уменьшено с 1.5rem */
+    margin-bottom: 12px !important; /* Уменьшено с 16px */
+    box-shadow: 0 6px 18px rgba(220, 38, 38, 0.3) !important; /* Уменьшено */
+  }
+}
+
+@media (max-width: 480px) {
+  .floor-number {
+    width: 40px !important; /* Уменьшено с 48px */
+    height: 40px !important; /* Уменьшено с 48px */
+    font-size: 1rem !important; /* Уменьшено с 1.25rem */
+    margin-bottom: 8px !important; /* Уменьшено с 12px */
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3) !important; /* Уменьшено */
+  }
 }
 
 /* Стили для QR-кода */

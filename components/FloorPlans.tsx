@@ -45,8 +45,17 @@ const FloorPlans: React.FC = () => {
             </div>
             
             <TabContent tabId="floor1">
-                <div className="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
+                <div className="floor-unified-block">
+                    <div className="floor-image-top">
+                        <img 
+                          src="/images/opportunities/floor-1-opportunity.jpg" 
+                          alt={floorData.floor1.imageAlt} 
+                          className="floor-image"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                    </div>
+                    <div className="floor-content-below">
                         <h3 className="floor-concept-title mb-4">{floorData.floor1.conceptTitle}</h3>
                         <p className="floor-concept-text text-light-text-secondary dark:text-dark-text-secondary mb-6">{floorData.floor1.conceptText}</p>
                         <h3 className="floor-premises-title mb-4">{floorData.floor1.premisesTitle}</h3>
@@ -54,15 +63,21 @@ const FloorPlans: React.FC = () => {
                            {floorData.floor1.premisesList.map((item, index) => <li key={index}><strong>{item.label}</strong> {item.value}</li>)}
                         </ul>
                     </div>
-                    <div className="floor-image-container">
-                        <img src="/images/floor-plans/floor-1.jpg" alt={floorData.floor1.imageAlt} className="floor-image"/>
-                    </div>
                 </div>
             </TabContent>
 
             <TabContent tabId="floor2">
-                <div className="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
+                <div className="floor-unified-block">
+                    <div className="floor-image-top">
+                        <img 
+                          src="/images/opportunities/floor-2-opportunity.jpg" 
+                          alt={floorData.floor2.imageAlt} 
+                          className="floor-image"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                    </div>
+                    <div className="floor-content-below">
                         <h3 className="floor-concept-title mb-4">{floorData.floor2.conceptTitle}</h3>
                         <p className="floor-concept-text text-light-text-secondary dark:text-dark-text-secondary mb-6">{floorData.floor2.conceptText}</p>
                         <h3 className="floor-premises-title mb-4">{floorData.floor2.premisesTitle}</h3>
@@ -70,15 +85,21 @@ const FloorPlans: React.FC = () => {
                             {floorData.floor2.premisesList.map((item, index) => <li key={index}><strong>{item.label}</strong> {item.value}</li>)}
                         </ul>
                     </div>
-                    <div className="floor-image-container">
-                        <img src="/images/floor-plans/floor-2.jpg" alt={floorData.floor2.imageAlt} className="floor-image"/>
-                    </div>
                 </div>
             </TabContent>
             
             <TabContent tabId="floor3">
-                <div className="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
+                <div className="floor-unified-block">
+                    <div className="floor-image-top">
+                        <img 
+                          src="/images/opportunities/floor-3-opportunity.jpg" 
+                          alt={floorData.floor3.imageAlt} 
+                          className="floor-image"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                    </div>
+                    <div className="floor-content-below">
                         <h3 className="floor-concept-title mb-4">{floorData.floor3.conceptTitle}</h3>
                         <p className="floor-concept-text text-light-text-secondary dark:text-dark-text-secondary mb-6">{floorData.floor3.conceptText}</p>
                         <h3 className="floor-premises-title mb-4">{floorData.floor3.premisesTitle}</h3>
@@ -86,24 +107,27 @@ const FloorPlans: React.FC = () => {
                             {floorData.floor3.premisesList.map((item, index) => <li key={index}><strong>{item.label}</strong> {item.value}</li>)}
                         </ul>
                     </div>
-                    <div className="floor-image-container">
-                        <img src="/images/floor-plans/floor-3.jpg" alt={floorData.floor3.imageAlt} className="floor-image"/>
-                    </div>
                 </div>
             </TabContent>
             
             <TabContent tabId="floor4">
-                <div className="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
+                <div className="floor-unified-block">
+                    <div className="floor-image-top">
+                        <img 
+                          src="/images/opportunities/floor-4-opportunity.jpg" 
+                          alt={floorData.floor4.imageAlt} 
+                          className="floor-image"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                    </div>
+                    <div className="floor-content-below">
                         <h3 className="floor-concept-title mb-4">{floorData.floor4.conceptTitle}</h3>
                         <p className="floor-concept-text text-light-text-secondary dark:text-dark-text-secondary mb-6">{floorData.floor4.conceptText}</p>
                          <h3 className="floor-premises-title mb-4">{floorData.floor4.premisesTitle}</h3>
                          <ul className="list-disc list-inside text-light-text dark:text-dark-text space-y-2 floor-premises-list">
                            {floorData.floor4.premisesList.map((item, index) => <li key={index}><strong>{item.label}</strong> <span className={item.highlight ? "font-extrabold text-accent-red text-xl" : ""}>{item.value}</span></li>)}
                         </ul>
-                    </div>
-                     <div className="floor-image-container">
-                        <img src="/images/floor-plans/floor-4.jpg" alt={floorData.floor4.imageAlt} className="floor-image"/>
                     </div>
                 </div>
             </TabContent>
