@@ -1,0 +1,444 @@
+/* Глобальные стили для фона с градиентом */
+body {
+  background: linear-gradient(135deg, #1a1a1d 0%, #121214 100%) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.light body {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+}
+
+/* Стили для изображений этажей */
+.floor-image-container {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 320px !important;
+  overflow: visible !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid #e5e7eb !important;
+}
+
+.floor-image {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 300px !important;
+  max-height: 400px !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* Темная тема */
+.dark .floor-image-container {
+  border-color: #374151 !important;
+}
+
+.dark .floor-image {
+  filter: brightness(0.8) contrast(1.1) !important;
+}
+
+/* Стили для изображений в FloorsOverview */
+.floors-overview-image {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 400px !important;
+  max-height: 500px !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  border-radius: 0.75rem !important;
+  border: 4px solid #e5e7eb !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+}
+
+.dark .floors-overview-image {
+  border-color: #374151 !important;
+}
+
+/* Увеличенные размеры шрифтов */
+.floors-overview-title {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+}
+
+.floors-overview-description {
+  font-size: 1.25rem !important;
+  line-height: 1.6 !important;
+}
+
+.floor-plans-title {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+}
+
+.floor-plans-subtitle {
+  font-size: 1.25rem !important;
+  line-height: 1.6 !important;
+}
+
+.floor-tab-title {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+}
+
+.floor-concept-title {
+  font-size: 1.75rem !important;
+  font-weight: 600 !important;
+}
+
+.floor-concept-text {
+  font-size: 1.125rem !important;
+  line-height: 1.6 !important;
+}
+
+.floor-premises-title {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+}
+
+.floor-premises-list {
+  font-size: 1.125rem !important;
+  line-height: 1.6 !important;
+}
+
+.opportunities-title {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+}
+
+.opportunity-card-title {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+}
+
+.opportunity-card-description {
+  font-size: 1.125rem !important;
+  line-height: 1.6 !important;
+}
+
+/* Стили для изображения атмосферы */
+.atmosphere-background {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+.atmosphere-title {
+  font-size: 3rem !important;
+  font-weight: 800 !important;
+  line-height: 1.1 !important;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.8) !important;
+}
+
+.atmosphere-subtitle {
+  font-size: 1.75rem !important;
+  font-weight: 300 !important;
+  line-height: 1.3 !important;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.8) !important;
+}
+
+.atmosphere-description {
+  font-size: 1.25rem !important;
+  line-height: 1.6 !important;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.8) !important;
+}
+
+/* Современные стили для всего сайта в стиле Pointer */
+.modern-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.modern-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.modern-button {
+  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%) !important;
+  border: none !important;
+  border-radius: 16px !important;
+  padding: 16px 32px !important;
+  font-weight: 600 !important;
+  font-size: 1.125rem !important;
+  color: white !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.3) !important;
+}
+
+.modern-button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.4) !important;
+  background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%) !important;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+}
+
+.gradient-border {
+  position: relative !important;
+  background: linear-gradient(135deg, #DC2626, #B91C1C, #991B1B) !important;
+  padding: 2px !important;
+  border-radius: 20px !important;
+}
+
+.gradient-border::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: inherit !important;
+  border-radius: inherit !important;
+  z-index: -1 !important;
+}
+
+.gradient-border > * {
+  background: #1F2937 !important;
+  border-radius: 18px !important;
+  padding: 24px !important;
+}
+
+/* Удалены все правила floating-circles для восстановления прокрутки */
+
+.modern-section {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.modern-section::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.5), transparent) !important;
+}
+
+.modern-section::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.3), transparent) !important;
+}
+
+.modern-tabs {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 16px !important;
+  padding: 8px !important;
+}
+
+.modern-tab {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 12px 24px !important;
+  font-weight: 500 !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.modern-tab.active {
+  background: rgba(220, 38, 38, 0.2) !important;
+  color: white !important;
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.3) !important;
+}
+
+.modern-tab:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+}
+
+.modern-grid {
+  display: grid !important;
+  gap: 24px !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+}
+
+.modern-card-grid {
+  display: grid !important;
+  gap: 32px !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+}
+
+.modern-text-gradient {
+  background: linear-gradient(135deg, #DC2626, #B91C1C) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.modern-shadow {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+.modern-shadow:hover {
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Новые стили для современного дизайна */
+
+/* Светлая тема */
+.light .modern-card {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05) !important;
+}
+
+.light .modern-tabs {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.light .modern-tab {
+  color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.light .modern-tab.active {
+  background: rgba(220, 38, 38, 0.1) !important;
+  color: #DC2626 !important;
+}
+
+.light .modern-tab:hover:not(.active) {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #000 !important;
+}
+
+/* Стили для кнопки отправки */
+.submit-button {
+  background: linear-gradient(90deg, #FF416C 0%, #FF4B2B 100%) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 14px 28px !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 15px 0 rgba(255, 65, 108, 0.4) !important;
+  transition: all 0.3s ease !important;
+}
+
+.submit-button:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 7px 20px 0 rgba(255, 65, 108, 0.5) !important;
+}
+
+/* Стили для полей ввода */
+.modern-input {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 12px !important;
+  padding: 12px 16px !important;
+  color: white !important;
+  transition: all 0.3s ease !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.modern-input:focus {
+  outline: none !important;
+  border-color: #DC2626 !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 0 0 3px rgba(220, 38, 38, 0.1) !important;
+}
+
+.light .modern-input {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  color: #000 !important;
+}
+
+.light .modern-input:focus {
+  border-color: #DC2626 !important;
+}
+
+/* Стили для иконок */
+.feature-icon {
+  width: 48px !important;
+  height: 48px !important;
+  margin-bottom: 16px !important;
+  color: #DC2626 !important;
+}
+
+.tech-icon {
+  width: 64px !important;
+  height: 64px !important;
+  margin-bottom: 20px !important;
+  color: #DC2626 !important;
+}
+
+/* Стили для чередующихся блоков этажей */
+.floor-block {
+  display: flex !important;
+  align-items: center !important;
+  gap: 48px !important;
+  margin-bottom: 64px !important;
+}
+
+.floor-block:nth-child(even) {
+  flex-direction: row-reverse !important;
+}
+
+.floor-content {
+  flex: 1 !important;
+}
+
+.floor-image-wrapper {
+  flex: 1 !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Увеличенные отступы для "воздуха" */
+.section-spacing {
+  padding: 80px 0 !important;
+}
+
+.card-spacing {
+  margin-bottom: 32px !important;
+}
+
+/* Стили для красных номеров этажей */
+.floor-number {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.8), rgba(185, 28, 28, 0.8)) !important;
+  color: white !important;
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.5rem !important;
+  font-weight: bold !important;
+  margin-bottom: 16px !important;
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.3) !important;
+}
+
+/* Стили для QR-кода */
+.qr-code-card {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  padding: 32px !important;
+  text-align: center !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+}
+
+.light .qr-code-card {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}

@@ -1,0 +1,122 @@
+import React, { useState } from 'react';
+import { useAppContext } from '../contexts/AppContext';
+
+type Tab = 'floor1' | 'floor2' | 'floor3' | 'floor4';
+
+const FloorPlans: React.FC = () => {
+  const { texts } = useAppContext();
+  const [activeTab, setActiveTab] = useState<Tab>('floor3');
+
+  const TabButton: React.FC<{ tabId: Tab; children: React.ReactNode }> = ({ tabId, children }) => (
+    <button
+      onClick={() => setActiveTab(tabId)}
+      className={`modern-tab w-full md:w-auto text-left md:text-center ${
+        activeTab === tabId ? 'active' : ''
+      }`}
+    >
+      {children}
+    </button>
+  );
+  
+  const TabContent: React.FC<{ tabId: Tab; children: React.ReactNode }> = ({ tabId, children }) => (
+    <div className={`${activeTab === tabId ? 'block animate-fade-in' : 'hidden'} section-card md:rounded-tr-lg shadow-xl border-t-4 border-accent-red md:border-t-0`}>
+        {children}
+    </div>
+  );
+  
+  const floorData = texts.floorPlans.tabs;
+
+  return (
+            <section className="py-20 bg-light-background dark:bg-dark-background transition-colors duration-300 modern-section section-spacing">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="floor-plans-title text-light-text dark:text-dark-text mb-4">{texts.floorPlans.title}</h2>
+          <p className="floor-plans-subtitle max-w-3xl mx-auto text-light-text-secondary dark:text-dark-text-secondary">
+            {texts.floorPlans.subtitle}
+          </p>
+        </div>
+
+        <div className="max-w-6xl mx-auto">
+            <div className="flex flex-col md:flex-row modern-tabs">
+                <TabButton tabId="floor1">{floorData.floor1.title}</TabButton>
+                <TabButton tabId="floor2">{floorData.floor2.title}</TabButton>
+                <TabButton tabId="floor3">{floorData.floor3.title}</TabButton>
+                <TabButton tabId="floor4">{floorData.floor4.title}</TabButton>
+            </div>
+            
+            <TabContent tabId="floor1">
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 className="floor-concept-title mb-4">{floorData.floor1.conceptTitle}</h3>
+                        <p className="floor-concept-text text-light-text-secondary dark:text-dark-text-secondary mb-6">{floorData.floor1.conceptText}</p>
+                        <h3 className="floor-premises-title mb-4">{floorData.floor1.premisesTitle}</h3>
+                         <ul className="list-disc list-inside text-light-text dark:text-dark-text space-y-2 floor-premises-list">
+                           {floorData.floor1.premisesList.map((item, index) => <li key={index}><strong>{item.label}</strong> {item.value}</li>)}
+                        </ul>
+                    </div>
+                    <div className="floor-image-container">
+                        <img src="/images/floor-plans/floor-1.jpg" alt={floorData.floor1.imageAlt} className="floor-image"/>
+                    </div>
+                </div>
+            </TabContent>
+
+            <TabContent tabId="floor2">
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 className="floor-concept-title mb-4">{floorData.floor2.conceptTitle}</h3>
+                        <p className="floor-concept-text text-light-text-secondary dark:text-dark-text-secondary mb-6">{floorData.floor2.conceptText}</p>
+                        <h3 className="floor-premises-title mb-4">{floorData.floor2.premisesTitle}</h3>
+                         <ul className="list-disc list-inside text-light-text dark:text-dark-text space-y-2 floor-premises-list">
+                            {floorData.floor2.premisesList.map((item, index) => <li key={index}><strong>{item.label}</strong> {item.value}</li>)}
+                        </ul>
+                    </div>
+                    <div className="floor-image-container">
+                        <img src="/images/floor-plans/floor-2.jpg" alt={floorData.floor2.imageAlt} className="floor-image"/>
+                    </div>
+                </div>
+            </TabContent>
+            
+            <TabContent tabId="floor3">
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 className="floor-concept-title mb-4">{floorData.floor3.conceptTitle}</h3>
+                        <p className="floor-concept-text text-light-text-secondary dark:text-dark-text-secondary mb-6">{floorData.floor3.conceptText}</p>
+                        <h3 className="floor-premises-title mb-4">{floorData.floor3.premisesTitle}</h3>
+                         <ul className="list-disc list-inside text-light-text dark:text-dark-text space-y-2 floor-premises-list">
+                            {floorData.floor3.premisesList.map((item, index) => <li key={index}><strong>{item.label}</strong> {item.value}</li>)}
+                        </ul>
+                    </div>
+                    <div className="floor-image-container">
+                        <img src="/images/floor-plans/floor-3.jpg" alt={floorData.floor3.imageAlt} className="floor-image"/>
+                    </div>
+                </div>
+            </TabContent>
+            
+            <TabContent tabId="floor4">
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 className="floor-concept-title mb-4">{floorData.floor4.conceptTitle}</h3>
+                        <p className="floor-concept-text text-light-text-secondary dark:text-dark-text-secondary mb-6">{floorData.floor4.conceptText}</p>
+                         <h3 className="floor-premises-title mb-4">{floorData.floor4.premisesTitle}</h3>
+                         <ul className="list-disc list-inside text-light-text dark:text-dark-text space-y-2 floor-premises-list">
+                           {floorData.floor4.premisesList.map((item, index) => <li key={index}><strong>{item.label}</strong> <span className={item.highlight ? "font-extrabold text-accent-red text-xl" : ""}>{item.value}</span></li>)}
+                        </ul>
+                    </div>
+                     <div className="floor-image-container">
+                        <img src="/images/floor-plans/floor-4.jpg" alt={floorData.floor4.imageAlt} className="floor-image"/>
+                    </div>
+                </div>
+            </TabContent>
+        </div>
+        <div className="text-center mt-12">
+            <a href="/dumoloq-technical-documentation.pdf" download className="modern-button inline-flex items-center">
+                <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                {texts.floorPlans.downloadButton}
+            </a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default FloorPlans;

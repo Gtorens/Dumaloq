@@ -1,0 +1,66 @@
+.hero-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: filter 1s ease-out, transform 1.5s ease-out;
+  transform: scale(1.1);
+}
+
+.hero-background.loading {
+  filter: blur(20px);
+}
+
+.hero-background.loaded {
+  filter: blur(0px);
+  transform: scale(1);
+}
+
+.hero-background.error {
+  filter: blur(0px);
+}
+
+.loading-spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 4px solid #fff;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.modern-button {
+  background-color: #DC2626; /* accent-red */
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.modern-button:hover {
+  background-color: #B91C1C; /* darker red */
+  transform: scale(1.05);
+}
+
+.section-spacing {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
