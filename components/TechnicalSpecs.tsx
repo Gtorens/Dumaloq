@@ -3,14 +3,14 @@ import { ParkingIcon, CeilingHeightIcon, UtilitiesIcon, ElevatorIcon, SecurityIc
 import { useAppContext } from '../contexts/AppContext';
 
 const SpecItem: React.FC<{ icon: React.ReactNode; title: string; description: string }> = ({ icon, title, description }) => (
-  <div className="section-card hover:border-accent-green card-spacing">
+  <div className="section-card tech-spec-card">
     <div className="flex flex-col items-center text-center mb-4">
-      <div className="text-accent-green mb-4">{icon}</div>
+      <div className="mb-4">{icon}</div>
       <h3 className="text-xl font-bold text-light-text dark:text-dark-text">{title}</h3>
     </div>
     <p className="text-light-text-secondary dark:text-dark-text-secondary text-center">{description}</p>
   </div>
-);
+ );
 
 const TechnicalSpecs: React.FC = () => {
     const { texts } = useAppContext();

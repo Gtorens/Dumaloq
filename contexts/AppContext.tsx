@@ -10,6 +10,8 @@ interface AppContextType {
   language: Language;
   setLanguage: (language: Language) => void;
   texts: Translation;
+  currentSection: string;
+  setCurrentSection: (section: string) => void;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -17,6 +19,7 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [theme, setThemeState] = useState<Theme>('dark');
   const [language, setLanguage] = useState<Language>('ru');
+  const [currentSection, setCurrentSection] = useState<string>('about');
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -25,6 +28,30 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     root.classList.add(theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['about', 'tenants', 'floors', 'plans', 'faq', 'contacts'];
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const elementTop = rect.top + window.scrollY;
+          const elementBottom = elementTop + rect.height;
+
+          if (scrollPosition >= elementTop && scrollPosition <= elementBottom) {
+            setCurrentSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
@@ -36,7 +63,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   }, [language]);
 
   return (
-    <AppContext.Provider value={{ theme, setTheme, language, setLanguage, texts }}>
+    <AppContext.Provider value={{ theme, setTheme, language, setLanguage, texts, currentSection, setCurrentSection }}>
       {children}
     </AppContext.Provider>
   );

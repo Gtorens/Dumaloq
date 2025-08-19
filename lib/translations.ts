@@ -1,6 +1,14 @@
 export type Translation = {
     header: {
         title: string;
+        navigation: {
+            about: string;
+            tenants: string;
+            floors: string;
+            plans: string;
+            faq: string;
+            contacts: string;
+        };
     };
     hero: {
         title: string;
@@ -126,7 +134,15 @@ type Translations = {
 export const translations: Translations = {
     ru: {
         header: {
-            title: "Dumoloq"
+            title: "Dumoloq",
+            navigation: {
+                about: "О проекте",
+                tenants: "Арендаторам",
+                floors: "Этажи",
+                plans: "Планировки",
+                faq: "FAQ",
+                contacts: "Контакты"
+            }
         },
         hero: {
             title: "Ваш бизнес в центре туристического потока.",
@@ -197,7 +213,7 @@ export const translations: Translations = {
                 {
                     floorNum: '4',
                     title: 'Food-court + Entertainment',
-                    description: 'Четвертый этаж площадью 800 кв.м — зона гастрономии и развлечений с панорамным видом на горы. Здесь размещается фуд-корт, рестораны, кофейни и развлекательные центры. Уникальная терраса площадью 457 м² станет главной точкой притяжения региона.',
+                    description: 'Четвертый этаж площадью 400 кв.м — зона гастрономии и развлечений с панорамным видом на горы. Здесь размещается фуд-корт, рестораны, кофейни и развлекательные центры. Уникальная терраса площадью 457 м² станет главной точкой притяжения региона.',
                     logos: [],
                     imageUrl: '/images/floor-plans/floor-4.jpg',
                     reverse: true
@@ -251,10 +267,10 @@ export const translations: Translations = {
                 floor4: {
                     title: "4 этаж – Food-court + Entertainment",
                     conceptTitle: "Концепция",
-                    conceptText: "Этаж площадью 800 кв.м — зона гастрономии и развлечений с панорамным видом на горы. Идеальное место для фуд-корта, ресторанов, кофеен и развлекательных центров.",
+                    conceptText: "Этаж площадью 400 кв.м — зона гастрономии и развлечений с панорамным видом на горы. Идеальное место для фуд-корта, ресторанов, кофеен и развлекательных центров.",
                     premisesTitle: "Свободные помещения",
                     premisesList: [
-                        { label: "Общая площадь:", value: "800 кв.м для food-court и entertainment" },
+                        { label: "Общая площадь:", value: "400 кв.м для food-court и entertainment" },
                         { label: "Открытая терраса:", value: "457 м² с видом на горы", highlight: true },
                         { label: "Зоны:", value: "фуд-корт, рестораны, развлечения" }
                     ],
@@ -338,7 +354,15 @@ export const translations: Translations = {
     },
     en: {
         header: {
-            title: "Dumoloq"
+            title: "Dumoloq",
+            navigation: {
+                about: "About",
+                tenants: "For Tenants",
+                floors: "Floors",
+                plans: "Layouts",
+                faq: "FAQ",
+                contacts: "Contacts"
+            }
         },
         hero: {
             title: "Your Business in the Center of Tourist Flow.",
@@ -409,7 +433,7 @@ export const translations: Translations = {
                 {
                     floorNum: '4',
                     title: 'Food-court + Entertainment',
-                    description: 'The fourth floor with an area of 800 m² is a gastronomy and entertainment zone with panoramic mountain views. It houses a food court, restaurants, coffee shops, and entertainment centers. A unique 457 m² terrace will become the main attraction of the region.',
+                    description: 'The fourth floor with an area of 400 m² is a gastronomy and entertainment zone with panoramic mountain views. It houses a food court, restaurants, coffee shops, and entertainment centers. A unique 457 m² terrace will become the main attraction of the region.',
                     logos: [],
                     imageUrl: '/images/floor-plans/floor-4.jpg',
                     reverse: true
@@ -463,10 +487,10 @@ export const translations: Translations = {
                 floor4: {
                     title: "4th Floor – Food-court + Entertainment",
                     conceptTitle: "Concept",
-                    conceptText: "An 800 m² floor — a zone of gastronomy and entertainment with panoramic mountain views. Ideal for a food court, restaurants, coffee shops, and entertainment centers.",
+                    conceptText: "A 400 m² floor — a zone of gastronomy and entertainment with panoramic mountain views. Ideal for a food court, restaurants, coffee shops, and entertainment centers.",
                     premisesTitle: "Available Spaces",
                     premisesList: [
-                        { label: "Total area:", value: "800 m² for food‑court and entertainment" },
+                        { label: "Total area:", value: "400 m² for food‑court and entertainment" },
                         { label: "Open terrace:", value: "457 m² with mountain view", highlight: true },
                         { label: "Zones:", value: "food court, restaurants, entertainment" }
                     ],
@@ -550,7 +574,15 @@ export const translations: Translations = {
     },
     uz: {
         header: {
-            title: "Dumoloq"
+            title: "Dumoloq",
+            navigation: {
+                about: "Loyiha haqida",
+                tenants: "Ijarachilar uchun",
+                floors: "Qavatlar",
+                plans: "Planlar",
+                faq: "FAQ",
+                contacts: "Aloqa"
+            }
         },
         hero: {
             title: "Sizning biznesingiz turistik oqim markazida.",
@@ -621,7 +653,7 @@ export const translations: Translations = {
                 {
                     floorNum: '4',
                     title: 'Food-court + Ko‘ngilochar',
-                    description: '800 m² maydonga ega to‘rtinchi qavat — tog‘larga panoramik manzarali gastronomiya va ko‘ngilochar zona. Bu yerda fud-kort, restoranlar, qahvaxonalar va ko‘ngilochar markazlar joylashadi. 457 m² maydonga ega noyob terrasa mintaqaning asosiy diqqatga sazovor joyiga aylanadi.',
+                    description: '400 m² maydonga ega to‘rtinchi qavat — tog‘larga panoramik manzarali gastronomiya va ko‘ngilochar zona. Bu yerda fud-kort, restoranlar, qahvaxonalar va ko‘ngilochar markazlar joylashadi. 457 m² maydonga ega noyob terrasa mintaqaning asosiy diqqatga sazovor joyiga aylanadi.',
                     logos: [],
                     imageUrl: '/images/floor-plans/floor-4.jpg',
                     reverse: true
@@ -675,7 +707,7 @@ export const translations: Translations = {
                 floor4: {
                     title: "4-qavat – Food-court + Ko‘ngilochar",
                     conceptTitle: "Kontseptsiya",
-                    conceptText: "800 m² maydon — tog‘ manzarali gastronomiya va ko‘ngilochar zona. Fud-kort, restoranlar, qahvaxonalar va ko‘ngilochar markazlar uchun ideal.",
+                    conceptText: "400 m² maydon — tog‘ manzarali gastronomiya va ko‘ngilochar zona. Fud-kort, restoranlar, qahvaxonalar va ko‘ngilochar markazlar uchun ideal.",
                     premisesTitle: "Bo‘sh joylar",
                     premisesList: [
                         { label: "Umumiy maydon:", value: "food‑court va ko‘ngilochar uchun 800 m²" },

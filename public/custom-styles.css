@@ -13,6 +13,147 @@
   background-image: linear-gradient(to top, var(--dark-background), var(--dark-primary));
 }
 
+/* Стили для технических иконок */
+.tech-icon {
+  width: 3rem;
+  height: 3rem;
+  color: var(--accent-red);
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(220, 38, 38, 0.2));
+}
+
+.tech-icon:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 4px 8px rgba(220, 38, 38, 0.3));
+}
+
+/* Стили для иконок в карточках преимуществ */
+.feature-icon {
+  width: 3rem;
+  height: 3rem;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(220, 38, 38, 0.15));
+}
+
+.feature-icon:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 4px 8px rgba(220, 38, 38, 0.25));
+}
+
+/* Стили для карточек с техническими характеристиками */
+.tech-spec-card {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.tech-spec-card:hover {
+  border-color: var(--accent-red);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.15);
+}
+
+/* Стили для технических характеристик в темной теме */
+.dark .tech-spec-card {
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.15),
+    0 2px 10px rgba(0, 0, 0, 0.08),
+    /* Градиентное свечение по контуру */
+    0 0 0 1px var(--glow-gradient-blue),
+    0 0 20px var(--glow-gradient-blue),
+    0 0 40px var(--glow-gradient-purple) !important;
+  position: relative;
+}
+
+.dark .tech-spec-card::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: conic-gradient(
+    from 0deg,
+    var(--glow-gradient-blue) 0deg,
+    var(--glow-gradient-purple) 180deg,
+    var(--glow-gradient-blue) 360deg
+  );
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0.5;
+  filter: blur(8px);
+}
+
+.dark .tech-spec-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 8px 30px rgba(0, 0, 0, 0.2),
+    0 4px 15px rgba(0, 0, 0, 0.1),
+    /* Усиленное градиентное свечение при наведении */
+    0 0 0 2px var(--glow-gradient-blue),
+    0 0 30px var(--glow-gradient-blue),
+    0 0 60px var(--glow-gradient-purple) !important;
+}
+
+.dark .tech-spec-card:hover::after {
+  opacity: 0.7;
+  filter: blur(12px);
+}
+
+/* Стили для карточек с ключевыми преимуществами */
+.opportunity-card-specific {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  position: relative;
+}
+
+.opportunity-card-specific:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 0 40px var(--glow-red-soft),
+    0 0 80px var(--glow-red-softer),
+    0 0 120px var(--glow-red-softest);
+}
+
+/* Дополнительный эффект свечения для карточек преимуществ */
+.opportunity-card-specific::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: radial-gradient(
+    circle at center,
+    var(--glow-red-soft) 0%,
+    transparent 70%
+  );
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.opportunity-card-specific:hover::before {
+  opacity: 1;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .opportunity-card-specific:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 0 20px var(--glow-red-soft),
+      0 0 40px var(--glow-red-softer);
+  }
+  
+  .dark .opportunity-card-specific:hover {
+    box-shadow: 
+      0 0 20px var(--glow-red-soft),
+      0 0 40px var(--glow-red-softer),
+      0 4px 15px rgba(0, 0, 0, 0.15);
+  }
+}
+
 .section-card {
   background: linear-gradient(
     135deg,
@@ -60,6 +201,7 @@
   align-items: flex-start;
 }
 
+/* Стили для темной темы с градиентным свечением */
 .dark .section-card {
   background: linear-gradient(
     135deg,
@@ -69,17 +211,64 @@
   border: 1px solid rgba(60, 70, 85, 0.3) !important;
   box-shadow: 
     0 4px 20px rgba(0, 0, 0, 0.15),
-    0 2px 10px rgba(0, 0, 0, 0.08) !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    0 2px 10px rgba(0, 0, 0, 0.08),
+    /* Градиентное свечение по контуру */
+    0 0 0 1px var(--glow-gradient-red),
+    0 0 20px var(--glow-gradient-red),
+    0 0 40px var(--glow-gradient-blue),
+    0 0 60px var(--glow-gradient-purple) !important;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Градиентное свечение по контуру для темной темы */
+.dark .section-card::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: conic-gradient(
+    from 0deg,
+    var(--glow-gradient-red) 0deg,
+    var(--glow-gradient-blue) 90deg,
+    var(--glow-gradient-purple) 180deg,
+    var(--glow-gradient-red) 270deg,
+    var(--glow-gradient-red) 360deg
+  );
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0.6;
+  filter: blur(8px);
+}
+
+/* Улучшенное свечение для карточек преимуществ в темной теме */
+.dark .opportunity-card-specific {
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.15),
+    0 2px 10px rgba(0, 0, 0, 0.08),
+    /* Градиентное свечение по контуру */
+    0 0 0 1px var(--glow-gradient-red),
+    0 0 15px var(--glow-gradient-red),
+    0 0 30px var(--glow-gradient-blue),
+    0 0 45px var(--glow-gradient-purple) !important;
+}
+
+.dark .opportunity-card-specific:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 8px 30px rgba(0, 0, 0, 0.2),
+    0 4px 15px rgba(0, 0, 0, 0.1),
+    /* Усиленное градиентное свечение при наведении */
+    0 0 0 2px var(--glow-gradient-red),
+    0 0 25px var(--glow-gradient-red),
+    0 0 50px var(--glow-gradient-blue),
+    0 0 75px var(--glow-gradient-purple) !important;
 }
 
 .dark .section-card::before {
-  transition: none;
-  opacity: 0;
-}
-
-.dark .section-card:hover::before {
-  opacity: 0;
+  display: none;
 }
 
 .section-card:hover {
@@ -96,7 +285,18 @@
     transform: translateY(-5px);
     box-shadow: 
     0 8px 30px rgba(0, 0, 0, 0.15),
-    0 4px 15px rgba(0, 0, 0, 0.08) !important;
+    0 4px 15px rgba(0, 0, 0, 0.08),
+    /* Усиленное градиентное свечение при наведении */
+    0 0 0 2px var(--glow-gradient-red),
+    0 0 30px var(--glow-gradient-red),
+    0 0 60px var(--glow-gradient-blue),
+    0 0 90px var(--glow-gradient-purple) !important;
+}
+
+/* Усиление градиентного свечения при наведении */
+.dark .section-card:hover::after {
+    opacity: 0.8;
+    filter: blur(12px);
 }
 
 .section-card:hover::before {
@@ -110,7 +310,7 @@
     );
 }
 
-/* FAQ карточки без свечения */
+/* FAQ карточки */
 .faq-card {
   background: linear-gradient(
     135deg,
@@ -124,6 +324,7 @@
   border-radius: 1.5rem;
   padding: 0;
   overflow: hidden;
+  position: relative;
 }
 
 .dark .faq-card {
@@ -135,5 +336,167 @@
   border: 1px solid rgba(75, 85, 99, 0.4);
   box-shadow: 
     0 4px 20px rgba(0, 0, 0, 0.1),
+    0 2px 10px rgba(0, 0, 0, 0.05),
+    /* Градиентное свечение по контуру */
+    0 0 0 1px var(--glow-gradient-soft),
+    0 0 15px var(--glow-gradient-soft),
+    0 0 30px var(--glow-gradient-blue) !important;
+  position: relative;
+}
+
+/* Градиентное свечение для FAQ карточек в темной теме */
+.dark .faq-card::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: conic-gradient(
+    from 0deg,
+    var(--glow-gradient-soft) 0deg,
+    var(--glow-gradient-blue) 180deg,
+    var(--glow-gradient-soft) 360deg
+  );
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0.4;
+  filter: blur(6px);
+}
+
+/* Стили для выпадающего меню выбора языка */
+.language-dropdown {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(203, 213, 225, 0.3);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.1),
     0 2px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  animation: dropdownSlideIn 0.2s ease-out;
+}
+
+.dark .language-dropdown {
+  background: rgba(31, 41, 55, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(75, 85, 99, 0.4);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.2),
+    0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.language-option {
+  transition: all 0.15s ease;
+  border-bottom: 1px solid rgba(203, 213, 225, 0.1);
+}
+
+.language-option:last-child {
+  border-bottom: none;
+}
+
+.language-option:hover {
+  background: rgba(59, 130, 246, 0.1);
+  transform: translateX(2px);
+}
+
+.dark .language-option:hover {
+  background: rgba(59, 130, 246, 0.2);
+}
+
+/* Анимация появления выпадающего меню */
+@keyframes dropdownSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Общие стили для всех карточек в темной теме */
+.dark .section-card,
+.dark .opportunity-card-specific,
+.dark .tech-spec-card,
+.dark .faq-card {
+  /* Базовые стили для темной темы */
+  background: linear-gradient(
+    135deg,
+    rgba(45, 52, 65, 0.95) 0%,
+    rgba(35, 42, 55, 0.9) 100%
+  ) !important;
+  border: 1px solid rgba(60, 70, 85, 0.3) !important;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Универсальное градиентное свечение для всех карточек в темной теме */
+.dark .section-card::after,
+.dark .opportunity-card-specific::after,
+.dark .tech-spec-card::after,
+.dark .faq-card::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: conic-gradient(
+    from 0deg,
+    var(--glow-gradient-red) 0deg,
+    var(--glow-gradient-blue) 90deg,
+    var(--glow-gradient-purple) 180deg,
+    var(--glow-gradient-red) 270deg,
+    var(--glow-gradient-red) 360deg
+  );
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0.4;
+  filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+/* Усиление свечения при наведении для всех карточек */
+.dark .section-card:hover::after,
+.dark .opportunity-card-specific:hover::after,
+.dark .tech-spec-card:hover::after,
+.dark .faq-card:hover::after {
+  opacity: 0.7;
+  filter: blur(12px);
+}
+
+/* Адаптивность для мобильных устройств в темной теме */
+@media (max-width: 768px) {
+  .dark .section-card,
+  .dark .opportunity-card-specific,
+  .dark .tech-spec-card,
+  .dark .faq-card {
+    box-shadow: 
+      0 4px 15px rgba(0, 0, 0, 0.15),
+      0 2px 8px rgba(0, 0, 0, 0.08),
+      /* Уменьшенное градиентное свечение для мобильных */
+      0 0 0 1px var(--glow-gradient-red),
+      0 0 10px var(--glow-gradient-red),
+      0 0 20px var(--glow-gradient-blue) !important;
+  }
+  
+  .dark .section-card::after,
+  .dark .opportunity-card-specific::after,
+  .dark .tech-spec-card::after,
+  .dark .faq-card::after {
+    filter: blur(4px);
+  }
+  
+  /* Компактное выпадающее меню для мобильных */
+  .language-dropdown {
+    width: 6rem;
+    margin-top: 0.25rem;
+  }
+  
+  .language-option {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
 }

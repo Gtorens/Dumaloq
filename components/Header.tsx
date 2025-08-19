@@ -1,10 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAppContext, Language } from '../contexts/AppContext';
 import { SunIcon, MoonIcon, GlobeIcon, ChevronDownIcon } from './IconComponents';
 
 const Header: React.FC = () => {
-  const { theme, setTheme, language, setLanguage, texts } = useAppContext();
+  const { theme, setTheme, language, setLanguage, texts, currentSection } = useAppContext();
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
+  
+  // Закрытие выпадающего меню при клике вне его
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (!target.closest('.language-dropdown') && !target.closest('button[aria-label="Change language"]')) {
+        setIsLangDropdownOpen(false);
+      }
+    };
+
+    if (isLangDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isLangDropdownOpen]);
 
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
@@ -29,12 +47,66 @@ const Header: React.FC = () => {
         </h1>
         
         <nav className="hidden md:flex items-center gap-8">
-          <a href="#about" className="text-light-text dark:text-dark-text hover:text-accent-red transition-colors">О проекте</a>
-          <a href="#tenants" className="text-light-text dark:text-dark-text hover:text-accent-red transition-colors">Арендаторам</a>
-          <a href="#floors" className="text-light-text dark:text-dark-text hover:text-accent-red transition-colors">Этажи</a>
-          <a href="#plans" className="text-light-text dark:text-dark-text hover:text-accent-red transition-colors">Планировки</a>
-          <a href="#faq" className="text-light-text dark:text-dark-text hover:text-accent-red transition-colors">FAQ</a>
-          <a href="#contacts" className="text-light-text dark:text-dark-text hover:text-accent-red transition-colors">Контакты</a>
+          <a 
+            href="#about" 
+            className={`nav-link ${
+              currentSection === 'about' 
+                ? 'text-accent-red font-semibold active' 
+                : 'text-light-text dark:text-dark-text hover:text-accent-red'
+            }`}
+          >
+            {texts.header.navigation.about}
+          </a>
+          <a 
+            href="#tenants" 
+            className={`nav-link ${
+              currentSection === 'tenants' 
+                ? 'text-accent-red font-semibold active' 
+                : 'text-light-text dark:text-dark-text hover:text-accent-red'
+            }`}
+          >
+            {texts.header.navigation.tenants}
+          </a>
+          <a 
+            href="#floors" 
+            className={`nav-link ${
+              currentSection === 'floors' 
+                ? 'text-accent-red font-semibold active' 
+                : 'text-light-text dark:text-dark-text hover:text-accent-red'
+            }`}
+          >
+            {texts.header.navigation.floors}
+          </a>
+          <a 
+            href="#plans" 
+            className={`nav-link ${
+              currentSection === 'plans' 
+                ? 'text-accent-red font-semibold active' 
+                : 'text-light-text dark:text-dark-text hover:text-accent-red'
+            }`}
+          >
+            {texts.header.navigation.plans}
+          </a>
+          <a 
+            href="#faq" 
+            className={`nav-link ${
+              currentSection === 'faq' 
+                ? 'text-accent-red font-semibold active' 
+                : 'text-light-text dark:text-dark-text hover:text-accent-red'
+            }`}
+          >
+            {texts.header.navigation.faq}
+          </a>
+          <a 
+            href="#contacts" 
+            className={`nav-link ${
+              currentSection === 'contacts' 
+                ? 'text-accent-red font-semibold active' 
+                : 'text-light-text dark:text-dark-text hover:text-accent-red'
+            }`}
+          >
+            {texts.header.navigation.contacts}
+          </a>
         </nav>
         
         <div className="flex items-center gap-4">
@@ -46,15 +118,15 @@ const Header: React.FC = () => {
             >
               <GlobeIcon className="w-6 h-6" />
               <span className="hidden sm:inline">{language.toUpperCase()}</span>
-              <ChevronDownIcon className={`w-4 h-4 transition-transform ${isLangDropdownOpen ? 'rotate-180' : ''}`} />
+              <ChevronDownIcon className={`w-4 h-4 transition-transform duration-200 ease-out ${isLangDropdownOpen ? 'rotate-180' : ''}`} />
             </button>
             {isLangDropdownOpen && (
-              <div className="absolute top-full right-0 mt-2 w-32 section-card">
+              <div className="absolute top-full right-0 mt-1 w-28 language-dropdown z-50">
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
                     onClick={() => handleLanguageChange(lang.code)}
-                    className="w-full text-left px-4 py-2 text-sm text-light-text dark:text-dark-text hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
+                    className="w-full text-left px-3 py-2 text-sm text-light-text dark:text-dark-text language-option"
                   >
                     {lang.name}
                   </button>

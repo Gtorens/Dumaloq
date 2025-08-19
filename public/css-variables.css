@@ -1,0 +1,87 @@
+:root {
+  /* Основные цвета */
+  --accent-red: #dc2626;
+  --accent-red-hover: #b91c1c;
+  --accent-red-light: #fca5a5;
+  
+  /* Цвета для свечения */
+  --glow-red: #ff0000;
+  --glow-red-soft: rgba(255, 0, 0, 0.08);
+  --glow-red-softer: rgba(255, 0, 0, 0.06);
+  --glow-red-softest: rgba(255, 0, 0, 0.04);
+  
+  /* Цвета для градиентного свечения в темной теме */
+  --glow-gradient-red: rgba(220, 38, 38, 0.03);
+  --glow-gradient-blue: rgba(59, 130, 246, 0.03);
+  --glow-gradient-purple: rgba(147, 51, 234, 0.03);
+  --glow-gradient-soft: rgba(255, 255, 255, 0.02);
+  
+  /* Светлая тема */
+  --light-primary: #ffffff;
+  --light-secondary: #f8fafc;
+  --light-text: #1e293b;
+  --light-text-secondary: #64748b;
+  --light-border: #e2e8f0;
+  
+  /* Темная тема */
+  --dark-primary: #0f172a;
+  --dark-secondary: #1e293b;
+  --dark-text: #f1f5f9;
+  --dark-text-secondary: #94a3b8;
+  --dark-border: #334155;
+  
+  /* Тени */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Переходы */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* Утилиты для цветов */
+.text-accent-red { color: var(--accent-red); }
+.bg-accent-red { background-color: var(--accent-red); }
+.border-accent-red { border-color: var(--accent-red); }
+
+.hover\:text-accent-red:hover { color: var(--accent-red); }
+.hover\:bg-accent-red:hover { background-color: var(--accent-red); }
+.hover\:border-accent-red:hover { border-color: var(--accent-red); }
+
+/* Активные состояния */
+.active\:text-accent-red:active { color: var(--accent-red); }
+.active\:bg-accent-red:active { background-color: var(--accent-red); }
+
+/* Фокус состояние */
+.focus\:text-accent-red:focus { color: var(--accent-red); }
+.focus\:bg-accent-red:focus { background-color: var(--accent-red); }
+.focus\:border-accent-red:focus { border-color: var(--accent-red); }
+.focus\:ring-accent-red:focus { --tw-ring-color: var(--accent-red); }
+
+/* Стили для активной навигации */
+.nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-red);
+  transition: width 0.3s ease;
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
