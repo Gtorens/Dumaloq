@@ -1,6 +1,11 @@
 
 /* Custom Styles */
 
+/* 
+  Базовые стили для FAQ карточек определены в src/styles/globals.css
+  Здесь оставлены только эффекты свечения и дополнительные стили
+*/
+
 .subtle-shadow {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }

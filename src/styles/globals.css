@@ -244,6 +244,25 @@ body {
   transform: scale(1.02);
 }
 
+/* Стили для FAQ карточек */
+.faq-card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.dark .faq-card {
+  background: #2d3748; /* Светло-серый фон для темной темы */
+  border: 1px solid rgba(220, 38, 38, 0.3);
+}
+
+.light .faq-card {
+  background: white; /* Белый фон для светлой темы */
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
 /* Адаптивность */
 @media (max-width: 768px) {
   .modern-card-grid {
