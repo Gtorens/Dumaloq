@@ -1,7 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { useAppContext } from '../../contexts/AppContext';
 import { ChevronDownIcon } from './IconComponents';
-import SEO from '../ui/SEO';
 
 // Декоративные элементы для секции FAQ в стиле киберпанк
 const FAQDecorations: React.FC = () => (
