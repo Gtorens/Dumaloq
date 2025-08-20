@@ -208,3 +208,218 @@ textarea:focus {
 .animate-spin {
   animation: spin 1s linear infinite;
 }
+
+/* ========================================
+   СВЕЧЕНИЕ БЛОКОВ В СВЕТЛОЙ ТЕМЕ
+   ======================================== */
+
+/* Карточки локации с постоянным свечением */
+.light .section-card.light-card-specific {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(248, 250, 252, 0.9) 50%,
+    rgba(241, 245, 249, 0.85) 100%
+  );
+  border: 1px solid rgba(203, 213, 225, 0.6);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  
+  /* Постоянное свечение по краям */
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    0 4px 16px rgba(0, 0, 0, 0.04),
+    0 2px 8px rgba(0, 0, 0, 0.02),
+    /* Свечение по краям */
+    0 0 0 1px rgba(59, 130, 246, 0.1),
+    0 0 20px rgba(59, 130, 246, 0.08),
+    0 0 40px rgba(16, 185, 129, 0.06),
+    /* Дополнительное мягкое свечение */
+    0 0 60px rgba(139, 92, 246, 0.04);
+}
+
+/* Эффект при наведении для карточек локации */
+.light .section-card.light-card-specific:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.12),
+    0 8px 24px rgba(0, 0, 0, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.04),
+    /* Усиленное свечение при наведении */
+    0 0 0 2px rgba(59, 130, 246, 0.2),
+    0 0 30px rgba(59, 130, 246, 0.15),
+    0 0 60px rgba(16, 185, 129, 0.12),
+    0 0 90px rgba(139, 92, 246, 0.08);
+}
+
+/* Карточки преимуществ с постоянным свечением */
+.light .opportunity-card-specific {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(248, 250, 252, 0.9) 50%,
+    rgba(241, 245, 249, 0.85) 100%
+  );
+  border: 1px solid rgba(203, 213, 225, 0.6);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  
+  /* Постоянное свечение по краям */
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    0 4px 16px rgba(0, 0, 0, 0.04),
+    0 2px 8px rgba(0, 0, 0, 0.02),
+    /* Свечение по краям */
+    0 0 0 1px rgba(220, 38, 38, 0.1),
+    0 0 20px rgba(220, 38, 38, 0.08),
+    0 0 40px rgba(59, 130, 246, 0.06),
+    /* Дополнительное мягкое свечение */
+    0 0 60px rgba(16, 185, 129, 0.04);
+}
+
+/* Эффект при наведении для карточек преимуществ */
+.light .opportunity-card-specific:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.12),
+    0 8px 24px rgba(0, 0, 0, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.04),
+    /* Усиленное свечение при наведении */
+    0 0 0 2px rgba(220, 38, 38, 0.2),
+    0 0 30px rgba(220, 38, 38, 0.15),
+    0 0 60px rgba(59, 130, 246, 0.12),
+    0 0 90px rgba(16, 185, 129, 0.08);
+}
+
+/* Дополнительное внутреннее свечение для карточек */
+.light .section-card.light-card-specific::before,
+.light .opportunity-card-specific::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: radial-gradient(
+    circle at center,
+    rgba(59, 130, 246, 0.1) 0%,
+    rgba(16, 185, 129, 0.05) 30%,
+    rgba(139, 92, 246, 0.03) 60%,
+    transparent 80%
+  );
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0.8;
+  filter: blur(8px);
+}
+
+/* Усиленное внутреннее свечение при наведении */
+.light .section-card.light-card-specific:hover::before,
+.light .opportunity-card-specific:hover::before {
+  opacity: 1;
+  filter: blur(12px);
+  background: radial-gradient(
+    circle at center,
+    rgba(59, 130, 246, 0.15) 0%,
+    rgba(16, 185, 129, 0.08) 30%,
+    rgba(139, 92, 246, 0.05) 60%,
+    transparent 80%
+  );
+}
+
+/* Специальное свечение для карты */
+.light .shadow-2xl {
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(59, 130, 246, 0.1),
+    0 0 30px rgba(59, 130, 246, 0.08),
+    0 0 60px rgba(16, 185, 129, 0.06);
+}
+
+/* Свечение для кнопок и интерактивных элементов */
+.light .modern-button,
+.light .submit-button {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 
+    0 4px 15px rgba(59, 130, 246, 0.3),
+    0 2px 8px rgba(59, 130, 246, 0.2),
+    /* Свечение по краям */
+    0 0 0 1px rgba(59, 130, 246, 0.2),
+    0 0 20px rgba(59, 130, 246, 0.15);
+}
+
+.light .modern-button:hover,
+.light .submit-button:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  box-shadow: 
+    0 6px 20px rgba(59, 130, 246, 0.4),
+    0 4px 12px rgba(59, 130, 246, 0.3),
+    /* Усиленное свечение при наведении */
+    0 0 0 2px rgba(59, 130, 246, 0.3),
+    0 0 30px rgba(59, 130, 246, 0.25),
+    0 0 60px rgba(59, 130, 246, 0.15);
+}
+
+/* Свечение для иконок в светлой теме */
+.light .feature-icon,
+.light .tech-icon {
+  color: #3b82f6;
+  filter: 
+    drop-shadow(0 2px 4px rgba(59, 130, 246, 0.2))
+    drop-shadow(0 0 10px rgba(59, 130, 246, 0.1));
+}
+
+.light .feature-icon:hover,
+.light .tech-icon:hover {
+  filter: 
+    drop-shadow(0 4px 8px rgba(59, 130, 246, 0.3))
+    drop-shadow(0 0 20px rgba(59, 130, 246, 0.2));
+}
+
+/* Свечение для заголовков секций */
+.light .modern-section {
+  position: relative;
+}
+
+.light .modern-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+}
+
+.light .modern-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.3), transparent);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .light .section-card.light-card-specific,
+  .light .opportunity-card-specific {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 
+      0 4px 16px rgba(0, 0, 0, 0.06),
+      0 0 0 1px rgba(59, 130, 246, 0.08),
+      0 0 15px rgba(59, 130, 246, 0.06);
+  }
+  
+  .light .section-card.light-card-specific::before,
+  .light .opportunity-card-specific::before {
+    filter: blur(4px);
+  }
+}
