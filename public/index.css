@@ -89,278 +89,193 @@ body {
   .text-2xl { font-size: 1.25rem; }
 }
 
-/* Утилиты для доступности */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-/* Фокус для клавиатурной навигации */
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-  outline: 2px solid #f87171;
-  outline-offset: 2px;
-  box-shadow: 0 0 0 4px rgba(248, 113, 113, 0.1);
-}
-
-/* Стили для полей формы */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="password"],
-textarea {
-  border-radius: 16px !important;
-  border: 2px solid #e5e7eb;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 12px 16px;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="tel"]:focus,
-input[type="password"]:focus,
-textarea:focus {
-  border-color: #f87171;
-  box-shadow: 0 0 0 4px rgba(248, 113, 113, 0.1);
-  outline: none;
-}
-
-/* Стили для кнопок с градиентом */
-.gradient-button {
-  background: linear-gradient(135deg, #f87171 0%, #dc2626 100%);
-  border-radius: 24px;
-  box-shadow: 0 8px 25px 0 rgba(248, 113, 113, 0.4), 0 4px 10px 0 rgba(220, 38, 38, 0.3);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.gradient-button:hover {
-  background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 12px 35px 0 rgba(239, 68, 68, 0.5), 0 8px 15px 0 rgba(220, 38, 38, 0.4);
-}
-
-/* Стили для карточек формы */
-.form-card {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-}
-
-.dark .form-card {
-  background: rgba(31, 41, 55, 0.95);
-  border: 1px solid rgba(75, 85, 99, 0.3);
-}
-
-/* Анимации */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fade-in 0.6s ease-out forwards;
-}
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.8s ease-out forwards;
-}
-
-/* Анимация спиннера */
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-spin {
-  animation: spin 1s linear infinite;
-}
-
 /* ========================================
-   СВЕЧЕНИЕ БЛОКОВ В СВЕТЛОЙ ТЕМЕ
+   УНИВЕРСАЛЬНОЕ СВЕЧЕНИЕ ПО КРАЯМ ВСЕХ БЛОКОВ
    ======================================== */
 
-/* Карточки локации с постоянным свечением */
-.light .section-card.light-card-specific {
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(203, 213, 225, 0.6);
-  border-radius: 16px;
-  padding: 24px;
-  position: relative;
-  overflow: hidden;
-  
-  /* Постоянное свечение по краям */
+/* СВЕЧЕНИЕ ДЛЯ СВЕТЛОЙ ТЕМЫ */
+.light .section-card,
+.light .opportunity-card,
+.light .faq-card,
+.light .contact-form,
+.light .contact-card,
+.light .tech-spec-card,
+.light .feature-card,
+.light .modern-card,
+.light .card,
+.light .form,
+.light .modal,
+.light .notification,
+.light .warning,
+.light .error,
+.light .success,
+.light .table,
+.light .blockquote,
+.light .code,
+.light .input,
+.light .textarea,
+.light .select,
+.light .button,
+.light .btn {
+  /* Свечение ТОЛЬКО по краям */
   box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.08),
-    0 4px 16px rgba(0, 0, 0, 0.04),
-    0 2px 8px rgba(0, 0, 0, 0.02),
-    /* Свечение по краям */
     0 0 0 1px rgba(220, 38, 38, 0.1),
     0 0 20px rgba(220, 38, 38, 0.08),
     0 0 40px rgba(220, 38, 38, 0.06);
 }
 
-/* Эффект при наведении для карточек локации */
-.light .section-card.light-card-specific:hover {
-  transform: translateY(-4px);
+/* Усиленное свечение при наведении для светлой темы */
+.light .section-card:hover,
+.light .opportunity-card:hover,
+.light .faq-card:hover,
+.light .contact-form:hover,
+.light .contact-card:hover,
+.light .tech-spec-card:hover,
+.light .feature-card:hover,
+.light .modern-card:hover,
+.light .card:hover,
+.light .form:hover,
+.light .modal:hover,
+.light .notification:hover,
+.light .warning:hover,
+.light .error:hover,
+.light .success:hover,
+.light .table:hover,
+.light .blockquote:hover,
+.light .code:hover,
+.light .input:hover,
+.light .textarea:hover,
+.light .select:hover,
+.light .button:hover,
+.light .btn:hover {
+  /* Усиленное свечение ТОЛЬКО по краям */
   box-shadow: 
-    0 16px 48px rgba(0, 0, 0, 0.12),
-    0 8px 24px rgba(0, 0, 0, 0.08),
-    0 4px 12px rgba(0, 0, 0, 0.04),
-    /* Усиленное свечение при наведении */
     0 0 0 2px rgba(220, 38, 38, 0.2),
     0 0 30px rgba(220, 38, 38, 0.15),
     0 0 60px rgba(220, 38, 38, 0.12);
 }
 
-/* Карточки преимуществ с постоянным свечением */
-.light .opportunity-card-specific {
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(203, 213, 225, 0.6);
-  border-radius: 16px;
-  padding: 24px;
-  position: relative;
-  overflow: hidden;
-  
-  /* Постоянное свечение по краям */
+/* СВЕЧЕНИЕ ДЛЯ ТЕМНОЙ ТЕМЫ */
+.dark .section-card,
+.dark .opportunity-card,
+.dark .faq-card,
+.dark .contact-form,
+.dark .contact-card,
+.dark .tech-spec-card,
+.dark .feature-card,
+.dark .modern-card,
+.dark .card,
+.dark .form,
+.dark .modal,
+.dark .notification,
+.dark .warning,
+.dark .error,
+.dark .success,
+.dark .table,
+.dark .blockquote,
+.dark .code,
+.dark .input,
+.dark .textarea,
+.dark .select,
+.dark .button,
+.dark .btn {
+  /* Свечение ТОЛЬКО по краям */
   box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.08),
-    0 4px 16px rgba(0, 0, 0, 0.04),
-    0 2px 8px rgba(0, 0, 0, 0.02),
-    /* Свечение по краям */
-    0 0 0 1px rgba(220, 38, 38, 0.1),
-    0 0 20px rgba(220, 38, 38, 0.08),
-    0 0 40px rgba(220, 38, 38, 0.06);
+    0 0 0 1px rgba(220, 38, 38, 0.15),
+    0 0 20px rgba(220, 38, 38, 0.12),
+    0 0 40px rgba(220, 38, 38, 0.08);
 }
 
-/* Эффект при наведении для карточек преимуществ */
-.light .opportunity-card-specific:hover {
-  transform: translateY(-4px);
+/* Усиленное свечение при наведении для темной темы */
+.dark .section-card:hover,
+.dark .opportunity-card:hover,
+.dark .faq-card:hover,
+.dark .contact-form:hover,
+.dark .contact-card:hover,
+.dark .tech-spec-card:hover,
+.dark .feature-card:hover,
+.dark .modern-card:hover,
+.dark .card:hover,
+.dark .form:hover,
+.dark .modal:hover,
+.dark .notification:hover,
+.dark .warning:hover,
+.dark .error:hover,
+.dark .success:hover,
+.dark .table:hover,
+.dark .blockquote:hover,
+.dark .code:hover,
+.dark .input:hover,
+.dark .textarea:hover,
+.dark .select:hover,
+.dark .button:hover,
+.dark .btn:hover {
+  /* Усиленное свечение ТОЛЬКО по краям */
   box-shadow: 
-    0 16px 48px rgba(0, 0, 0, 0.12),
-    0 8px 24px rgba(0, 0, 0, 0.08),
-    0 4px 12px rgba(0, 0, 0, 0.04),
-    /* Усиленное свечение при наведении */
-    0 0 0 2px rgba(220, 38, 38, 0.2),
-    0 0 30px rgba(220, 38, 38, 0.15),
-    0 0 60px rgba(220, 38, 38, 0.12);
-}
-
-/* Дополнительное внутреннее свечение для карточек */
-.light .section-card.light-card-specific::before,
-.light .opportunity-card-specific::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: radial-gradient(
-    circle at center,
-    rgba(220, 38, 38, 0.1) 0%,
-    rgba(220, 38, 38, 0.05) 30%,
-    transparent 60%
-  );
-  border-radius: inherit;
-  z-index: -1;
-  opacity: 0.8;
-  filter: blur(8px);
-}
-
-/* Усиленное внутреннее свечение при наведении */
-.light .section-card.light-card-specific:hover::before,
-.light .opportunity-card-specific:hover::before {
-  opacity: 1;
-  filter: blur(12px);
-  background: radial-gradient(
-    circle at center,
-    rgba(220, 38, 38, 0.15) 0%,
-    rgba(220, 38, 38, 0.08) 30%,
-    transparent 60%
-  );
+    0 0 0 2px rgba(220, 38, 38, 0.25),
+    0 0 30px rgba(220, 38, 38, 0.2),
+    0 0 60px rgba(220, 38, 38, 0.15);
 }
 
 /* Специальное свечение для карты */
-.light .shadow-2xl {
+.light .shadow-2xl,
+.dark .shadow-2xl {
   box-shadow: 
     0 25px 50px -12px rgba(0, 0, 0, 0.15),
     0 0 0 1px rgba(220, 38, 38, 0.1),
     0 0 30px rgba(220, 38, 38, 0.08);
 }
 
-/* Свечение для кнопок и интерактивных элементов */
+/* Свечение для кнопок */
 .light .modern-button,
-.light .submit-button {
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-  color: white;
-  border: 1px solid rgba(59, 130, 246, 0.3);
+.light .submit-button,
+.dark .modern-button,
+.dark .submit-button {
   box-shadow: 
     0 4px 15px rgba(59, 130, 246, 0.3),
-    0 2px 8px rgba(59, 130, 246, 0.2);
+    0 2px 8px rgba(59, 130, 246, 0.2),
+    0 0 0 1px rgba(220, 38, 38, 0.1),
+    0 0 20px rgba(220, 38, 38, 0.08);
 }
 
 .light .modern-button:hover,
-.light .submit-button:hover {
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+.light .submit-button:hover,
+.dark .modern-button:hover,
+.dark .submit-button:hover {
   box-shadow: 
     0 6px 20px rgba(59, 130, 246, 0.4),
-    0 4px 12px rgba(59, 130, 246, 0.3);
+    0 4px 12px rgba(59, 130, 246, 0.3),
+    0 0 0 2px rgba(220, 38, 38, 0.2),
+    0 0 30px rgba(220, 38, 38, 0.15);
 }
 
-/* Свечение для иконок в светлой теме */
+/* Свечение для иконок */
 .light .feature-icon,
-.light .tech-icon {
-  color: #dc2626;
+.light .tech-icon,
+.dark .feature-icon,
+.dark .tech-icon {
   filter: 
     drop-shadow(0 2px 4px rgba(220, 38, 38, 0.2))
     drop-shadow(0 0 10px rgba(220, 38, 38, 0.1));
 }
 
 .light .feature-icon:hover,
-.light .tech-icon:hover {
+.light .tech-icon:hover,
+.dark .feature-icon:hover,
+.dark .tech-icon:hover {
   filter: 
     drop-shadow(0 4px 8px rgba(220, 38, 38, 0.3))
     drop-shadow(0 0 20px rgba(220, 38, 38, 0.2));
 }
 
 /* Свечение для заголовков секций */
-.light .modern-section {
+.light .modern-section,
+.dark .modern-section {
   position: relative;
 }
 
-.light .modern-section::before {
+.light .modern-section::before,
+.dark .modern-section::before {
   content: '';
   position: absolute;
   top: 0;
@@ -370,7 +285,8 @@ textarea:focus {
   background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.3), transparent);
 }
 
-.light .modern-section::after {
+.light .modern-section::after,
+.dark .modern-section::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -382,17 +298,54 @@ textarea:focus {
 
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
-  .light .section-card.light-card-specific,
-  .light .opportunity-card-specific {
-    background: rgba(255, 255, 255, 0.95);
+  .light .section-card,
+  .light .opportunity-card,
+  .light .faq-card,
+  .light .contact-form,
+  .light .contact-card,
+  .light .tech-spec-card,
+  .light .feature-card,
+  .light .modern-card,
+  .light .card,
+  .light .form,
+  .light .modal,
+  .light .notification,
+  .light .warning,
+  .light .error,
+  .light .success,
+  .light .table,
+  .light .blockquote,
+  .light .code,
+  .light .input,
+  .light .textarea,
+  .light .select,
+  .light .button,
+  .light .btn,
+  .dark .section-card,
+  .dark .opportunity-card,
+  .dark .faq-card,
+  .dark .contact-form,
+  .dark .contact-card,
+  .dark .tech-spec-card,
+  .dark .feature-card,
+  .dark .modern-card,
+  .dark .card,
+  .dark .form,
+  .dark .modal,
+  .dark .notification,
+  .dark .warning,
+  .dark .error,
+  .dark .success,
+  .dark .table,
+  .dark .blockquote,
+  .dark .code,
+  .dark .input,
+  .dark .textarea,
+  .dark .select,
+  .dark .button,
+  .dark .btn {
     box-shadow: 
-      0 4px 16px rgba(0, 0, 0, 0.06),
       0 0 0 1px rgba(220, 38, 38, 0.08),
       0 0 15px rgba(220, 38, 38, 0.06);
-  }
-  
-  .light .section-card.light-card-specific::before,
-  .light .opportunity-card-specific::before {
-    filter: blur(4px);
   }
 }

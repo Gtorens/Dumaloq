@@ -2,6 +2,71 @@ import React, { useState, useCallback } from 'react';
 import { CarIcon, MountainIcon, MapPinIcon } from './IconComponents';
 import { useAppContext } from '../../contexts/AppContext';
 
+// Декоративные элементы для боковых сторон в стиле киберпанк
+const DecorativeElements: React.FC = () => (
+  <>
+    {/* Левая сторона - киберпанк геометрия */}
+    <div className="hidden xl:block absolute left-0 top-0 w-64 h-full pointer-events-none">
+      <div className="relative w-full h-full">
+        {/* Геометрические линии */}
+        <div className="absolute top-20 left-10 w-16 h-px bg-gradient-to-r from-accent-red/60 via-accent-red/40 to-transparent"></div>
+        <div className="absolute top-20 left-10 w-px h-16 bg-gradient-to-b from-accent-red/60 via-accent-red/40 to-transparent"></div>
+        
+        {/* Треугольники */}
+        <div className="absolute top-40 left-20 w-0 h-0 border-l-[6px] border-l-accent-red/35 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-60 left-8 w-0 h-0 border-r-[8px] border-r-accent-red/30 border-t-[5px] border-t-transparent border-b-[5px] border-b-transparent animate-pulse" style={{animationDelay: '2s'}}></div>
+        
+        {/* Квадраты */}
+        <div className="absolute top-80 left-16 w-5 h-5 border border-accent-red/30 rotate-45 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+        
+        {/* Диагональные линии */}
+        <div className="absolute top-32 left-24 w-14 h-px bg-accent-red/50 transform rotate-45 origin-left"></div>
+        <div className="absolute top-64 left-20 w-16 h-px bg-accent-red/40 transform -rotate-45 origin-left"></div>
+        
+        {/* Сетка */}
+        <div className="absolute top-48 left-4 w-6 h-6 border border-accent-red/25 opacity-60">
+          <div className="w-full h-px bg-accent-red/25 mt-1/2"></div>
+          <div className="w-px h-full bg-accent-red/25 ml-1/2"></div>
+        </div>
+        
+        {/* Иконки */}
+        <div className="absolute bottom-20 left-8 text-accent-red/50">
+          <MountainIcon className="w-12 h-12" />
+        </div>
+      </div>
+    </div>
+
+    {/* Правая сторона - киберпанк геометрия */}
+    <div className="hidden xl:block absolute right-0 top-0 w-64 h-full pointer-events-none">
+      <div className="relative w-full h-full">
+        {/* Геометрические линии */}
+        <div className="absolute top-24 right-12 w-12 h-px bg-gradient-to-l from-accent-red/60 via-accent-red/40 to-transparent"></div>
+        <div className="absolute top-24 right-12 w-px h-12 bg-gradient-to-b from-accent-red/60 via-accent-red/40 to-transparent"></div>
+        
+        {/* Ромбы */}
+        <div className="absolute top-48 right-8 w-4 h-4 border border-accent-red/25 rotate-45 animate-pulse" style={{animationDelay: '1.5s'}}></div>
+        <div className="absolute top-72 right-16 w-3 h-3 bg-accent-red/40 transform rotate-45 animate-pulse" style={{animationDelay: '2.5s'}}></div>
+        <div className="absolute top-88 right-10 w-4 h-4 bg-accent-red/35 transform rotate-45 animate-pulse" style={{animationDelay: '1s'}}></div>
+        
+        {/* Диагональные линии */}
+        <div className="absolute top-32 right-20 w-14 h-px bg-accent-red/50 transform -rotate-45 origin-right"></div>
+        <div className="absolute top-64 right-24 w-16 h-px bg-accent-red/40 transform rotate-45 origin-right"></div>
+        
+        {/* Сетка */}
+        <div className="absolute top-56 right-4 w-5 h-5 border border-accent-red/25 opacity-60">
+          <div className="w-full h-px bg-accent-red/25 mt-1/2"></div>
+          <div className="w-px h-full bg-accent-red/25 ml-1/2"></div>
+        </div>
+        
+        {/* Иконки */}
+        <div className="absolute bottom-24 right-8 text-accent-red/50">
+          <CarIcon className="w-12 h-12" />
+        </div>
+      </div>
+    </div>
+  </>
+);
+
 // Простая и чистая статическая SVG карта
 const StaticMap: React.FC<{ theme: string }> = React.memo(({ theme }) => (
   <svg width="100%" height="100%" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -68,6 +133,7 @@ const Location: React.FC = React.memo(() => {
 
   return (
     <section className="py-20 bg-light-background dark:bg-dark-background text-light-text dark:text-dark-text transition-colors duration-300 modern-section section-spacing">
+      <DecorativeElements />
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">{texts.location.title}</h2>
