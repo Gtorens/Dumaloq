@@ -131,7 +131,7 @@ const FAQ: React.FC = React.memo(() => {
             {texts.faq.subtitle}
           </p>
         </div>
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto faq-container">
           {texts.faq.items.map((item, index) => (
             <FAQItem
               key={index}

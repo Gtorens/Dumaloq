@@ -251,16 +251,66 @@ body {
   border: 1px solid rgba(220, 38, 38, 0.2);
   transition: all 0.3s ease;
   overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .dark .faq-card {
-  background: #2d3748; /* Светло-серый фон для темной темы */
+  background: #1f2937; /* Такой же светлый фон как у других карточек */
   border: 1px solid rgba(220, 38, 38, 0.3);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
 }
 
 .light .faq-card {
   background: white; /* Белый фон для светлой темы */
   border: 1px solid rgba(220, 38, 38, 0.2);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover эффекты для FAQ карточек */
+.faq-card:hover {
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+.dark .faq-card:hover {
+  box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+.light .faq-card:hover {
+  box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+/* Стили для FAQ контейнера */
+.faq-container {
+  padding: 2rem;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.dark .faq-container {
+  background: #1f2937; /* Такой же светлый фон как у других карточек */
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+.light .faq-container {
+  background: white; /* Белый фон для светлой темы */
+  border: 1px solid rgba(220, 38, 38, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover эффекты для FAQ контейнера */
+.faq-container:hover {
+  transform: translateY(-1px);
+  transition: all 0.3s ease;
+}
+
+.dark .faq-container:hover {
+  box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+.light .faq-container:hover {
+  box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.15);
 }
 
 /* Адаптивность */

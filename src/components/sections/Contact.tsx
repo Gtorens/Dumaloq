@@ -176,74 +176,78 @@ const ContactContent: React.FC = React.memo(() => {
     }, [formData, validateForm, texts.contact.form.submitAlert]);
     
     return (
-    <section className="py-20 section-variant-4 text-light-text dark:text-dark-text border-t-4 border-accent-red transition-colors duration-300 section-spacing bg-gray-50 dark:bg-transparent relative overflow-hidden">
+    <section className="py-24 section-variant-4 text-light-text dark:text-dark-text border-t-4 border-accent-red transition-colors duration-300 section-spacing bg-gray-50 dark:bg-transparent relative overflow-hidden">
       <ContactDecorations />
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">{texts.contact.title}</h2>
-          <p className="max-w-3xl mx-auto text-lg text-light-text-secondary dark:text-dark-text-secondary">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">{texts.contact.title}</h2>
+          <p className="max-w-3xl mx-auto text-lg text-light-text-secondary dark:text-dark-text-secondary leading-relaxed">
             {texts.contact.subtitle}
           </p>
         </div>
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
-            <Card variant="default" padding="lg" className="w-full">
-                <form onSubmit={handleSubmit} className="space-y-4">
-                    <h3 className="text-2xl font-bold mb-4 text-center">{texts.contact.form.title}</h3>
-                    <Input 
-                        type="text" 
-                        placeholder={texts.contact.form.name} 
-                        value={formData.name}
-                        onChange={(e) => handleInputChange('name', e.target.value)}
-                        error={errors.name}
-                        required 
-                        className="w-full"
-                    />
-                    <Input 
-                        type="text" 
-                        placeholder={texts.contact.form.brand} 
-                        value={formData.brand}
-                        onChange={(e) => handleInputChange('brand', e.target.value)}
-                        error={errors.brand}
-                        required 
-                        className="w-full"
-                    />
-                    <Input 
-                        type="tel" 
-                        placeholder={texts.contact.form.phone} 
-                        value={formData.phone}
-                        onChange={(e) => handleInputChange('phone', e.target.value)}
-                        error={errors.phone}
-                        required 
-                        className="w-full"
-                    />
-                    <Input 
-                        type="email" 
-                        placeholder={texts.contact.form.email} 
-                        value={formData.email}
-                        onChange={(e) => handleInputChange('email', e.target.value)}
-                        error={errors.email}
-                        required 
-                        className="w-full"
-                    />
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
+            <Card variant="default" padding="lg" className="w-full rounded-2xl shadow-xl dark:shadow-2xl">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                    <h3 className="text-2xl font-bold mb-6 text-center">{texts.contact.form.title}</h3>
+                    <div className="space-y-5">
+                        <Input 
+                            type="text" 
+                            placeholder={texts.contact.form.name} 
+                            value={formData.name}
+                            onChange={(e) => handleInputChange('name', e.target.value)}
+                            error={errors.name}
+                            required 
+                            className="w-full"
+                        />
+                        <Input 
+                            type="text" 
+                            placeholder={texts.contact.form.brand} 
+                            value={formData.brand}
+                            onChange={(e) => handleInputChange('brand', e.target.value)}
+                            error={errors.brand}
+                            required 
+                            className="w-full"
+                        />
+                        <Input 
+                            type="tel" 
+                            placeholder={texts.contact.form.phone} 
+                            value={formData.phone}
+                            onChange={(e) => handleInputChange('phone', e.target.value)}
+                            error={errors.phone}
+                            required 
+                            className="w-full"
+                        />
+                        <Input 
+                            type="email" 
+                            placeholder={texts.contact.form.email} 
+                            value={formData.email}
+                            onChange={(e) => handleInputChange('email', e.target.value)}
+                            error={errors.email}
+                            required 
+                            className="w-full"
+                        />
+                    </div>
                     <Button 
                         type="submit" 
                         variant="gradient" 
                         size="xl" 
-                        className="w-full"
+                        className="w-full mt-8"
                         disabled={isSubmitting}
                     >
                         {isSubmitting ? 'Отправка...' : texts.contact.form.submit}
                     </Button>
                 </form>
             </Card>
-            <div className="space-y-8">
-                <Card variant="default" padding="lg">
-                    <h3 className="text-2xl font-bold mb-4">{texts.contact.info.title}</h3>
-                    <p className="text-lg"><strong>{texts.contact.info.managerLabel}</strong> {texts.contact.info.managerName}</p>
-                    <p className="text-lg"><strong>{texts.contact.info.phoneLabel}</strong> <a href={`tel:${texts.contact.info.phone}`} className="hover:text-accent-red">{texts.contact.info.phone}</a></p>
-                    <p className="text-lg"><strong>{texts.contact.info.emailLabel}</strong> <a href={`mailto:${texts.contact.info.email}`} className="hover:text-accent-red">{texts.contact.info.email}</a></p>
+            <div className="space-y-10">
+                <Card variant="default" padding="lg" className="rounded-2xl shadow-xl dark:shadow-2xl">
+                    <h3 className="text-2xl font-bold mb-6">{texts.contact.info.title}</h3>
+                    <div className="space-y-4">
+                        <p className="text-lg"><strong>{texts.contact.info.managerLabel}</strong> {texts.contact.info.managerName}</p>
+                        <p className="text-lg"><strong>{texts.contact.info.phoneLabel}</strong> <a href={`tel:${texts.contact.info.phone}`} className="hover:text-accent-red transition-colors duration-200">{texts.contact.info.phone}</a></p>
+                        <p className="text-lg"><strong>{texts.contact.info.emailLabel}</strong> <a href={`mailto:${texts.contact.info.email}`} className="hover:text-accent-red transition-colors duration-200">{texts.contact.info.email}</a></p>
+                    </div>
                 </Card>
-                 <Card variant="default" padding="lg" className="flex items-center">
+                 <Card variant="default" padding="lg" className="flex items-center rounded-2xl shadow-xl dark:shadow-2xl">
                     <LazyImage 
                         src={`https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${texts.contact.qr.data}&bgcolor=F9FAFB&color=1F2937&qzone=1`}
                         alt={texts.contact.qr.alt}
@@ -256,9 +260,9 @@ const ContactContent: React.FC = React.memo(() => {
                         className="w-32 h-32 rounded-md block dark:hidden"
                         fallbackSrc="/images/qr-fallback.png"
                     />
-                    <div className="ml-6">
-                        <h3 className="text-xl font-bold">{texts.contact.qr.title}</h3>
-                        <p className="text-light-text-secondary dark:text-dark-text-secondary">{texts.contact.qr.subtitle}</p>
+                    <div className="ml-8">
+                        <h3 className="text-xl font-bold mb-3">{texts.contact.qr.title}</h3>
+                        <p className="text-light-text-secondary dark:text-dark-text-secondary leading-relaxed">{texts.contact.qr.subtitle}</p>
                     </div>
                 </Card>
             </div>
@@ -274,9 +278,9 @@ const Contact: React.FC = React.memo(() => {
   return (
     <ErrorBoundary
       fallback={
-        <div className="py-20 text-center">
-          <h2 className="text-2xl font-bold text-red-600 mb-4">Ошибка загрузки формы</h2>
-          <p className="text-gray-600">Не удалось загрузить форму обратной связи. Попробуйте обновить страницу.</p>
+        <div className="py-24 text-center">
+          <h2 className="text-2xl font-bold text-red-600 mb-6">Ошибка загрузки формы</h2>
+          <p className="text-gray-600 leading-relaxed">Не удалось загрузить форму обратной связи. Попробуйте обновить страницу.</p>
         </div>
       }
     >

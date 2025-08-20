@@ -49,12 +49,22 @@
 .tech-spec-card {
   transition: all 0.3s ease;
   border: 2px solid transparent;
+  /* Красное свечение по краям */
+  box-shadow: 
+    0 0 0 2px rgba(220, 38, 38, 0.2),
+    0 0 20px rgba(220, 38, 38, 0.15),
+    0 0 40px rgba(220, 38, 38, 0.1);
 }
 
 .tech-spec-card:hover {
   border-color: var(--accent-red);
   transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.15);
+  /* Усиленное красное свечение при наведении */
+  box-shadow: 
+    0 0 0 3px rgba(220, 38, 38, 0.4),
+    0 0 30px rgba(220, 38, 38, 0.25),
+    0 0 60px rgba(220, 38, 38, 0.15),
+    0 8px 25px rgba(220, 38, 38, 0.15);
 }
 
 /* Стили для технических характеристик в темной теме */
@@ -62,10 +72,10 @@
   box-shadow: 
     0 4px 20px rgba(0, 0, 0, 0.15),
     0 2px 10px rgba(0, 0, 0, 0.08),
-    /* Градиентное свечение по контуру */
-    0 0 0 1px var(--glow-gradient-blue),
-    0 0 20px var(--glow-gradient-blue),
-    0 0 40px var(--glow-gradient-purple) !important;
+    /* Усиленное красное свечение по краям */
+    0 0 0 2px rgba(220, 38, 38, 0.3),
+    0 0 25px rgba(220, 38, 38, 0.2),
+    0 0 50px rgba(220, 38, 38, 0.15) !important;
   position: relative;
 }
 
@@ -76,16 +86,82 @@
   left: -1px;
   right: -1px;
   bottom: -1px;
-  background: conic-gradient(
-    from 0deg,
-    var(--glow-gradient-blue) 0deg,
-    var(--glow-gradient-purple) 180deg,
-    var(--glow-gradient-blue) 360deg
+  background: radial-gradient(
+    circle at center,
+    rgba(220, 38, 38, 0.3) 0%,
+    transparent 70%
   );
   border-radius: inherit;
   z-index: -1;
-  opacity: 0.5;
-  filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dark .tech-spec-card:hover::after {
+  opacity: 0.6;
+}
+
+/* Усиленное свечение иконок при наведении на tech-spec-card в темной теме */
+.dark .tech-spec-card:hover .tech-icon {
+  filter: 
+    drop-shadow(0 4px 8px rgba(220, 38, 38, 0.7))
+    drop-shadow(0 0 35px rgba(220, 38, 38, 0.5))
+    drop-shadow(0 0 60px rgba(220, 38, 38, 0.4));
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+/* Свечение заголовков при наведении на tech-spec-card */
+.tech-spec-card:hover h3 {
+  text-shadow: 
+    0 0 10px rgba(220, 38, 38, 0.5),
+    0 0 20px rgba(220, 38, 38, 0.3),
+    0 0 30px rgba(220, 38, 38, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Свечение описаний при наведении на tech-spec-card */
+.tech-spec-card:hover p {
+  text-shadow: 
+    0 0 8px rgba(220, 38, 38, 0.4),
+    0 0 15px rgba(220, 38, 38, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Стили для технических характеристик в светлой теме */
+.light .tech-spec-card {
+  box-shadow: 
+    0 0 0 2px rgba(220, 38, 38, 0.15),
+    0 0 20px rgba(220, 38, 38, 0.1),
+    0 0 40px rgba(220, 38, 38, 0.05);
+}
+
+.light .tech-spec-card:hover {
+  box-shadow: 
+    0 0 0 3px rgba(220, 38, 38, 0.3),
+    0 0 30px rgba(220, 38, 38, 0.2),
+    0 0 60px rgba(220, 38, 38, 0.1),
+    0 8px 25px rgba(220, 38, 38, 0.15);
+}
+
+/* Специальные стили для светлой темы tech-spec-card */
+.light .tech-spec-card:hover .tech-icon {
+  filter: 
+    drop-shadow(0 4px 8px rgba(220, 38, 38, 0.5))
+    drop-shadow(0 0 25px rgba(220, 38, 38, 0.3))
+    drop-shadow(0 0 45px rgba(220, 38, 38, 0.2));
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+/* Усиленное свечение иконок при наведении на tech-spec-card */
+.tech-spec-card:hover .tech-icon {
+  filter: 
+    drop-shadow(0 4px 8px rgba(220, 38, 38, 0.6))
+    drop-shadow(0 0 30px rgba(220, 38, 38, 0.4))
+    drop-shadow(0 0 50px rgba(220, 38, 38, 0.3));
+  transform: scale(1.1);
+  transition: all 0.3s ease;
 }
 
 .dark .tech-spec-card:hover {
@@ -93,10 +169,11 @@
   box-shadow: 
     0 8px 30px rgba(0, 0, 0, 0.2),
     0 4px 15px rgba(0, 0, 0, 0.1),
-    /* Усиленное градиентное свечение при наведении */
-    0 0 0 2px var(--glow-gradient-blue),
-    0 0 30px var(--glow-gradient-blue),
-    0 0 60px var(--glow-gradient-purple) !important;
+    /* Усиленное красное свечение при наведении */
+    0 0 0 3px rgba(220, 38, 38, 0.5),
+    0 0 40px rgba(220, 38, 38, 0.3),
+    0 0 80px rgba(220, 38, 38, 0.2),
+    0 0 120px rgba(220, 38, 38, 0.15) !important;
 }
 
 .dark .tech-spec-card:hover::after {
@@ -109,14 +186,21 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 2px solid transparent;
   position: relative;
+  /* Усиленное красное свечение по краям */
+  box-shadow: 
+    0 0 0 2px rgba(220, 38, 38, 0.3),
+    0 0 25px rgba(220, 38, 38, 0.2),
+    0 0 50px rgba(220, 38, 38, 0.15);
 }
 
 .opportunity-card-specific:hover {
   transform: translateY(-4px);
+  /* Усиленное красное свечение при наведении */
   box-shadow: 
-    0 0 40px var(--glow-red-soft),
-    0 0 80px var(--glow-red-softer),
-    0 0 120px var(--glow-red-softest);
+    0 0 0 3px rgba(220, 38, 38, 0.5),
+    0 0 40px rgba(220, 38, 38, 0.3),
+    0 0 80px rgba(220, 38, 38, 0.2),
+    0 0 120px rgba(220, 38, 38, 0.1);
 }
 
 /* Дополнительный эффект свечения для карточек преимуществ */
@@ -129,7 +213,7 @@
   bottom: -2px;
   background: radial-gradient(
     circle at center,
-    var(--glow-red-soft) 0%,
+    rgba(220, 38, 38, 0.2) 0%,
     transparent 70%
   );
   border-radius: inherit;
@@ -140,6 +224,74 @@
 
 .opportunity-card-specific:hover::before {
   opacity: 1;
+}
+
+/* Усиленное свечение иконок при наведении на opportunity-card-specific */
+.opportunity-card-specific:hover .feature-icon {
+  filter: 
+    drop-shadow(0 4px 8px rgba(220, 38, 38, 0.6))
+    drop-shadow(0 0 30px rgba(220, 38, 38, 0.4))
+    drop-shadow(0 0 50px rgba(220, 38, 38, 0.3));
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+/* Свечение заголовков при наведении на opportunity-card-specific */
+.opportunity-card-specific:hover h3 {
+  text-shadow: 
+    0 0 10px rgba(220, 38, 38, 0.5),
+    0 0 20px rgba(220, 38, 38, 0.3),
+    0 0 30px rgba(220, 38, 38, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Свечение описаний при наведении на opportunity-card-specific */
+.opportunity-card-specific:hover p {
+  text-shadow: 
+    0 0 8px rgba(220, 38, 38, 0.4),
+    0 0 15px rgba(220, 38, 38, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Специальные стили для темной темы opportunity-card-specific */
+.dark .opportunity-card-specific {
+  box-shadow: 
+    0 0 0 2px rgba(220, 38, 38, 0.4),
+    0 0 30px rgba(220, 38, 38, 0.25),
+    0 0 60px rgba(220, 38, 38, 0.2);
+}
+
+.dark .opportunity-card-specific:hover {
+  box-shadow: 
+    0 0 0 3px rgba(220, 38, 38, 0.6),
+    0 0 50px rgba(220, 38, 38, 0.4),
+    0 0 100px rgba(220, 38, 38, 0.3),
+    0 0 150px rgba(220, 38, 38, 0.2);
+}
+
+.dark .opportunity-card-specific:hover .feature-icon {
+  filter: 
+    drop-shadow(0 4px 8px rgba(220, 38, 38, 0.8))
+    drop-shadow(0 0 40px rgba(220, 38, 38, 0.6))
+    drop-shadow(0 0 70px rgba(220, 38, 38, 0.5));
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+/* Специальные стили для светлой темы opportunity-card-specific */
+.light .opportunity-card-specific {
+  box-shadow: 
+    0 0 0 2px rgba(220, 38, 38, 0.25),
+    0 0 25px rgba(220, 38, 38, 0.15),
+    0 0 50px rgba(220, 38, 38, 0.1);
+}
+
+.light .opportunity-card-specific:hover {
+  box-shadow: 
+    0 0 0 3px rgba(220, 38, 38, 0.4),
+    0 0 40px rgba(220, 38, 38, 0.25),
+    0 0 80px rgba(220, 38, 38, 0.15),
+    0 0 120px rgba(220, 38, 38, 0.1);
 }
 
 /* ========================================
@@ -170,11 +322,11 @@
 .light .select,
 .light .button,
 .light .btn {
-  /* Свечение ТОЛЬКО по краям */
+  /* Усиленное красное свечение по краям */
   box-shadow: 
-    0 0 0 1px rgba(220, 38, 38, 0.1),
-    0 0 20px rgba(220, 38, 38, 0.08),
-    0 0 40px rgba(220, 38, 38, 0.06);
+    0 0 0 2px rgba(220, 38, 38, 0.2),
+    0 0 25px rgba(220, 38, 38, 0.15),
+    0 0 50px rgba(220, 38, 38, 0.1);
 }
 
 /* Усиленное свечение при наведении для светлой темы */
@@ -232,11 +384,11 @@
 .dark .select,
 .dark .button,
 .dark .btn {
-  /* Свечение ТОЛЬКО по краям */
+  /* Усиленное красное свечение по краям */
   box-shadow: 
-    0 0 0 1px rgba(220, 38, 38, 0.15),
-    0 0 20px rgba(220, 38, 38, 0.12),
-    0 0 40px rgba(220, 38, 38, 0.08);
+    0 0 0 2px rgba(220, 38, 38, 0.25),
+    0 0 25px rgba(220, 38, 38, 0.2),
+    0 0 50px rgba(220, 38, 38, 0.15);
 }
 
 /* Усиленное свечение при наведении для темной темы */
@@ -265,9 +417,10 @@
 .dark .btn:hover {
   /* Усиленное свечение ТОЛЬКО по краям */
   box-shadow: 
-    0 0 0 2px rgba(220, 38, 38, 0.25),
-    0 0 30px rgba(220, 38, 38, 0.2),
-    0 0 60px rgba(220, 38, 38, 0.15);
+    0 0 0 3px rgba(220, 38, 38, 0.4),
+    0 0 40px rgba(220, 38, 38, 0.3),
+    0 0 80px rgba(220, 38, 38, 0.2),
+    0 0 120px rgba(220, 38, 38, 0.15);
 }
 
 /* Специальное свечение для карты */
@@ -308,8 +461,9 @@
 .dark .feature-icon,
 .dark .tech-icon {
   filter: 
-    drop-shadow(0 2px 4px rgba(220, 38, 38, 0.2))
-    drop-shadow(0 0 10px rgba(220, 38, 38, 0.1));
+    drop-shadow(0 2px 4px rgba(220, 38, 38, 0.3))
+    drop-shadow(0 0 15px rgba(220, 38, 38, 0.2))
+    drop-shadow(0 0 25px rgba(220, 38, 38, 0.1));
 }
 
 .light .feature-icon:hover,
@@ -317,8 +471,9 @@
 .dark .feature-icon:hover,
 .dark .tech-icon:hover {
   filter: 
-    drop-shadow(0 4px 8px rgba(220, 38, 38, 0.3))
-    drop-shadow(0 0 20px rgba(220, 38, 38, 0.2));
+    drop-shadow(0 4px 8px rgba(220, 38, 38, 0.5))
+    drop-shadow(0 0 25px rgba(220, 38, 38, 0.3))
+    drop-shadow(0 0 40px rgba(220, 38, 38, 0.2));
 }
 
 /* Свечение для заголовков секций */

@@ -66,12 +66,16 @@ const TechSpecsDecorations: React.FC = () => (
 );
 
 const SpecItem: React.FC<{ icon: React.ReactNode; title: string; description: string }> = React.memo(({ icon, title, description }) => (
-  <div className="section-card tech-spec-card">
-    <div className="flex flex-col items-center text-center mb-4">
-      <div className="mb-4">{icon}</div>
-      <h3 className="text-xl font-bold text-light-text dark:text-dark-text">{title}</h3>
+  <div className="section-card tech-spec-card group relative overflow-hidden shadow-[0_0_0_1px_rgba(220,38,38,0.2)] dark:shadow-[0_0_0_1px_rgba(220,38,38,0.3)] transition-all duration-300">
+
+    
+    <div className="relative z-10 p-6">
+      <div className="flex flex-col items-center text-center mb-4">
+        <div className="mb-4 group-hover:scale-110 transition-transform duration-300">{icon}</div>
+        <h3 className="text-xl font-bold text-light-text dark:text-dark-text group-hover:text-red-500 transition-colors duration-300">{title}</h3>
+      </div>
+              <p className="text-light-text-secondary dark:text-dark-text-secondary text-center group-hover:text-red-400 transition-colors duration-300">{description}</p>
     </div>
-    <p className="text-light-text-secondary dark:text-dark-text-secondary text-center">{description}</p>
   </div>
  ));
 
