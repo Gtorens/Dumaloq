@@ -1,0 +1,338 @@
+/* БЛОКИ ЭТАЖЕЙ С НАЛОЖЕНИЕМ - 4 БОЛЬШИХ БЛОКА */
+
+/* Основные настройки для всех изображений */
+img {
+  max-width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+}
+
+/* Логотипы - нормальный размер */
+.logo img,
+.logo svg,
+img[alt*="logo"],
+img[alt*="Logo"],
+img[alt*="KFC"],
+img[alt*="Korzinka"],
+img[alt*="Sinsay"] {
+  max-width: 120px !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+/* Блоки этажей - большие изображения с наложением */
+.floor-block {
+  position: relative !important;
+  width: 100% !important;
+  height: 400px !important;
+  margin-bottom: 32px !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+}
+
+.floor-image-bg {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+.floor-overlay {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  ) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  padding: 32px !important;
+  color: white !important;
+}
+
+/* Полупрозрачный блок для текста */
+.floor-text-block {
+  background: rgba(255, 255, 255, 0.05) !important;
+  padding: 16px !important;
+  border-radius: 0 !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  max-width: 80% !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+  position: absolute !important;
+  bottom: 32px !important;
+  left: 32px !important;
+  z-index: 5 !important;
+}
+
+.floor-number {
+  position: absolute !important;
+  top: 16px !important; /* Уменьшено с 24px */
+  right: 16px !important; /* Изменено с left на right */
+  width: 60px !important;
+  height: 60px !important;
+  background: #DC2626 !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 24px !important;
+  font-weight: bold !important;
+  color: white !important;
+  z-index: 10 !important;
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.4) !important; /* Добавлена тень */
+}
+
+.floor-title {
+  font-size: 28px !important;
+  font-weight: bold !important;
+  margin-bottom: 16px !important;
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+.floor-description {
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 20px !important;
+  color: #ffffff !important;
+  text-shadow: none !important;
+  max-width: 80% !important;
+}
+
+.floor-logos {
+  display: flex !important;
+  gap: 16px !important;
+  align-items: center !important;
+}
+
+.floor-logo {
+  width: 40px !important;
+  height: 40px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 8px !important;
+  padding: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.floor-logo img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+/* Мобильные устройства - ОПТИМИЗИРОВАНО */
+@media (max-width: 768px) {
+  .floor-block {
+    height: 220px !important; /* Уменьшено с 300px */
+    margin-bottom: 16px !important; /* Уменьшено с 24px */
+    border-radius: 10px !important; /* Уменьшено с 12px */
+  }
+  
+  .floor-overlay {
+    padding: 16px !important; /* Уменьшено с 24px */
+  }
+  
+  .floor-text-block {
+    padding: 10px !important; /* Уменьшено с 12px */
+    border-radius: 0 !important;
+    max-width: 85% !important; /* Увеличено для лучшей читаемости */
+    margin-bottom: 12px !important; /* Уменьшено с 16px */
+    background: rgba(255, 255, 255, 0.05) !important;
+    bottom: 16px !important; /* Уменьшено с 24px */
+    left: 16px !important; /* Уменьшено с 24px */
+  }
+  
+  .floor-number {
+    top: 12px !important; /* Уменьшено с 16px */
+    right: 12px !important; /* Изменено с left на right */
+    width: 40px !important; /* Уменьшено с 50px */
+    height: 40px !important; /* Уменьшено с 50px */
+    font-size: 16px !important; /* Уменьшено с 20px */
+  }
+  
+  .floor-title {
+    font-size: 18px !important; /* Уменьшено с 24px */
+    margin-bottom: 8px !important; /* Уменьшено с 12px */
+  }
+  
+  .floor-description {
+    font-size: 12px !important; /* Уменьшено с 14px */
+    margin-bottom: 10px !important; /* Уменьшено с 16px */
+    max-width: 95% !important;
+    line-height: 1.4 !important; /* Уменьшено для компактности */
+  }
+  
+  .floor-logos {
+    gap: 8px !important; /* Уменьшено с 12px */
+  }
+  
+  .floor-logo {
+    width: 24px !important; /* Уменьшено с 32px */
+    height: 24px !important; /* Уменьшено с 32px */
+    padding: 4px !important; /* Уменьшено с 6px */
+  }
+}
+
+/* Очень маленькие экраны - ДОПОЛНИТЕЛЬНО ОПТИМИЗИРОВАНО */
+@media (max-width: 480px) {
+  .floor-block {
+    height: 180px !important; /* Уменьшено с 250px */
+    margin-bottom: 12px !important; /* Уменьшено с 20px */
+    border-radius: 8px !important; /* Уменьшено с 10px */
+  }
+  
+  .floor-overlay {
+    padding: 12px !important; /* Уменьшено с 20px */
+  }
+  
+  .floor-text-block {
+    padding: 8px !important; /* Уменьшено с 10px */
+    border-radius: 0 !important;
+    max-width: 90% !important; /* Увеличено для лучшей читаемости */
+    margin-bottom: 8px !important; /* Уменьшено с 14px */
+    background: rgba(255, 255, 255, 0.05) !important;
+    bottom: 12px !important; /* Уменьшено с 20px */
+    left: 12px !important; /* Уменьшено с 20px */
+  }
+  
+  .floor-number {
+    top: 8px !important; /* Уменьшено с 12px */
+    right: 8px !important; /* Изменено с left на right */
+    width: 32px !important; /* Уменьшено с 44px */
+    height: 32px !important; /* Уменьшено с 44px */
+    font-size: 14px !important; /* Уменьшено с 18px */
+  }
+  
+  .floor-title {
+    font-size: 16px !important; /* Уменьшено с 20px */
+    margin-bottom: 6px !important; /* Уменьшено с 10px */
+  }
+  
+  .floor-description {
+    font-size: 11px !important; /* Уменьшено с 13px */
+    margin-bottom: 8px !important; /* Уменьшено с 14px */
+    max-width: 98% !important;
+    line-height: 1.3 !important; /* Уменьшено для компактности */
+  }
+  
+  .floor-logos {
+    gap: 6px !important; /* Уменьшено с 10px */
+  }
+  
+  .floor-logo {
+    width: 20px !important; /* Уменьшено с 28px */
+    height: 20px !important; /* Уменьшено с 28px */
+    padding: 3px !important; /* Уменьшено с 5px */
+  }
+}
+
+/* ПК версия */
+@media (min-width: 1024px) {
+  .floor-block {
+    height: 500px !important;
+    margin-bottom: 40px !important;
+    border-radius: 20px !important;
+  }
+  
+  .floor-overlay {
+    padding: 40px !important;
+  }
+  
+  .floor-text-block {
+    padding: 20px !important;
+    border-radius: 0 !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    bottom: 40px !important;
+    left: 40px !important;
+  }
+  
+  .floor-number {
+    top: 32px !important;
+    right: 32px !important; /* Изменено с left на right */
+    width: 72px !important;
+    height: 72px !important;
+    font-size: 28px !important;
+  }
+  
+  .floor-title {
+    font-size: 32px !important;
+    margin-bottom: 20px !important;
+  }
+  
+  .floor-description {
+    font-size: 18px !important;
+    margin-bottom: 24px !important;
+    max-width: 75% !important;
+  }
+  
+  .floor-logos {
+    gap: 20px !important;
+  }
+  
+  .floor-logo {
+    width: 48px !important;
+    height: 48px !important;
+    padding: 10px !important;
+  }
+}
+
+/* Планшеты */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .floor-block {
+    height: 400px !important;
+    margin-bottom: 32px !important;
+    border-radius: 18px !important;
+  }
+  
+  .floor-overlay {
+    padding: 32px !important;
+  }
+  
+  .floor-text-block {
+    padding: 18px !important;
+    border-radius: 0 !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    bottom: 32px !important;
+    left: 32px !important;
+  }
+  
+  .floor-number {
+    top: 24px !important;
+    right: 24px !important; /* Изменено с left на right */
+    width: 60px !important;
+    height: 60px !important;
+    font-size: 24px !important;
+  }
+  
+  .floor-title {
+    font-size: 28px !important;
+    margin-bottom: 16px !important;
+  }
+  
+  .floor-description {
+    font-size: 16px !important;
+    margin-bottom: 20px !important;
+    max-width: 80% !important;
+  }
+  
+  .floor-logos {
+    gap: 16px !important;
+  }
+  
+  .floor-logo {
+    width: 40px !important;
+    height: 40px !important;
+    padding: 8px !important;
+  }
+}

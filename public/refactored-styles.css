@@ -1,0 +1,403 @@
+/* REFACTORED STYLES - HIGH SPECIFICITY SELECTORS */
+/* This file will gradually replace !important usage with proper CSS specificity */
+
+/* Phase 1: Critical Layout Styles - SAFE TO IMPLEMENT */
+
+/* Body and HTML base styles with high specificity */
+html body.dumoloq-app {
+  background: #1a1d23;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html body.dumoloq-app.light {
+  background: #f8fafc;
+}
+
+/* Theme-based background utilities with high specificity */
+.dumoloq-app .bg-light-background {
+  background: #f8fafc;
+}
+
+.dumoloq-app .bg-light-primary {
+  background: #ffffff;
+}
+
+.dumoloq-app .bg-dark-background {
+  background: #1a1d23;
+}
+
+.dumoloq-app .bg-dark-primary {
+  background: #1f2329;
+}
+
+.dumoloq-app.dark .bg-light-background {
+  background: #1a1d23;
+}
+
+.dumoloq-app.dark .bg-light-primary {
+  background: #1f2329;
+}
+
+/* Section variants with high specificity */
+.dumoloq-app .section-variant-1 {
+  background: #f1f5f9;
+}
+
+.dumoloq-app .section-variant-2 {
+  background: #f8fafc;
+}
+
+.dumoloq-app .section-variant-3 {
+  background: #e2e8f0;
+}
+
+.dumoloq-app .section-variant-4 {
+  background: #f0f4f8;
+}
+
+.dumoloq-app.dark .section-variant-1 {
+  background: #1a1d23;
+}
+
+.dumoloq-app.dark .section-variant-2 {
+  background: #1f2329;
+}
+
+.dumoloq-app.dark .section-variant-3 {
+  background: #161a20;
+}
+
+.dumoloq-app.dark .section-variant-4 {
+  background: #1c2026;
+}
+
+/* Modern button with high specificity - CRITICAL COMPONENT */
+.dumoloq-app .modern-button {
+  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+  border: none;
+  border-radius: 16px;
+  padding: 16px 32px;
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.3);
+  cursor: pointer;
+}
+
+.dumoloq-app .modern-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.4);
+  background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%);
+}
+
+/* Modern card with high specificity */
+.dumoloq-app .modern-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dumoloq-app .modern-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Section spacing with high specificity */
+.dumoloq-app .section-spacing {
+  padding: 80px 0;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .dumoloq-app .section-spacing {
+    padding: 40px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .dumoloq-app .section-spacing {
+    padding: 24px 0;
+  }
+}
+
+/* Animation classes with high specificity */
+.dumoloq-app .animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.dumoloq-app .animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.dumoloq-app .animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Keyframe animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Light theme overrides for modern components */
+.dumoloq-app.light .modern-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+/* Floor image containers with high specificity - CRITICAL FOR LAYOUT */
+.dumoloq-app .floor-image-container {
+  width: 100%;
+  height: auto;
+  min-height: unset;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+.dumoloq-app .floor-image {
+  width: 100%;
+  height: auto;
+  min-height: unset;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+}
+
+.dumoloq-app.dark .floor-image-container {
+  border-color: #374151;
+}
+
+.dumoloq-app.dark .floor-image {
+  filter: brightness(0.8) contrast(1.1);
+}
+
+/* Contact Form Styles - Adaptive for Light/Dark Themes */
+.dumoloq-app .contact-form {
+  background: rgba(51, 65, 85, 0.5);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+/* Form container with proper padding */
+.dumoloq-app .section-card form {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* Form input fields - full width */
+.dumoloq-app .form-input {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  background: rgba(71, 85, 105, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  margin: 0;
+}
+
+/* Placeholder styles */
+.dumoloq-app .form-input::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-weight: 500;
+}
+
+.dumoloq-app.light .form-input::placeholder {
+  color: rgba(75, 85, 99, 0.9) !important;
+  font-weight: 500;
+}
+
+.dumoloq-app.light .form-input {
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  color: #1f2937;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dumoloq-app .form-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.dumoloq-app.light .form-input::placeholder {
+  color: rgba(75, 85, 99, 0.9);
+  font-weight: 500;
+}
+
+.dumoloq-app .form-input:focus {
+  outline: none;
+  border-color: #DC2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.dumoloq-app.light .form-input:focus {
+  outline: none;
+  border-color: #DC2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2), 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Form button - full width */
+.dumoloq-app .form-button {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 16px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0;
+}
+
+.dumoloq-app .form-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.4);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Form title inside section-card */
+.dumoloq-app .section-card h3 {
+  color: white;
+}
+
+.dumoloq-app.light .section-card h3 {
+  color: #1f2937;
+}
+
+
+
+/* Error text colors inside section-card */
+.dumoloq-app .section-card .text-red-400 {
+  color: #f87171;
+  font-weight: 500;
+}
+
+.dumoloq-app.light .section-card .text-red-400 {
+  color: #dc2626;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact info cards */
+.dumoloq-app .section-card {
+  background: rgba(51, 65, 85, 0.5);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 32px 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  color: white;
+  box-sizing: border-box;
+}
+
+/* Floor plans section card */
+.dumoloq-app .section-card.md\:rounded-tr-lg {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.dumoloq-app.light .section-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  color: #1f2937;
+}
+
+.dumoloq-app .qr-code-card {
+  background: rgba(51, 65, 85, 0.5);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.dumoloq-app.light .qr-code-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  color: #1f2937;
+}
+
+/* Link styles in contact cards */
+.dumoloq-app .section-card a,
+.dumoloq-app .qr-code-card a {
+  color: #f87171;
+  transition: color 0.3s ease;
+}
+
+.dumoloq-app .section-card a:hover,
+.dumoloq-app .qr-code-card a:hover {
+  color: #dc2626;
+}
+
+.dumoloq-app.light .section-card a,
+.dumoloq-app.light .qr-code-card a {
+  color: #dc2626;
+}
+
+.dumoloq-app.light .section-card a:hover,
+.dumoloq-app.light .qr-code-card a:hover {
+  color: #b91c1c;
+}

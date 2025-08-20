@@ -1,0 +1,169 @@
+import React, { useState, useCallback } from 'react';
+import { useAppContext } from '../../contexts/AppContext';
+import { ChevronDownIcon } from './IconComponents';
+import SEO from '../ui/SEO';
+
+// Декоративные элементы для секции FAQ в стиле киберпанк
+const FAQDecorations: React.FC = () => (
+  <>
+    {/* Левая сторона - киберпанк геометрия */}
+    <div className="hidden xl:block absolute left-0 top-0 w-64 h-full pointer-events-none">
+      <div className="relative w-full h-full">
+        {/* Геометрические линии */}
+        <div className="absolute top-20 left-12 w-20 h-px bg-gradient-to-r from-accent-red/60 via-accent-red/40 to-transparent"></div>
+        <div className="absolute top-20 left-12 w-px h-20 bg-gradient-to-b from-accent-red/60 via-accent-red/40 to-transparent"></div>
+        
+        {/* Треугольники */}
+        <div className="absolute top-52 left-8 w-0 h-0 border-l-[8px] border-l-accent-red/25 border-t-[5px] border-t-transparent border-b-[5px] border-b-transparent animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-24 left-16 w-0 h-0 border-r-[8px] border-r-accent-red/20 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent animate-pulse" style={{animationDelay: '2s'}}></div>
+        
+        {/* Квадраты */}
+        <div className="absolute top-40 left-20 w-6 h-6 border border-accent-red/30 rotate-45 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+        
+        {/* Вопросительные знаки */}
+        <div className="absolute top-1/4 left-14 text-accent-red/60 text-2xl animate-pulse">?</div>
+        <div className="absolute bottom-1/3 left-10 text-accent-red/50 text-xl animate-pulse" style={{animationDelay: '1.5s'}}>?</div>
+        
+        {/* Диагональные линии */}
+        <div className="absolute top-28 left-24 w-16 h-px bg-accent-red/50 transform rotate-45 origin-left"></div>
+        <div className="absolute bottom-16 left-20 w-18 h-px bg-accent-red/40 transform -rotate-45 origin-left"></div>
+        
+        {/* Сетка */}
+        <div className="absolute top-36 left-4 w-8 h-8 border border-accent-red/25 opacity-60">
+          <div className="w-full h-px bg-accent-red/25 mt-1/2"></div>
+          <div className="w-px h-full bg-accent-red/25 ml-1/2"></div>
+        </div>
+      </div>
+    </div>
+
+    {/* Правая сторона - киберпанк геометрия */}
+    <div className="hidden xl:block absolute right-0 top-0 w-64 h-full pointer-events-none">
+      <div className="relative w-full h-full">
+        {/* Геометрические линии */}
+        <div className="absolute top-16 right-10 w-18 h-px bg-gradient-to-l from-accent-red/60 via-accent-red/40 to-transparent"></div>
+        <div className="absolute top-16 right-10 w-px h-18 bg-gradient-to-b from-accent-red/60 via-accent-red/40 to-transparent"></div>
+        
+        {/* Ромбы */}
+        <div className="absolute top-56 right-14 w-5 h-5 border border-accent-red/30 rotate-45 animate-pulse" style={{animationDelay: '1.5s'}}></div>
+        <div className="absolute bottom-20 right-8 w-4 h-4 bg-accent-red/35 transform rotate-45 animate-pulse" style={{animationDelay: '2.5s'}}></div>
+        <div className="absolute top-44 right-16 w-5 h-5 bg-accent-red/25 transform rotate-45 animate-pulse" style={{animationDelay: '1s'}}></div>
+        
+        {/* Вопросительные знаки */}
+        <div className="absolute top-1/3 right-12 text-accent-red/60 text-2xl animate-pulse" style={{animationDelay: '0.8s'}}>?</div>
+        <div className="absolute bottom-1/4 right-16 text-accent-red/50 text-xl animate-pulse" style={{animationDelay: '2.2s'}}>?</div>
+        
+        {/* Диагональные линии */}
+        <div className="absolute top-24 right-20 w-16 h-px bg-accent-red/50 transform -rotate-45 origin-right"></div>
+        <div className="absolute bottom-24 right-24 w-18 h-px bg-accent-red/40 transform rotate-45 origin-right"></div>
+        
+        {/* Сетка */}
+        <div className="absolute top-48 right-4 w-6 h-6 border border-accent-red/25 opacity-60">
+          <div className="w-full h-px bg-accent-red/25 mt-1/2"></div>
+          <div className="w-px h-full bg-accent-red/25 ml-1/2"></div>
+        </div>
+      </div>
+    </div>
+  </>
+);
+
+const FAQItem: React.FC<{ question: string; answer: string; isOpen: boolean; onToggle: () => void; index: number }> = React.memo(({ question, answer, isOpen, onToggle, index }) => (
+  <div 
+    className="faq-card mb-4"
+    itemScope
+    itemProp="mainEntity"
+    itemType="https://schema.org/Question"
+  >
+    <button
+      onClick={onToggle}
+      className="w-full flex justify-between items-center text-left p-6"
+      aria-expanded={isOpen}
+      aria-controls={`faq-answer-${index}`}
+    >
+      <h3 
+        className="text-xl font-semibold text-light-text dark:text-dark-text pr-4"
+        itemProp="name"
+      >
+        {question}
+      </h3>
+      <ChevronDownIcon className={`w-6 h-6 text-accent-red transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+    </button>
+    {isOpen && (
+      <div 
+        className="px-6 pb-6"
+        id={`faq-answer-${index}`}
+        itemScope
+        itemProp="acceptedAnswer"
+        itemType="https://schema.org/Answer"
+      >
+        <p 
+          className="text-light-text-secondary dark:text-dark-text-secondary leading-relaxed"
+          itemProp="text"
+        >
+          {answer}
+        </p>
+      </div>
+    )}
+  </div>
+));
+
+const FAQ: React.FC = React.memo(() => {
+  const { texts } = useAppContext();
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const handleToggle = useCallback((index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  }, [openIndex]);
+
+  return (
+    <>
+      <SEO 
+        title="FAQ - Часто задаваемые вопросы | ТРЦ Dumoloq"
+        description="Ответы на часто задаваемые вопросы об аренде помещений в ТРЦ Dumoloq. Условия аренды, цены, процесс бронирования."
+        keywords="FAQ ТРЦ Dumoloq, вопросы аренда, условия аренды, цены помещений, процесс бронирования"
+        type="website"
+      />
+      
+      <section 
+        id="faq" 
+        className="py-20 section-variant-3 transition-colors duration-300 modern-section section-spacing relative overflow-hidden"
+        itemScope
+        itemType="https://schema.org/FAQPage"
+      >
+        <FAQDecorations />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-12">
+            <h2 
+              className="text-4xl md:text-5xl font-bold text-light-text dark:text-dark-text mb-4"
+              itemProp="name"
+            >
+              {texts.faq.title}
+            </h2>
+            <p 
+              className="text-xl text-light-text-secondary dark:text-dark-text-secondary max-w-3xl mx-auto"
+              itemProp="description"
+            >
+              {texts.faq.subtitle}
+            </p>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            {texts.faq.items.map((item, index) => (
+              <FAQItem
+                key={index}
+                question={item.question}
+                answer={item.answer}
+                isOpen={openIndex === index}
+                onToggle={() => handleToggle(index)}
+                index={index}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+});
+
+FAQItem.displayName = 'FAQItem';
+FAQ.displayName = 'FAQ';
+
+export default FAQ;
