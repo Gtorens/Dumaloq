@@ -312,9 +312,9 @@ export const getBundleSize = (): void => {
     const resources = performance.getEntriesByType('resource');
     const jsResources = resources.filter(resource => 
       resource.name.includes('.js') || resource.name.includes('.mjs')
-    );
+    ) as PerformanceResourceTiming[];
     
-    const totalJS = jsResources.reduce((total, resource) => total + resource.transferSize, 0);
+    const totalJS = jsResources.reduce((total, resource) => total + (resource.transferSize || 0), 0);
     console.log(`📦 Total JS bundle size: ${(totalJS / 1024).toFixed(2)}KB`);
   }
 };
