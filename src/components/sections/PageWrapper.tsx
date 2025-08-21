@@ -1,16 +1,30 @@
-import React, { useRef } from 'react';
+import React, { useRef, Suspense, lazy } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Hero from './Hero';
 import Location from './Location';
 import FloorsOverview from './Anchors';
-import FloorPlans from './FloorPlans';
-import TechnicalSpecs from './TechnicalSpecs';
 import Contact from './Contact';
 import Opportunities from './Opportunities';
 import Atmosphere from './Atmosphere';
-import RentalConditions from './RentalConditions';
-import FAQ from './FAQ';
+
+// Lazy load non-critical components
+const LazyFloorPlans = lazy(() => import('./FloorPlans'));
+const LazyTechnicalSpecs = lazy(() => import('./TechnicalSpecs'));
+const LazyRentalConditions = lazy(() => import('./RentalConditions'));
+const LazyFAQ = lazy(() => import('./FAQ'));
+
+// Loading component for lazy-loaded sections
+const SectionLoader: React.FC = () => (
+  <div className="py-20 bg-light-background dark:bg-dark-background">
+    <div className="container mx-auto px-4">
+      <div className="animate-pulse">
+        <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded w-1/3 mx-auto mb-4"></div>
+        <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/2 mx-auto"></div>
+      </div>
+    </div>
+  </div>
+);
 
 const PageWrapper: React.FC = () => {
     const floorPlansRef = useRef<HTMLDivElement>(null);
@@ -41,12 +55,20 @@ const PageWrapper: React.FC = () => {
                 <Atmosphere />
                 <section id="plans">
                     <div ref={floorPlansRef}>
-                        <FloorPlans />
+                        <Suspense fallback={<SectionLoader />}>
+                            <LazyFloorPlans />
+                        </Suspense>
                     </div>
                 </section>
-                <TechnicalSpecs />
-                <RentalConditions onCTAClick={scrollToContact} />
-                <FAQ />
+                <Suspense fallback={<SectionLoader />}>
+                    <LazyTechnicalSpecs />
+                </Suspense>
+                <Suspense fallback={<SectionLoader />}>
+                    <LazyRentalConditions onCTAClick={scrollToContact} />
+                </Suspense>
+                <Suspense fallback={<SectionLoader />}>
+                    <LazyFAQ />
+                </Suspense>
                 <section id="contacts">
                     <div ref={contactRef}>
                         <Contact />
