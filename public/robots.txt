@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://dumaloq.uz/sitemap.xml
+
+# Disallow admin areas (if any)
+Disallow: /admin/
+Disallow: /api/
+
+# Allow important pages
+Allow: /
+Allow: /about/
+Allow: /floors/
+Allow: /contact/
+
+# Crawl delay (optional)
+Crawl-delay: 1

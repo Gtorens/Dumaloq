@@ -2,55 +2,91 @@
 <html lang="ru" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dumoloq TRC - Аренда коммерческих площадей</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
+    
+    <!-- Мобильные оптимизации -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Dumoloq TRC">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    
+    <!-- Performance оптимизации -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    
+    <!-- Оптимизация для мобильных браузеров -->
+    <meta name="screen-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="browsermode" content="application">
+    
+    <!-- Основные SEO мета-теги -->
+    <title>ТРЦ Dumoloq - Аренда коммерческих помещений в Ташкенте | Премиум локации</title>
+    <meta name="description" content="Аренда коммерческих помещений в ТРЦ Dumoloq. Выгодные условия, премиум локации, высокий трафик. Забронируйте лучшее место для вашего бизнеса в Ташкенте!" />
+    <meta name="keywords" content="ТРЦ Dumoloq, аренда помещений, коммерческая недвижимость, торговый центр, Ташкент, Узбекистан, аренда магазинов, бизнес помещения, торговые площади" />
+    <meta name="author" content="Dumoloq TRC" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="business.business" />
+    <meta property="og:title" content="ТРЦ Dumoloq - Аренда коммерческих помещений в Ташкенте" />
+    <meta property="og:description" content="Аренда коммерческих помещений в ТРЦ Dumoloq. Выгодные условия, премиум локации, высокий трафик." />
+    <meta property="og:image" content="/images/hero-building.jpg" />
+    <meta property="og:url" content="https://dumaloq.uz" />
+    <meta property="og:site_name" content="Dumoloq TRC" />
+    <meta property="og:locale" content="ru_RU" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ТРЦ Dumoloq - Аренда коммерческих помещений" />
+    <meta name="twitter:description" content="Аренда коммерческих помещений в ТРЦ Dumoloq. Премиум локации для вашего бизнеса." />
+    <meta name="twitter:image" content="/images/hero-building.jpg" />
+    
+    <!-- Дополнительные SEO мета-теги -->
+    <meta name="geo.region" content="UZ-TA" />
+    <meta name="geo.placename" content="Ташкент" />
+    <meta name="geo.position" content="41.2995;69.2401" />
+    <meta name="ICBM" content="41.2995, 69.2401" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://dumaloq.uz" />
+    
+    <!-- Favicon и иконки -->
+    <link rel="icon" type="image/svg+xml" href="/apple-touch-icon.svg" />
+    <link rel="apple-touch-icon" sizes="any" href="/apple-touch-icon.svg" />
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#dc2626" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Dumoloq TRC" />
+    
+    <!-- Preconnect для оптимизации загрузки -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://api.qrserver.com">
+    
+    <!-- DNS Prefetch для раннего разрешения DNS -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//api.qrserver.com">
+    <link rel="dns-prefetch" href="//esm.sh">
+    
+    <!-- Preload критических ресурсов -->
+    <link rel="preload" href="/images/hero-building.jpg" as="image" />
+    <link rel="preload" href="/src/styles/globals.css" as="style" />
+    
+    <!-- Правильный импорт шрифтов -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-            },
-            colors: {
-              // Light Theme
-              'light-background': '#F9FAFB', // gray-50
-              'light-primary': '#FFFFFF',
-              'light-text': '#1F2937', // slate-800
-              'light-text-secondary': '#6B7280', // gray-500
-              
-              // Dark Theme
-              'dark-background': '#111827', // A softer, deep blue-gray
-              'dark-primary': '#1F2937', // slate-800
-              'dark-text': '#F3F4F6', // gray-100
-              'dark-text-secondary': '#9CA3AF', // gray-400
+    
+    <!-- Prefetch для следующих страниц/ресурсов -->
+    <link rel="prefetch" href="/images/floor-1.jpg" as="image" />
+    <link rel="prefetch" href="/images/floor-2.jpg" as="image" />
+    <link rel="prefetch" href="/images/floor-3.jpg" as="image" />
+    
 
-              // Accents
-              'accent-red': '#DC2626',
-              'accent-green': '#16A34A',
-            },
-            animation: {
-              'fade-in-up': 'fadeInUp 1s ease-out forwards',
-              'fade-in': 'fadeIn 1.5s ease-out forwards',
-            },
-            keyframes: {
-              fadeInUp: {
-                '0%': { opacity: '0', transform: 'translateY(20px)' },
-                '100%': { opacity: '1', transform: 'translateY(0)' },
-              },
-              fadeIn: {
-                '0%': { opacity: '0' },
-                '100%': { opacity: '1' },
-              }
-            }
-          }
-        }
-      }
-    </script>
   <script type="importmap">
 {
   "imports": {
@@ -61,14 +97,11 @@
 }
 </script>
 <link rel="stylesheet" href="/index.css">
-<link rel="stylesheet" href="/hero-styles.css">
-<link rel="stylesheet" href="/enhanced-light-theme.css">
 <link rel="stylesheet" href="/floor-images.css">
-<link rel="stylesheet" href="/global-scroll.css">
-<link rel="stylesheet" href="/custom-styles.css">
+
 </head>
-  <body class="bg-light-background dark:bg-dark-background text-light-text dark:text-dark-text transition-colors duration-300">
+  <body class="text-light-text dark:text-dark-text transition-colors duration-300">
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
+    <script type="module" src="/src/index.tsx"></script>
   </body>
 </html>

@@ -1,0 +1,245 @@
+import React, { forwardRef, ButtonHTMLAttributes, useState, useCallback, useEffect } from 'react';
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger' | 'success' | 'warning' | 'gradient';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  loading?: boolean;
+  leftIcon?: React.ReactNode;
+  rightIcon?: React.ReactNode;
+  children: React.ReactNode;
+  fullWidth?: boolean;
+  rounded?: 'sm' | 'md' | 'lg' | 'full';
+  ripple?: boolean;
+  hapticFeedback?: boolean; // Новое: haptic feedback
+  mobileOptimized?: boolean; // Новое: мобильная оптимизация
+}
+
+// Хэлпер для haptic feedback
+const triggerHapticFeedback = (type: 'light' | 'medium' | 'heavy' = 'light') => {
+  if ('vibrate' in navigator) {
+    // Мобильная вибрация
+    switch (type) {
+      case 'light':
+        navigator.vibrate(10);
+        break;
+      case 'medium':
+        navigator.vibrate(20);
+        break;
+      case 'heavy':
+        navigator.vibrate([30, 10, 30]);
+        break;
+    }
+  }
+  // Для iOS Safari (Web Haptics API)
+  if ('ontouchstart' in window && 'DeviceMotionEvent' in window) {
+    try {
+      // iOS Haptics API - типизация через any
+      const windowWithHaptics = window as any;
+      if (windowWithHaptics.TapticEngine) {
+        windowWithHaptics.TapticEngine.impact({ style: type });
+      }
+    } catch (e) {
+      // Обработка ошибок
+    }
+  }
+};
+
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ 
+    variant = 'primary', 
+    size = 'md', 
+    loading = false,
+    leftIcon,
+    rightIcon,
+    children,
+    className = '',
+    disabled,
+    fullWidth = false,
+    rounded = 'full',
+    ripple = true,
+    hapticFeedback = true, // По умолчанию включен
+    mobileOptimized = true, // По умолчанию включено
+    ...props 
+  }, ref) => {
+    const [isPressed, setIsPressed] = useState(false);
+    const [isTouched, setIsTouched] = useState(false);
+    const [rippleEffect, setRippleEffect] = useState<{ x: number; y: number } | null>(null);
+    const [isMobile, setIsMobile] = useState(false);
+    
+    // Определяем мобильное устройство
+    useEffect(() => {
+      const checkMobile = () => {
+        setIsMobile(window.innerWidth < 768 || 'ontouchstart' in window);
+      };
+      checkMobile();
+      window.addEventListener('resize', checkMobile);
+      return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+    
+    const baseClasses = `inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden ${
+      mobileOptimized && isMobile 
+        ? 'active:scale-95 touch-manipulation select-none' // Мобильные оптимизации
+        : ''
+    }`;
+    
+    const variantClasses = {
+      primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500 active:bg-blue-800',
+      secondary: 'bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500 active:bg-gray-800',
+      outline: 'border border-gray-300 text-gray-700 hover:bg-gray-50 focus:ring-blue-500 active:bg-gray-100',
+      ghost: 'text-gray-700 hover:bg-gray-100 focus:ring-gray-500 active:bg-gray-200',
+      danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 active:bg-red-800',
+      success: 'bg-green-600 text-white hover:bg-green-700 focus:ring-green-500 active:bg-green-800',
+      warning: 'bg-yellow-600 text-white hover:bg-yellow-700 focus:ring-yellow-500 active:bg-yellow-800',
+      gradient: 'bg-gradient-to-r from-red-400 to-red-600 text-white hover:from-red-500 hover:to-red-700 focus:ring-red-400 active:from-red-600 active:to-red-800 shadow-lg hover:shadow-xl transform hover:scale-105'
+    };
+    
+    const sizeClasses = {
+      sm: mobileOptimized && isMobile ? 'px-4 py-2.5 text-sm min-h-[44px]' : 'px-3 py-1.5 text-sm', // Увеличенная область нажатия для мобильных
+      md: mobileOptimized && isMobile ? 'px-5 py-3 text-base min-h-[48px]' : 'px-4 py-2 text-sm',
+      lg: mobileOptimized && isMobile ? 'px-7 py-4 text-lg min-h-[52px]' : 'px-6 py-3 text-base',
+      xl: mobileOptimized && isMobile ? 'px-9 py-5 text-xl min-h-[56px]' : 'px-8 py-4 text-lg'
+    };
+    
+    const roundedClasses = {
+      sm: 'rounded',
+      md: 'rounded-md',
+      lg: 'rounded-lg',
+      full: 'rounded-full'
+    };
+    
+    const widthClasses = fullWidth ? 'w-full' : '';
+    
+    // Добавляем классы для touch состояний
+    const touchClasses = isTouched && mobileOptimized ? 'ring-2 ring-blue-500/50' : '';
+    
+    const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${roundedClasses[rounded]} ${widthClasses} ${touchClasses} ${className}`;
+    
+    const isDisabled = disabled || loading;
+    
+    // Обработчики для desktop
+    const handleMouseDown = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
+      if (isDisabled) return;
+      
+      setIsPressed(true);
+      
+      if (hapticFeedback && !isMobile) {
+        triggerHapticFeedback('light');
+      }
+      
+      if (ripple) {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        setRippleEffect({ x, y });
+        
+        setTimeout(() => {
+          setRippleEffect(null);
+          setIsPressed(false);
+        }, 600);
+      }
+    }, [ripple, isDisabled, hapticFeedback, isMobile]);
+    
+    // Обработчики для touch устройств
+    const handleTouchStart = useCallback((e: React.TouchEvent<HTMLButtonElement>) => {
+      if (isDisabled) return;
+      
+      setIsTouched(true);
+      setIsPressed(true);
+      
+      if (hapticFeedback) {
+        triggerHapticFeedback('medium');
+      }
+      
+      if (ripple) {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const touch = e.touches[0];
+        const x = touch.clientX - rect.left;
+        const y = touch.clientY - rect.top;
+        
+        setRippleEffect({ x, y });
+      }
+    }, [isDisabled, hapticFeedback, ripple]);
+    
+    const handleTouchEnd = useCallback(() => {
+      setIsTouched(false);
+      setTimeout(() => {
+        setRippleEffect(null);
+        setIsPressed(false);
+      }, 200);
+    }, []);
+    
+    const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLButtonElement>) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (!isDisabled) {
+          if (hapticFeedback) {
+            triggerHapticFeedback('light');
+          }
+          e.currentTarget.click();
+        }
+      }
+    }, [isDisabled, hapticFeedback]);
+    
+    return (
+      <button
+        ref={ref}
+        className={classes}
+        disabled={isDisabled}
+        aria-disabled={isDisabled}
+        aria-busy={loading}
+        aria-pressed={isPressed}
+        onMouseDown={handleMouseDown}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        onTouchCancel={handleTouchEnd}
+        onKeyDown={handleKeyDown}
+        {...props}
+      >
+        {/* Ripple эффект */}
+        {rippleEffect && (
+          <span
+            className="absolute bg-white opacity-30 rounded-full pointer-events-none animate-ping"
+            style={{
+              left: rippleEffect.x - 10,
+              top: rippleEffect.y - 10,
+              width: 20,
+              height: 20,
+              animationDuration: '600ms'
+            }}
+          />
+        )}
+        
+        {/* Loading спиннер */}
+        {loading && (
+          <svg 
+            className="animate-spin -ml-1 mr-2 h-4 w-4" 
+            fill="none" 
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        )}
+        
+        {/* Левая иконка */}
+        {!loading && leftIcon && (
+          <span className="mr-2" aria-hidden="true">{leftIcon}</span>
+        )}
+        
+        {/* Текст кнопки */}
+        <span className={loading ? 'opacity-0' : ''}>{children}</span>
+        
+        {/* Правая иконка */}
+        {!loading && rightIcon && (
+          <span className="ml-2" aria-hidden="true">{rightIcon}</span>
+        )}
+      </button>
+    );
+  }
+);
+
+Button.displayName = 'Button';
+
+export default Button;

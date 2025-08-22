@@ -1,0 +1,1527 @@
+/* stylelint-disable at-rule-no-unknown */
+/* CSS linter disable for Tailwind CSS directives */
+/* stylelint-disable-next-line at-rule-no-unknown */
+/* postcss-disable-next-line */
+@tailwind base;
+/* stylelint-disable-next-line at-rule-no-unknown */
+/* postcss-disable-next-line */
+@tailwind components;
+/* stylelint-disable-next-line at-rule-no-unknown */
+/* postcss-disable-next-line */
+@tailwind utilities;
+
+/* Базовые стили для тем */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #2d3748;
+  --text-secondary: #718096;
+  --border-color: #e2e8f0;
+  --accent-color: #e53e3e;
+  --accent-red: #dc2626;
+  --accent-red-rgb: 220, 38, 38;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  --bg-primary: #1a202c;
+  --bg-secondary: #2d3748;
+  --text-primary: #f7fafc;
+  --text-secondary: #cbd5e0;
+  --border-color: #4a5568;
+  --accent-color: #fc8181;
+  --accent-red: #f56565;
+  --accent-red-rgb: 245, 101, 101;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+/* Базовые стили */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  
+  /* Стабилизация шрифтов */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Мягкие переходы для всех элементов */
+* {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              border-color 0.3s ease,
+              background-color 0.3s ease;
+}
+
+/* Стабилизация текста - убираем переходы с текстовых элементов */
+h1, h2, h3, h4, h5, h6, p, span {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-weight: inherit;
+  /* Убираем transition с текста чтобы он не дергался */
+  transition: none !important;
+}
+
+/* Мягкие переходы для интерактивных элементов */
+a, button {
+  transition: color 0.3s ease, background-color 0.4s ease, border-color 0.3s ease, 
+              box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* Плавные переходы между секциями */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Компенсация для фиксированного хедера */
+}
+
+/* Оптимизированные переходы для секций */
+section {
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+  scroll-margin-top: 80px;
+}
+
+/* Мягкие переходы для навигации */
+a[href^="#"] {
+  transition: color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+a[href^="#"]:hover {
+  color: var(--accent-red);
+  transform: translateY(-1px);
+}
+
+/* =================================================================
+   RESPONSIVE DESIGN - Consolidated Mobile Optimizations
+   ================================================================= */
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 60px;
+  }
+  
+  section {
+    scroll-margin-top: 60px;
+  }
+  
+  /* Enhanced touch targets for mobile */
+  button, a[href] {
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+  
+  /* Improved typography for mobile */
+  h1 { font-size: 1.875rem; line-height: 1.2; }
+  h2 { font-size: 1.5rem; line-height: 1.3; }
+  h3 { font-size: 1.25rem; line-height: 1.4; }
+  
+  /* Container optimizations */
+  .container { 
+    padding-left: 1rem; 
+    padding-right: 1rem; 
+  }
+  
+  /* Card layout adjustments */
+  .modern-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    padding: 0.25rem;
+  }
+  
+  /* Technical specs mobile optimization */
+  .tech-spec-card {
+    min-height: 160px !important;
+    padding: 0.5rem !important;
+    margin: 0.25rem !important;
+  }
+  
+  .tech-spec-card .tech-icon {
+    width: 4rem !important;
+    height: 4rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .tech-spec-card h3 {
+    font-size: 2rem !important;
+    margin-bottom: 0.375rem !important;
+    line-height: 1.1 !important;
+  }
+  
+  .tech-spec-card p {
+    font-size: 1.65rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  .modern-tabs {
+    flex-direction: column;
+  }
+  
+  .modern-tab {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Main section cards */
+  .section-card:not(.location-card) {
+    margin: 0.75rem;
+    padding: 1.25rem;
+  }
+  
+  /* Location cards maintain visual appeal */
+  .location-card {
+    margin: 0;
+    padding: 1.75rem;
+    min-height: 120px;
+  }
+  
+  /* Darker background for better mobile readability */
+  .dark {
+    --bg-primary: #1f2937;
+    --bg-secondary: #374151;
+  }
+  
+  /* Scroll optimizations */
+  .scroll-container {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  /* iOS Safari fixes */
+  input, textarea, select {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0;
+  }
+}
+
+/* Компактные стили для очень маленьких экранов */
+@media (max-width: 480px) {
+  .modern-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.25rem;
+    padding: 0.25rem;
+  }
+  
+  .tech-spec-card {
+    min-height: 140px !important;
+    padding: 0.375rem !important;
+    margin: 0.125rem !important;
+  }
+  
+  .tech-spec-card .tech-icon {
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+    margin-bottom: 0.375rem !important;
+  }
+  
+  .tech-spec-card h3 {
+    font-size: 1.8rem !important;
+    margin-bottom: 0.25rem !important;
+    line-height: 1.1 !important;
+  }
+  
+  .tech-spec-card p {
+    font-size: 1.5rem !important;
+    line-height: 1.15 !important;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .modern-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  button, .btn {
+    min-height: 48px;
+  }
+  
+  .location-card {
+    padding: 1.75rem;
+    min-height: 130px;
+  }
+  
+  .mobile-nav-item {
+    padding: 0.875rem 1rem;
+    font-size: 1.125rem;
+    border-radius: 0.5rem;
+  }
+}
+
+/* Large desktop optimizations */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* Large screen location cards */
+@media (max-width: 1279px) {
+  .location-card {
+    padding: 2rem;
+    min-height: 140px;
+  }
+}
+
+/* Магнитные эффекты для ссылок навигации */
+.magnetic-link {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.magnetic-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-red);
+  transition: width 0.3s ease;
+}
+
+.magnetic-link:hover::after {
+  width: 100%;
+}
+
+.magnetic-link:hover {
+  transform: scale(1.05);
+}
+
+/* Исправление overflow warnings для медиа элементов */
+img, video, canvas {
+  overflow: clip;
+}
+
+/* =================================================================
+   COMPONENT UTILITIES
+   ================================================================= */
+
+/* Base card component - unified with modern styling below */
+
+/* Removed - integrated into unified card system above */
+
+.feature-icon {
+  width: 3rem;
+  height: 3rem;
+  color: var(--accent-red);
+}
+
+/* Дополнительные стили для улучшения визуальной привлекательности */
+
+/* Анимации появления */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Классы анимаций */
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+/* =================================================================
+   CARD COMPONENTS - Unified System with Consistent Glow
+   ================================================================= */
+
+/* Modern card grid layout */
+.modern-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+  align-items: stretch;
+}
+
+/* Base section card - unified styles with gentle animations */
+.section-card {
+  background: var(--bg-primary);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  
+  /* Consistent base glow for all cards */
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(220, 38, 38, 0.15),
+    0 0 20px rgba(220, 38, 38, 0.12),
+    0 0 40px rgba(220, 38, 38, 0.08);
+}
+
+/* Dark theme adjustments for cards */
+.dark .section-card {
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(220, 38, 38, 0.2),
+    0 0 20px rgba(220, 38, 38, 0.15),
+    0 0 40px rgba(220, 38, 38, 0.1);
+}
+
+/* Technical specification cards */
+.tech-spec-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 280px;
+  border-left: 4px solid var(--accent-red);
+}
+
+/* Мобильная оптимизация - базовые правила */
+@media (max-width: 768px) {
+  .tech-spec-card {
+    min-height: auto;
+    justify-content: center;
+  }
+}
+
+/* Нежные hover эффекты - мягкое свечение */
+.section-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(220, 38, 38, 0.35);
+  
+  /* Мягкое усиленное свечение */
+  box-shadow: 
+    0 12px 30px -8px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(220, 38, 38, 0.25),
+    0 0 25px rgba(220, 38, 38, 0.18),
+    0 0 50px rgba(220, 38, 38, 0.12),
+    0 0 75px rgba(220, 38, 38, 0.08);
+}
+
+.dark .section-card:hover {
+  border-color: rgba(220, 38, 38, 0.45);
+  box-shadow: 
+    0 12px 30px -8px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(220, 38, 38, 0.35),
+    0 0 30px rgba(220, 38, 38, 0.22),
+    0 0 60px rgba(220, 38, 38, 0.18),
+    0 0 90px rgba(220, 38, 38, 0.12);
+}
+
+/* Улучшенные вкладки */
+.modern-tabs {
+  display: flex;
+  background: white;
+  border-radius: 12px;
+  padding: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.dark .modern-tabs {
+  background: var(--bg-secondary);
+}
+
+.modern-tab {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.modern-tab:hover {
+  background: rgba(220, 38, 38, 0.1);
+  color: var(--accent-red);
+}
+
+.modern-tab.active {
+  background: var(--accent-red);
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.3);
+}
+
+/* Продвинутые анимации при скролле */
+@keyframes floatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(25px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px) rotate(-5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+@keyframes slideFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px) rotate(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+@keyframes zoomBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotateIn {
+  0% {
+    opacity: 0;
+    transform: rotate(-200deg) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+/* Parallax анимации */
+@keyframes parallaxFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes parallaxRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes parallaxPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* Улучшенные классы анимации при скролле */
+.scroll-animate {
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, opacity;
+}
+
+.scroll-animate.float-in {
+  opacity: 0;
+  transform: translateY(50px) scale(0.9);
+}
+
+.scroll-animate.float-in.animate-in {
+  animation: floatIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.scroll-animate.slide-left {
+  opacity: 0;
+  transform: translateX(-100px) rotate(-5deg);
+}
+
+.scroll-animate.slide-left.animate-in {
+  animation: slideFromLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.scroll-animate.slide-right {
+  opacity: 0;
+  transform: translateX(100px) rotate(5deg);
+}
+
+.scroll-animate.slide-right.animate-in {
+  animation: slideFromRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.scroll-animate.zoom-bounce {
+  opacity: 0;
+  transform: scale(0.3);
+}
+
+.scroll-animate.zoom-bounce.animate-in {
+  animation: zoomBounce 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.scroll-animate.rotate-in {
+  opacity: 0;
+  transform: rotate(-200deg) scale(0.5);
+}
+
+.scroll-animate.rotate-in.animate-in {
+  animation: rotateIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Параллакс декоративные элементы */
+.parallax-float {
+  animation: parallaxFloat 6s ease-in-out infinite;
+}
+
+.parallax-rotate {
+  animation: parallaxRotate 20s linear infinite;
+}
+
+.parallax-pulse {
+  animation: parallaxPulse 4s ease-in-out infinite;
+}
+
+/* Задержки для последовательного появления */
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+.animate-delay-600 { animation-delay: 600ms; }
+.animate-delay-700 { animation-delay: 700ms; }
+.animate-delay-800 { animation-delay: 800ms; }
+
+/* Продвинутые эффекты для карточек */
+.card-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card-3d:hover {
+  transform: rotateY(10deg) rotateX(10deg);
+}
+
+.card-glow {
+  position: relative;
+}
+
+.card-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, transparent, var(--accent-red), transparent);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-glow:hover::before {
+  opacity: 0.7;
+  animation: rotateGlow 2s linear infinite;
+}
+
+@keyframes rotateGlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Эффекты появления для улучшенного UX */
+@keyframes smoothFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes smoothScaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes smoothSlideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes smoothSlideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Классы для плавного появления элементов */
+.scroll-animate {
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-animate.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.scroll-animate.fade-up.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-animate.scale {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.scroll-animate.scale.animate-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Улучшенный эффект загрузки */
+.loading-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+.dark .loading-skeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+  background-size: 200% 100%;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Ripple эффект для кнопок */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.ripple:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Параллакс эффект */
+.parallax {
+  transform-style: preserve-3d;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.parallax-back {
+  transform: translateZ(-1px) scale(2);
+}
+
+.parallax-base {
+  transform: translateZ(0);
+}
+
+/* Градиентные фоны */
+.gradient-bg {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.05) 0%, rgba(239, 68, 68, 0.02) 100%);
+}
+
+.gradient-bg-dark {
+  background: linear-gradient(135deg, rgba(245, 101, 101, 0.1) 0%, rgba(252, 129, 129, 0.05) 100%);
+}
+
+/* Улучшенные секции */
+.modern-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-spacing {
+  padding: 5rem 0;
+}
+
+/* Декоративные элементы */
+.decorative-dots {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.1;
+}
+
+.decorative-dots::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 4px;
+  height: 4px;
+  background: var(--accent-red);
+  border-radius: 50%;
+  box-shadow: 
+    20px 40px 0 var(--accent-red),
+    40px 80px 0 var(--accent-red),
+    60px 120px 0 var(--accent-red),
+    80px 160px 0 var(--accent-red);
+}
+
+/* Улучшенные изображения */
+.floor-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.floor-image:hover {
+  transform: scale(1.02);
+}
+
+/* Улучшенный lazy loading для изображений */
+.lazy-fade-in {
+  will-change: opacity, transform;
+  transform-origin: center;
+}
+
+.lazy-fade-in:not(.opacity-100) {
+  animation: lazy-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes lazy-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+/* Оптимизированные переходы для изображений */
+img[data-lazy="true"] {
+  background-color: #f3f4f6;
+  background-image: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.3) 50%, transparent 60%);
+  background-size: 200% 200%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* =================================================================
+   FAQ COMPONENTS - Simple and Stable
+   ================================================================= */
+
+/* FAQ cards inherit from main card system */
+.faq-card {
+  background: var(--bg-primary);
+  border-radius: 12px;
+  padding: 0;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  
+  /* Same consistent glow as section cards */
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(220, 38, 38, 0.15),
+    0 0 20px rgba(220, 38, 38, 0.12),
+    0 0 40px rgba(220, 38, 38, 0.08);
+}
+
+.dark .faq-card {
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(220, 38, 38, 0.2),
+    0 0 20px rgba(220, 38, 38, 0.15),
+    0 0 40px rgba(220, 38, 38, 0.1);
+}
+
+/* FAQ container styles */
+.faq-container {
+  padding: 2rem;
+  border-radius: 16px;
+  background: var(--bg-primary);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  transition: all 0.3s ease;
+  
+  /* Same base glow */
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(220, 38, 38, 0.15),
+    0 0 20px rgba(220, 38, 38, 0.12),
+    0 0 40px rgba(220, 38, 38, 0.08);
+}
+
+.dark .faq-container {
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(220, 38, 38, 0.2),
+    0 0 20px rgba(220, 38, 38, 0.15),
+    0 0 40px rgba(220, 38, 38, 0.1);
+}
+
+/* Simple hover effects for FAQ components */
+.faq-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(220, 38, 38, 0.4);
+  
+  box-shadow: 
+    0 8px 25px -5px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(220, 38, 38, 0.3),
+    0 0 30px rgba(220, 38, 38, 0.2),
+    0 0 60px rgba(220, 38, 38, 0.15),
+    0 0 90px rgba(220, 38, 38, 0.1);
+}
+
+.dark .faq-card:hover {
+  border-color: rgba(220, 38, 38, 0.5);
+  box-shadow: 
+    0 8px 25px -5px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(220, 38, 38, 0.4),
+    0 0 35px rgba(220, 38, 38, 0.25),
+    0 0 70px rgba(220, 38, 38, 0.2),
+    0 0 100px rgba(220, 38, 38, 0.15);
+}
+
+.faq-container:hover {
+  transform: translateY(-1px);
+  border-color: rgba(220, 38, 38, 0.4);
+  
+  box-shadow: 
+    0 6px 20px -3px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(220, 38, 38, 0.25),
+    0 0 25px rgba(220, 38, 38, 0.18),
+    0 0 50px rgba(220, 38, 38, 0.12),
+    0 0 75px rgba(220, 38, 38, 0.08);
+}
+
+.dark .faq-container:hover {
+  border-color: rgba(220, 38, 38, 0.45);
+  box-shadow: 
+    0 6px 20px -3px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(220, 38, 38, 0.3),
+    0 0 30px rgba(220, 38, 38, 0.22),
+    0 0 60px rgba(220, 38, 38, 0.18),
+    0 0 90px rgba(220, 38, 38, 0.12);
+}
+
+/* Advanced section transitions */
+.section-transition {
+  position: relative;
+  z-index: 1;
+}
+
+.section-transition::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, var(--bg-primary));
+  pointer-events: none;
+  z-index: -1;
+}
+
+.section-transition::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to top, transparent, var(--bg-primary));
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* =================================================================
+   LOCATION CARDS - Enhanced Glow System
+   ================================================================= */
+
+/* Location cards with enhanced red glow effects */
+.location-card {
+  position: relative;
+  padding: 2.5rem;
+  border-radius: 0.75rem;
+  min-height: 160px;
+  width: 100%;
+  background: var(--bg-primary);
+  border: 1px solid rgba(220, 38, 38, 0.25);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Slightly more intense base glow for location cards */
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(220, 38, 38, 0.18),
+    0 0 25px rgba(220, 38, 38, 0.15),
+    0 0 50px rgba(220, 38, 38, 0.12),
+    0 0 75px rgba(220, 38, 38, 0.08);
+}
+
+/* Dark theme adjustments for location cards */
+.dark .location-card {
+  border: 1px solid rgba(220, 38, 38, 0.35);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(220, 38, 38, 0.22),
+    0 0 25px rgba(220, 38, 38, 0.18),
+    0 0 50px rgba(220, 38, 38, 0.15),
+    0 0 75px rgba(220, 38, 38, 0.1);
+}
+
+/* Enhanced hover effects with intensified glow */
+.location-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(220, 38, 38, 0.45);
+  
+  /* Most intense hover glow for location cards */
+  box-shadow: 
+    0 8px 25px -5px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(220, 38, 38, 0.35),
+    0 0 35px rgba(220, 38, 38, 0.25),
+    0 0 70px rgba(220, 38, 38, 0.2),
+    0 0 105px rgba(220, 38, 38, 0.15),
+    0 0 140px rgba(220, 38, 38, 0.1);
+}
+
+.dark .location-card:hover {
+  border-color: rgba(220, 38, 38, 0.55);
+  box-shadow: 
+    0 8px 25px -5px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(220, 38, 38, 0.4),
+    0 0 40px rgba(220, 38, 38, 0.3),
+    0 0 80px rgba(220, 38, 38, 0.25),
+    0 0 120px rgba(220, 38, 38, 0.18),
+    0 0 160px rgba(220, 38, 38, 0.12);
+}
+
+
+
+/* Широкие карточки */
+.wide-card {
+  width: 100%;
+  max-width: none;
+}
+
+/* Мобильные стили */
+@media (max-width: 1279px) {
+  .location-card {
+    padding: 2rem;
+    min-height: 140px;
+  }
+}
+
+@media (max-width: 768px) {
+  .location-card {
+    padding: 1.75rem;
+    min-height: 120px;
+  }
+}
+
+/* Для планшетов */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .location-card {
+    padding: 1.75rem;
+    min-height: 130px;
+  }
+  
+  /* Мобильная навигация */
+  .mobile-nav-item {
+    padding: 0.875rem 1rem;
+    font-size: 1.125rem;
+    border-radius: 0.5rem;
+  }
+}
+
+/* Планшетные оптимизации */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .modern-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  button, .btn {
+    min-height: 48px;
+  }
+}
+
+/* Высокое разрешение экранов */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* =================================================================
+   ACCESSIBILITY & PERFORMANCE
+   ================================================================= */
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .hover\:scale-105:hover {
+    transform: none;
+  }
+  
+  .hover\:shadow-xl:hover {
+    box-shadow: inherit;
+  }
+}
+
+/* Active states for touch devices */
+@media (hover: none) {
+  button:active,
+  .btn:active,
+  a[href]:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+  }
+}
+
+/* Touch manipulation utilities */
+.touch-manipulation {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* =================================================================
+   FLOOR OVERLAY STYLES
+   ================================================================= */
+
+/* Блоки этажей - большие изображения с наложением */
+.floor-block {
+  position: relative !important;
+  width: 100% !important;
+  height: 400px !important;
+  margin-bottom: 32px !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+}
+
+.floor-image-bg {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+.floor-overlay {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  ) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  padding: 32px !important;
+  color: white !important;
+}
+
+.floor-text-block {
+  background: rgba(255, 255, 255, 0.05) !important;
+  padding: 16px !important;
+  border-radius: 0 !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  max-width: 80% !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+  position: absolute !important;
+  bottom: 32px !important;
+  left: 32px !important;
+  z-index: 5 !important;
+}
+
+.floor-number {
+  position: absolute !important;
+  top: 16px !important;
+  right: 16px !important;
+  width: 60px !important;
+  height: 60px !important;
+  background: #DC2626 !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 24px !important;
+  font-weight: bold !important;
+  color: white !important;
+  z-index: 10 !important;
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.4) !important;
+}
+
+.floor-title {
+  font-size: 28px !important;
+  font-weight: bold !important;
+  margin-bottom: 16px !important;
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+.floor-description {
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 20px !important;
+  color: #ffffff !important;
+  text-shadow: none !important;
+  max-width: 80% !important;
+}
+
+.floor-logos {
+  display: flex !important;
+  gap: 16px !important;
+  align-items: center !important;
+}
+
+.floor-logo {
+  width: 40px !important;
+  height: 40px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 8px !important;
+  padding: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.floor-logo img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+/* =================================================================
+   MOBILE OPTIMIZATIONS FOR FLOOR BLOCKS
+   ================================================================= */
+
+/* Мобильная оптимизация для блоков этажей */
+@media (max-width: 768px) {
+  .floor-block {
+    height: 300px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .floor-overlay {
+    padding: 20px !important;
+  }
+
+  .floor-text-block {
+    max-width: 70% !important;
+    padding: 12px !important;
+    bottom: 20px !important;
+    left: 20px !important;
+    position: absolute !important;
+  }
+
+  .floor-title {
+    font-size: 20px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .floor-description {
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 12px !important;
+    max-width: 100% !important;
+  }
+
+  .floor-number {
+    width: 45px !important;
+    height: 45px !important;
+    font-size: 18px !important;
+    top: 12px !important;
+    right: 12px !important;
+  }
+
+  .floor-logos {
+    gap: 8px !important;
+  }
+
+  .floor-logo {
+    width: 32px !important;
+    height: 32px !important;
+    padding: 6px !important;
+  }
+}
+
+/* Дополнительная оптимизация для очень маленьких экранов */
+@media (max-width: 480px) {
+  .floor-text-block {
+    max-width: 85% !important;
+    padding: 10px !important;
+    bottom: 16px !important;
+    left: 16px !important;
+  }
+
+  .floor-title {
+    font-size: 18px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .floor-description {
+    font-size: 13px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .floor-number {
+    width: 35px !important;
+    height: 35px !important;
+    font-size: 14px !important;
+    top: 10px !important;
+    right: 10px !important;
+  }
+
+  .floor-logos {
+    gap: 6px !important;
+  }
+
+  .floor-logo {
+    width: 28px !important;
+    height: 28px !important;
+    padding: 4px !important;
+  }
+}
+
+/* =================================================================
+   HERO SECTION STYLES
+   ================================================================= */
+
+/* Hero секция - основные стили */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Hero фон с параллаксом */
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  transform: translateZ(0);
+  will-change: transform;
+  transition: opacity 0.5s ease;
+}
+
+/* Состояния загрузки Hero фона */
+.hero-background.loading {
+  opacity: 0;
+  background-color: #1a1a1a;
+}
+
+.hero-background.loaded {
+  opacity: 1;
+}
+
+.hero-background.error {
+  opacity: 1;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #404040 100%);
+}
+
+/* Размытие для Hero фона */
+.hero-background.blur {
+  filter: blur(0px);
+  transition: filter 0.3s ease;
+}
+
+/* Мобильная оптимизация для Hero */
+@media (max-width: 768px) {
+  .hero-section,
+  .hero-background {
+    background-attachment: scroll;
+  }
+}
+
+/* Отключение параллакса для устройств с ограниченной анимацией */
+@media (prefers-reduced-motion: reduce) {
+  .hero-section,
+  .hero-background {
+    background-attachment: scroll;
+  }
+}
+
+/* =================================================================
+   PARALLAX EFFECTS
+   ================================================================= */
+
+/* Класс для корректной работы parallax-эффекта */
+.parallax-bg {
+  /* Устанавливаем фон и его поведение */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Отменяем свойства, которые ломают background-attachment: fixed */
+  transition: none !important;
+  will-change: auto !important; /* 'auto' - это значение по умолчанию */
+  transform: none !important;
+}
+
+/* Альтернативный параллакс для мобильных устройств (через медиа-запрос) */
+@media (max-width: 768px) {
+  .parallax-bg {
+    background-attachment: scroll;
+  }
+}
+
+/* Отключаем параллакс для пользователей, предпочитающих меньше анимаций */
+@media (prefers-reduced-motion: reduce) {
+  .parallax-bg {
+    background-attachment: scroll;
+  }
+}
+
+/* =================================================================
+   HERO SECTION STYLES
+   ================================================================= */

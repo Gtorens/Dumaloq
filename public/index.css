@@ -86,6 +86,313 @@ body {
 @media (max-width: 768px) {
   .text-5xl { font-size: 2.5rem; }
   .text-7xl { font-size: 3.5rem; }
-  .text-lg { font-size: 1rem; }
   .text-2xl { font-size: 1.25rem; }
 }
+
+/* ========================================
+   УНИВЕРСАЛЬНОЕ СВЕЧЕНИЕ ПО КРАЯМ ВСЕХ БЛОКОВ
+   ======================================== */
+
+/* СВЕЧЕНИЕ ДЛЯ СВЕТЛОЙ ТЕМЫ */
+.light .section-card,
+.light .opportunity-card,
+.light .faq-card,
+.light .contact-form,
+.light .contact-card,
+.light .tech-spec-card,
+.light .feature-card,
+.light .modern-card,
+.light .card,
+.light .form,
+.light .modal,
+.light .notification,
+.light .warning,
+.light .error,
+.light .success,
+.light .table,
+.light .blockquote,
+.light .code,
+.light .input,
+.light .textarea,
+.light .select,
+.light .button,
+.light .btn {
+  /* Свечение ТОЛЬКО по краям */
+  box-shadow: 
+    0 0 0 1px rgba(220, 38, 38, 0.1),
+    0 0 20px rgba(220, 38, 38, 0.08),
+    0 0 40px rgba(220, 38, 38, 0.06);
+}
+
+/* Усиленное свечение при наведении для светлой темы */
+.light .section-card:hover,
+.light .opportunity-card:hover,
+.light .faq-card:hover,
+.light .contact-form:hover,
+.light .contact-card:hover,
+.light .tech-spec-card:hover,
+.light .feature-card:hover,
+.light .modern-card:hover,
+.light .card:hover,
+.light .form:hover,
+.light .modal:hover,
+.light .notification:hover,
+.light .warning:hover,
+.light .error:hover,
+.light .success:hover,
+.light .table:hover,
+.light .blockquote:hover,
+.light .code:hover,
+.light .input:hover,
+.light .textarea:hover,
+.light .select:hover,
+.light .button:hover,
+.light .btn:hover {
+  /* Усиленное свечение ТОЛЬКО по краям */
+  box-shadow: 
+    0 0 0 2px rgba(220, 38, 38, 0.2),
+    0 0 30px rgba(220, 38, 38, 0.15),
+    0 0 60px rgba(220, 38, 38, 0.12);
+}
+
+/* СВЕЧЕНИЕ ДЛЯ ТЕМНОЙ ТЕМЫ */
+.dark .section-card,
+.dark .opportunity-card,
+.dark .faq-card,
+.dark .contact-form,
+.dark .contact-card,
+.dark .tech-spec-card,
+.dark .feature-card,
+.dark .modern-card,
+.dark .card,
+.dark .form,
+.dark .modal,
+.dark .notification,
+.dark .warning,
+.dark .error,
+.dark .success,
+.dark .table,
+.dark .blockquote,
+.dark .code,
+.dark .input,
+.dark .textarea,
+.dark .select,
+.dark .button,
+.dark .btn {
+  /* Свечение ТОЛЬКО по краям */
+  box-shadow: 
+    0 0 0 1px rgba(220, 38, 38, 0.15),
+    0 0 20px rgba(220, 38, 38, 0.12),
+    0 0 40px rgba(220, 38, 38, 0.08);
+}
+
+/* Усиленное свечение при наведении для темной темы */
+.dark .section-card:hover,
+.dark .opportunity-card:hover,
+.dark .faq-card:hover,
+.dark .contact-form:hover,
+.dark .contact-card:hover,
+.dark .tech-spec-card:hover,
+.dark .feature-card:hover,
+.dark .modern-card:hover,
+.dark .card:hover,
+.dark .form:hover,
+.dark .modal:hover,
+.dark .notification:hover,
+.dark .warning:hover,
+.dark .error:hover,
+.dark .success:hover,
+.dark .table:hover,
+.dark .blockquote:hover,
+.dark .code:hover,
+.dark .input:hover,
+.dark .textarea:hover,
+.dark .select:hover,
+.dark .button:hover,
+.dark .btn:hover {
+  /* Усиленное свечение ТОЛЬКО по краям */
+  box-shadow: 
+    0 0 0 2px rgba(220, 38, 38, 0.25),
+    0 0 30px rgba(220, 38, 38, 0.2),
+    0 0 60px rgba(220, 38, 38, 0.15);
+}
+
+/* Специальное свечение для карты */
+.light .shadow-2xl,
+.dark .shadow-2xl {
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(220, 38, 38, 0.1),
+    0 0 30px rgba(220, 38, 38, 0.08);
+}
+
+/* Свечение для кнопок */
+.light .modern-button,
+.light .submit-button,
+.dark .modern-button,
+.dark .submit-button {
+  box-shadow: 
+    0 4px 15px rgba(59, 130, 246, 0.3),
+    0 2px 8px rgba(59, 130, 246, 0.2),
+    0 0 0 1px rgba(220, 38, 38, 0.1),
+    0 0 20px rgba(220, 38, 38, 0.08);
+}
+
+.light .modern-button:hover,
+.light .submit-button:hover,
+.dark .modern-button:hover,
+.dark .submit-button:hover {
+  box-shadow: 
+    0 6px 20px rgba(59, 130, 246, 0.4),
+    0 4px 12px rgba(59, 130, 246, 0.3),
+    0 0 0 2px rgba(220, 38, 38, 0.2),
+    0 0 30px rgba(220, 38, 38, 0.15);
+}
+
+/* Свечение для иконок */
+.light .feature-icon,
+.light .tech-icon,
+.dark .feature-icon,
+.dark .tech-icon {
+  filter: 
+    drop-shadow(0 2px 4px rgba(220, 38, 38, 0.2))
+    drop-shadow(0 0 10px rgba(220, 38, 38, 0.1));
+}
+
+.light .feature-icon:hover,
+.light .tech-icon:hover,
+.dark .feature-icon:hover,
+.dark .tech-icon:hover {
+  filter: 
+    drop-shadow(0 4px 8px rgba(220, 38, 38, 0.3))
+    drop-shadow(0 0 20px rgba(220, 38, 38, 0.2));
+}
+
+/* Свечение для заголовков секций */
+.light .modern-section,
+.dark .modern-section {
+  position: relative;
+}
+
+.light .modern-section::before,
+.dark .modern-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.3), transparent);
+}
+
+.light .modern-section::after,
+.dark .modern-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.3), transparent);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .light .section-card,
+  .light .opportunity-card,
+  .light .faq-card,
+  .light .contact-form,
+  .light .contact-card,
+  .light .tech-spec-card,
+  .light .feature-card,
+  .light .modern-card,
+  .light .card,
+  .light .form,
+  .light .modal,
+  .light .notification,
+  .light .warning,
+  .light .error,
+  .light .success,
+  .light .table,
+  .light .blockquote,
+  .light .code,
+  .light .input,
+  .light .textarea,
+  .light .select,
+  .light .button,
+  .light .btn,
+  .dark .section-card,
+  .dark .opportunity-card,
+  .dark .faq-card,
+  .dark .contact-form,
+  .dark .contact-card,
+  .dark .tech-spec-card,
+  .dark .feature-card,
+  .dark .modern-card,
+  .dark .card,
+  .dark .form,
+  .dark .modal,
+  .dark .notification,
+  .dark .warning,
+  .dark .error,
+  .dark .success,
+  .dark .table,
+  .dark .blockquote,
+  .dark .code,
+  .dark .input,
+  .dark .textarea,
+  .dark .select,
+  .dark .button,
+  .dark .btn {
+    box-shadow: 
+      0 0 0 1px rgba(220, 38, 38, 0.08),
+      0 0 15px rgba(220, 38, 38, 0.06);
+  }
+}
+
+/* ========================================
+   ПАРАЛЛАКС ДЛЯ ATMOSPHERE
+   ======================================== */
+
+/* Стили для z-index */
+.z-5 { z-index: 5; }
+.z-10 { z-index: 10; }
+.z-20 { z-index: 20; }
+
+/* Стили для параллакса */
+.atmosphere-parallax {
+  background-color: #1a1a1a;
+  background-image: var(--bg-image, none);
+  background-attachment: fixed !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  transition: background-image 0.5s ease;
+  
+  /* Оптимизация производительности */
+  transform: translateZ(0);
+  will-change: transform;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+}
+
+.atmosphere-parallax.image-loaded {
+  background-color: transparent;
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 768px) {
+  .atmosphere-parallax {
+    background-attachment: scroll !important;
+  }
+}
+
+/* Оптимизация для устройств с поддержкой prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .atmosphere-parallax {
+    background-attachment: scroll !important;
+  }
+}
+
+
